@@ -1,0 +1,1903 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0a1022" />
+  <meta name="description" content="每天两道 LeetCode，早晨独立练习，晚间 C++17 解答，50 天 100 题，历史归档不丢失。" />
+  <title>Algo Daily · 每日 LeetCode 两题</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <style>:root {color-scheme:dark; --bg:#090f20;--surface:#111a30;--surface2:#17243e;--outline:#293752;--text:#f3f7ff;--muted:#9aa9c3;--mint:#56e2c2;--blue:#7d9fff;--radius:18px; font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-size:15px;line-height:1.65}button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.3;cursor:not-allowed}a{color:var(--mint)}.mesh{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 75% -18%,#24477854,transparent 42%),radial-gradient(ellipse at 15% 105%,#0d67522d,transparent 37%)}.layout{display:grid;grid-template-columns:292px minmax(0,1fr);min-height:100vh;max-width:1660px;margin:auto;position:relative}.sidebar{height:100vh;position:sticky;top:0;border-right:1px solid var(--outline);padding:29px 18px 22px;background:#0d1628e8;display:flex;flex-direction:column;z-index:10}.brand{display:flex;align-items:center;gap:13px;margin:0 8px 40px}.brand-icon{background:linear-gradient(130deg,#74f6ce,#55abc9);color:#06212b;width:41px;height:41px;border-radius:12px;display:grid;place-items:center;font-size:16px;font-family:ui-monospace,monospace;font-weight:900;box-shadow:0 8px 28px #21d1a62b}.brand-icon.small{height:32px;width:32px;font-size:12px}.brand strong{font-size:21px;letter-spacing:-.6px;display:block;line-height:1.25}.brand small{font-size:11px;color:var(--muted)}.nav-label{font-size:10px;letter-spacing:1.8px;color:#6d819d;font-weight:800;margin:0 13px 12px}.side-action{display:flex;align-items:center;gap:12px;border:0;background:#193047;color:var(--mint);border-radius:11px;padding:12px 13px;font-size:14px;font-weight:700;text-align:left}.side-action span:first-child{font-size:18px}.side-arrow{margin-left:auto}.section-header{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;margin:30px 8px 12px}.muted{color:var(--muted)}.section-header .muted{font-size:12px;font-weight:500}.search-wrap{position:relative;margin-bottom:11px}.search-wrap input{width:100%;border:1px solid #253651;background:#111b31;border-radius:9px;color:var(--text);font-size:12px;padding:11px 12px 11px 31px;outline:none}.search-wrap input:focus{border-color:#68ccb0}.search-icon{position:absolute;left:11px;top:6px;color:#9db3cb;font-size:22px}.archive{overflow-y:auto;min-height:0;flex:1;scrollbar-width:thin;scrollbar-color:#34475e transparent}.archive-row{display:flex;align-items:center;gap:12px;width:100%;padding:11px 12px;border:0;background:transparent;color:#9fafc8;border-radius:10px;text-align:left;margin:2px 0}.archive-row:hover{background:#1c2d46}.archive-row.active{background:linear-gradient(100deg,#183f49,#19334d);color:#dcfffa;box-shadow:inset 3px 0 var(--mint)}.archive-index{font-size:12px;width:43px;font-weight:750;white-space:nowrap;color:#7d91ad}.archive-row.active .archive-index{color:var(--mint)}.archive-info{overflow:hidden;flex:1}.archive-title{display:block;font-size:12px;font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.archive-date{display:block;font-size:10px;color:#8195ae}.archive-check{font-size:12px;color:var(--mint)}.sidebar-footer{border-top:1px solid #273752;color:#6d819d;font-size:11px;padding:18px 9px 0;margin-top:12px}.main{padding:0 min(4.4vw,68px);min-width:0}.topbar{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #263451;gap:12px}.topbar-sub{color:#7d94b2;letter-spacing:2px;font-size:11px;font-weight:700}.top-actions{display:flex;gap:9px}.ghost-button{background:transparent;border:1px solid #2d3b56;color:#b7c5d8;border-radius:9px;padding:9px 13px;font-size:12px}.ghost-button:hover{border-color:#5d86a6;color:var(--text)}.mobile-brand{display:none;align-items:center;gap:9px}.hero{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:51px 0 49px;border-bottom:1px solid #263451}.hero-left{max-width:610px}.eyebrow{font-size:11px;font-weight:750;letter-spacing:1.8px;color:var(--mint);display:flex;align-items:center;gap:8px}.live-dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 5px #36d5a21f}.hero h1{font-size:clamp(29px,4.3vw,53px);line-height:1.22;letter-spacing:-1.9px;margin:18px 0 16px}.hero h1 span{color:var(--mint)}.hero p{max-width:520px;color:#9daec6;line-height:1.9;font-size:13px;margin:0}.hero-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.hero-pills span{border:1px solid #345166;background:#10293970;color:#9dcabb;border-radius:100px;font-size:11px;padding:5px 10px}.hero-stat{width:202px;min-width:202px;border:1px solid #2b4356;border-radius:20px;padding:22px 24px;background:linear-gradient(140deg,#16373e 0%,#17263d 82%);box-shadow:0 18px 55px #00000022}.stat-kicker{font-size:9px;letter-spacing:1.7px;color:#7bc6b8;font-weight:800}.hero-stat strong{font-size:68px;line-height:1.3;letter-spacing:-3px}.stat-total{font-size:19px;color:#7ca7aa}.stat-label{font-size:12px;color:#b6d3cd;margin-top:-4px}.stat-divider{height:1px;background:#ffffff26;margin:16px 0 12px}.stat-bottom{display:flex;align-items:center;gap:10px;color:#9eb4c1;font-size:12px}.stat-bottom span:first-child{color:#e1f8f3;font-size:22px;font-weight:800}.study{max-width:970px;margin:35px auto 60px}.study-header{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:20px}.section-tag{font-size:11px;color:var(--mint);font-weight:800;letter-spacing:1.8px}.study-header h2{font-size:26px;letter-spacing:-.8px;margin:3px 0}.study-header p{margin:0;font-size:12px}.date-controls{display:flex;gap:8px}.date-controls button{background:#17233a;color:#d7e5f9;border:1px solid #34455f;border-radius:10px;width:40px;height:40px;font-size:24px}.date-controls button:hover:not(:disabled){border-color:var(--mint)}.notice{border:1px solid #496057;background:#163b363b;border-radius:11px;padding:10px 13px;color:#a3d9cb;font-size:12px;margin-bottom:13px}.selector{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:15px}.problem-choice{background:#111c32;border:1px solid #2b3c57;border-radius:14px;display:flex;align-items:center;gap:11px;text-align:left;color:#b8c6dc;padding:15px 16px;min-width:0}.problem-choice:hover{border-color:#5e9b9d}.problem-choice.active{border-color:#45c4aa;background:linear-gradient(115deg,#183942,#142a41)}.problem-number{width:40px;height:40px;flex:none;border:1px solid #39516d;background:#14243a;border-radius:10px;display:grid;place-items:center;font-size:15px;font-weight:800;color:#a3bdde}.problem-choice.active .problem-number{background:#1d5652;color:#b4fff1;border-color:#329d8d}.problem-choice b{display:block;font-size:13px;line-height:1.4;color:#e6eefc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.problem-choice small{display:block;color:#8fa4bf;font-size:11px;margin-top:3px}.problem-choice>span:nth-child(2){min-width:0}.content-card{border:1px solid #2a3953;border-radius:18px;background:#111b2e;overflow:hidden;box-shadow:0 20px 60px #0000001b}.content-card-head{padding:17px 22px;border-bottom:1px solid #253652;display:flex;align-items:center;justify-content:space-between;gap:12px}.segmented{display:inline-flex;border-radius:10px;padding:4px;background:#0b1528;border:1px solid #293a55;gap:3px}.segmented button{border:0;background:transparent;color:#879eba;border-radius:7px;padding:8px 17px;font-size:12px;font-weight:700}.segmented button.selected{background:#29424d;color:#86f5dc;box-shadow:0 3px 10px #0003}.publish-note{color:#7d93b2;font-size:11px}.detail-body{padding:23px 26px 27px}.problem-title-row{display:flex;align-items:start;justify-content:space-between;gap:10px;flex-wrap:wrap}.problem-title-row h3{font-size:23px;letter-spacing:-.5px;margin:0}.tags{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:12px 0}.tag{border-radius:7px;padding:4px 9px;border:1px solid #344763;background:#1d2d43;color:#aabbd4;font-size:11px}.tag.easy{border-color:#1b655f;color:#7ceac9;background:#12413a66}.tag.medium{border-color:#655b30;color:#efd48d;background:#4c42204c}.official{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;text-decoration:none;border:1px solid #315d5d;border-radius:9px;background:#193737;padding:7px 11px;font-size:12px;font-weight:650}.official:hover{background:#215449}.detail-body h4{font-size:14px;color:#e3eefb;margin:23px 0 8px}.summary{color:#c2d1e6;font-size:14px;line-height:1.95;margin-top:18px}.hint-list{display:flex;flex-direction:column;gap:9px}.hint{padding:13px 15px;background:#17243b;border:1px solid #2b3e5b;border-radius:11px;font-size:13px;color:#b5c6dd}.hint b{color:#73dbc5;margin-right:7px}.hint details summary{cursor:pointer;font-weight:650}.hint details p{margin:8px 0 0}.action-line{display:flex;align-items:center;gap:13px;margin-top:25px;flex-wrap:wrap}.completion{background:#173d36;border:1px solid #2b9d82;color:#91f9dc;border-radius:9px;font-size:13px;font-weight:750;padding:11px 16px}.completion.done{background:#28455a;border-color:#5d93ad;color:#c4eafa}.small-muted{font-size:11px;color:#8396b1}.ideabox{border-left:3px solid #4ec5a9;background:#1731375e;border-radius:0 9px 9px 0;padding:14px 17px;color:#c3dcd7;line-height:1.95;font-size:13px;margin:16px 0}.code-head{display:flex;justify-content:space-between;align-items:center;background:#17253b;border:1px solid #34465e;border-radius:11px 11px 0 0;padding:10px 14px;font-size:12px;color:#a4b9d3}.copy{background:#2b4752;color:#aaf0e1;border:1px solid #467c7e;border-radius:7px;padding:5px 11px;font-size:11px}.copy:hover{background:#39606a}.code-block{margin:0;background:#091426;padding:16px;border:1px solid #34465e;border-top:0;border-radius:0 0 11px 11px;overflow-x:auto;max-height:620px;line-height:1.65;tab-size:4;color:#e4eeff;font-size:12px;font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace}.code-block code{white-space:pre}.tipline{font-size:12px;line-height:1.85;color:#aebed2;margin:10px 0}.tipline strong{color:#e2edf7}.locked{padding:37px 18px;text-align:center;border:1px dashed #3e536c;background:#152239;border-radius:12px;margin-top:18px}.lock-icon{font-size:31px}.locked h4{font-size:17px;margin:10px 0}.locked p{font-size:12px;color:#9bb0c9;margin:5px 0}.learning-footer{background:#111b2e;border:1px solid #293a54;border-radius:16px;padding:20px 24px;margin-top:18px}.learning-footer>div{display:flex;align-items:center;gap:12px}.footer-icon{font-size:21px;color:var(--mint)}.learning-footer strong{display:block;font-size:13px}.learning-footer small{display:block;color:#7e93ac;font-size:11px}.learning-footer textarea{resize:vertical;width:100%;margin:13px 0 4px;min-height:82px;background:#0e1728;border:1px solid #2b405a;border-radius:10px;color:#eaf2fe;outline:0;padding:12px 13px;font-size:12px;line-height:1.8}.learning-footer textarea:focus{border-color:#5bcab1}.save-status{color:#719f9e;font-size:11px}.footer{display:flex;justify-content:space-between;gap:15px;padding:24px 0 38px;color:#697b96;font-size:11px;border-top:1px solid #263451}.empty-search{color:#8295b0;padding:19px 9px;font-size:12px}.loading{padding:50px 24px;color:#98abc5;text-align:center}
+@media(max-width:1050px){.layout{grid-template-columns:240px minmax(0,1fr)}.main{padding:0 28px}.hero h1{font-size:36px}.hero-stat{width:158px;min-width:158px;padding:15px}.hero-stat strong{font-size:51px}}
+@media(max-width:790px){.layout{display:block}.sidebar{position:fixed;left:0;top:0;height:100dvh;width:min(310px,87vw);transform:translateX(-110%);transition:transform .2s;box-shadow:10px 0 50px #0008}.sidebar.open{transform:translateX(0)}body.nav-open:after{content:"";position:fixed;inset:0;background:#0009;z-index:8}.main{padding:0 19px}.topbar{height:68px}.topbar-sub{display:none}.mobile-brand{display:flex}.top-actions .ghost-button:last-child{display:none}.hero{padding:34px 0}.hero h1{font-size:34px}.hero-stat{display:none}.hero p{font-size:12px}.study{margin-top:27px}.selector{gap:8px}.problem-choice{padding:10px}.problem-number{width:35px;height:35px;font-size:12px}.problem-choice b{font-size:11px}.problem-choice small{font-size:10px}.content-card-head{padding:13px 14px;flex-wrap:wrap}.detail-body{padding:18px 16px 23px}.study-header h2{font-size:22px}.problem-title-row h3{font-size:20px}.footer{flex-direction:column}.hero-pills{gap:5px}.hero-pills span{font-size:10px}}
+@media(max-width:390px){.main{padding:0 12px}.selector{grid-template-columns:1fr}.problem-choice{padding:9px 12px}.study-header h2{font-size:20px}.segmented button{padding:7px 12px}.content-card-head{padding:11px}.date-controls button{width:34px;height:34px}}
+</style>
+</head>
+<body>
+  <div class="mesh" aria-hidden="true"></div>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">&lt;/&gt;</span>
+        <div><strong>Algo Daily</strong><small>把进步留在每天</small></div>
+      </div>
+      <div class="nav-label">LEARNING SPACE</div>
+      <button class="side-action is-active" id="goToday"><span>◉</span> 今日练习 <span class="side-arrow">↗</span></button>
+      <div class="section-header"><span>50 天训练营</span><span class="muted" id="archiveCount">0/50</span></div>
+      <label class="search-wrap"><span class="search-icon">⌕</span><input id="daySearch" placeholder="查找题号、名称、题型..." autocomplete="off" aria-label="搜索历史题目"/></label>
+      <div id="archive" class="archive" aria-label="每日题目归档"></div>
+      <div class="sidebar-footer">每日 08:00 出题 · 19:00 解析<br/>按北京时间（UTC+8）计算</div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-icon small">&lt;/&gt;</span><b>Algo Daily</b></div>
+        <div class="topbar-sub">LEETCODE · C++17 · DAILY PRACTICE</div>
+        <div class="top-actions"><button class="ghost-button" id="archiveToggle">☰ <span>题目目录</span></button><button class="ghost-button" id="todayTop">回到今天</button></div>
+      </header>
+      <section class="hero">
+        <div class="hero-left">
+          <div class="eyebrow"><span class="live-dot"></span> 50 天 · 100 道经典题 · 持续复习</div>
+          <h1>每天两题，<br/><span>把算法练成直觉。</span></h1>
+          <p>早上练思路，晚上看 C++17 解析。所有题目、提示和答案都能按日期回看，不必翻聊天记录。</p>
+          <div class="hero-pills"><span>✓ 简单 / 中等</span><span>✓ 按题型系统学习</span><span>✓ 历史归档</span></div>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-kicker">CURRENT JOURNEY</span>
+          <div><strong id="heroDay">12</strong><span class="stat-total">/ 50</span></div>
+          <div class="stat-label" id="heroStage">第 1 轮学习</div>
+          <div class="stat-divider"></div>
+          <div class="stat-bottom"><span id="heroSolved">0</span><span>已完成题目</span></div>
+        </div>
+      </section>
+      <section class="study" id="study">
+        <div class="study-header">
+          <div><div class="section-tag" id="dayCaption">DAY 12 · FRIDAY</div><h2 id="dayHeading">今天的两道题</h2><p class="muted" id="dayDate">2026 年 11 月 6 日 · 周五</p></div>
+          <div class="date-controls"><button id="prevDay" aria-label="前一天">‹</button><button id="nextDay" aria-label="后一天">›</button></div>
+        </div>
+        <div id="notice" class="notice" hidden></div>
+        <div class="selector" id="problemSelector" role="tablist" aria-label="切换当天题目"></div>
+        <div class="content-card">
+          <div class="content-card-head"><div class="segmented" role="tablist" aria-label="查看题目或解析"><button id="questionTab" class="selected" role="tab" aria-selected="true">☀ 早间题目</button><button id="answerTab" role="tab" aria-selected="false">☾ 晚间解析</button></div><span id="publishNote" class="publish-note"></span></div>
+          <div id="detail" aria-live="polite"></div>
+        </div>
+        <div class="learning-footer"><div><span class="footer-icon">✦</span><div><strong>你的学习笔记</strong><small>记录卡点和心得，仅保存在当前浏览器</small></div></div><textarea id="userNote" placeholder="例如：今天学会了先判断链表节点身份，不要只比较 val..." rows="3"></textarea><span id="savedNote" class="save-status">自动保存</span></div>
+      </section>
+      <footer class="footer"><span>Algo Daily · Learn deliberately, improve daily.</span><span>题目归属 LeetCode · 学习材料仅供参考</span></footer>
+    </main>
+  </div>
+  <script>window.__CURRICULUM__={
+  "startDate": "2026-10-26",
+  "timezone": "Asia/Shanghai",
+  "pairs": [
+    [
+      1,
+      242
+    ],
+    [
+      49,
+      128
+    ],
+    [
+      283,
+      11
+    ],
+    [
+      15,
+      125
+    ],
+    [
+      3,
+      438
+    ],
+    [
+      209,
+      560
+    ],
+    [
+      53,
+      121
+    ],
+    [
+      238,
+      189
+    ],
+    [
+      56,
+      57
+    ],
+    [
+      73,
+      54
+    ],
+    [
+      48,
+      240
+    ],
+    [
+      160,
+      206
+    ],
+    [
+      234,
+      141
+    ],
+    [
+      142,
+      21
+    ],
+    [
+      2,
+      19
+    ],
+    [
+      24,
+      138
+    ],
+    [
+      148,
+      146
+    ],
+    [
+      94,
+      104
+    ],
+    [
+      226,
+      101
+    ],
+    [
+      543,
+      102
+    ],
+    [
+      108,
+      98
+    ],
+    [
+      230,
+      199
+    ],
+    [
+      114,
+      105
+    ],
+    [
+      437,
+      236
+    ],
+    [
+      200,
+      994
+    ],
+    [
+      207,
+      208
+    ],
+    [
+      46,
+      78
+    ],
+    [
+      17,
+      39
+    ],
+    [
+      22,
+      79
+    ],
+    [
+      131,
+      35
+    ],
+    [
+      74,
+      34
+    ],
+    [
+      33,
+      153
+    ],
+    [
+      20,
+      155
+    ],
+    [
+      394,
+      739
+    ],
+    [
+      215,
+      347
+    ],
+    [
+      55,
+      45
+    ],
+    [
+      763,
+      70
+    ],
+    [
+      118,
+      198
+    ],
+    [
+      279,
+      322
+    ],
+    [
+      139,
+      300
+    ],
+    [
+      152,
+      416
+    ],
+    [
+      62,
+      64
+    ],
+    [
+      5,
+      1143
+    ],
+    [
+      72,
+      136
+    ],
+    [
+      169,
+      75
+    ],
+    [
+      31,
+      287
+    ],
+    [
+      217,
+      14
+    ],
+    [
+      13,
+      66
+    ],
+    [
+      88,
+      26
+    ],
+    [
+      36,
+      8
+    ]
+  ],
+  "problems": {
+    "1": {
+      "id": 1,
+      "title": "两数之和",
+      "slug": "two-sum",
+      "difficulty": "简单",
+      "topic": "哈希表",
+      "summary": "寻找两个不同下标，其元素和为目标值。",
+      "hints": [
+        "对固定数字 x，另一个数应是多少？",
+        "如何在遍历时快速查找之前出现过的数字？"
+      ]
+    },
+    "242": {
+      "id": 242,
+      "title": "有效的字母异位词",
+      "slug": "valid-anagram",
+      "difficulty": "简单",
+      "topic": "字符计数",
+      "summary": "判断两个字符串的字母及其出现次数是否完全相同。",
+      "hints": [
+        "长度不同能直接判断吗？",
+        "若只包含小写字母，可以用多长的计数数组？"
+      ]
+    },
+    "49": {
+      "id": 49,
+      "title": "字母异位词分组",
+      "slug": "group-anagrams",
+      "difficulty": "中等",
+      "topic": "哈希分组",
+      "summary": "将字母异位词归入同一组。",
+      "hints": [
+        "异位词拥有怎样的共同特征？",
+        "能为每一组构造相同的 key 吗？"
+      ]
+    },
+    "128": {
+      "id": 128,
+      "title": "最长连续序列",
+      "slug": "longest-consecutive-sequence",
+      "difficulty": "中等",
+      "topic": "哈希集合",
+      "summary": "在无序数组中寻找最长连续整数序列。",
+      "hints": [
+        "不用排序，如何快速判断相邻整数存在？",
+        "什么数字才有必要成为序列的起点？"
+      ]
+    },
+    "283": {
+      "id": 283,
+      "title": "移动零",
+      "slug": "move-zeroes",
+      "difficulty": "简单",
+      "topic": "快慢指针",
+      "summary": "原地把所有零移动到末尾，保持非零元素顺序。",
+      "hints": [
+        "快指针负责找什么？",
+        "慢指针应记录下一个非零元素的位置吗？"
+      ]
+    },
+    "11": {
+      "id": 11,
+      "title": "盛最多水的容器",
+      "slug": "container-with-most-water",
+      "difficulty": "中等",
+      "topic": "相向双指针",
+      "summary": "从多条竖线中选择两条，使容器盛水量最大。",
+      "hints": [
+        "面积由宽度和哪条边的高度决定？",
+        "宽度缩小时，应该舍弃较高还是较短的一侧？"
+      ]
+    },
+    "15": {
+      "id": 15,
+      "title": "三数之和",
+      "slug": "3sum",
+      "difficulty": "中等",
+      "topic": "排序与双指针",
+      "summary": "找到数组中所有不重复的和为零的三元组。",
+      "hints": [
+        "固定第一个数字后，剩余问题是什么？",
+        "排序后如何避免相同三元组出现多次？"
+      ]
+    },
+    "125": {
+      "id": 125,
+      "title": "验证回文串",
+      "slug": "valid-palindrome",
+      "difficulty": "简单",
+      "topic": "相向双指针",
+      "summary": "忽略标点和大小写，判断字符串是否回文。",
+      "hints": [
+        "从两端比较是否方便？",
+        "遇到非字母数字字符时怎么办？"
+      ]
+    },
+    "3": {
+      "id": 3,
+      "title": "无重复字符的最长子串",
+      "slug": "longest-substring-without-repeating-characters",
+      "difficulty": "中等",
+      "topic": "可变滑动窗口",
+      "summary": "求不含重复字符的最长连续子串长度。",
+      "hints": [
+        "什么情况让当前窗口失效？",
+        "出现重复时能否只移动左边界？"
+      ]
+    },
+    "438": {
+      "id": 438,
+      "title": "找到字符串中所有字母异位词",
+      "slug": "find-all-anagrams-in-a-string",
+      "difficulty": "中等",
+      "topic": "定长滑动窗口",
+      "summary": "找出字符串里所有与目标串字母频次相同的子串起点。",
+      "hints": [
+        "匹配子串长度应是多少？",
+        "窗口移动时只需更新哪两个字符？"
+      ]
+    },
+    "209": {
+      "id": 209,
+      "title": "长度最小的子数组",
+      "slug": "minimum-size-subarray-sum",
+      "difficulty": "中等",
+      "topic": "可变滑动窗口",
+      "summary": "在正整数数组中找和至少为 target 的最短连续子数组。",
+      "hints": [
+        "右端扩展时窗口和如何变化？",
+        "和达标后，能否不断收缩左侧？"
+      ]
+    },
+    "560": {
+      "id": 560,
+      "title": "和为 K 的子数组",
+      "slug": "subarray-sum-equals-k",
+      "difficulty": "中等",
+      "topic": "前缀和与哈希表",
+      "summary": "统计和恰为 k 的连续非空子数组数量。",
+      "hints": [
+        "如何用两个前缀和表达区间和？",
+        "当前前缀和需要匹配此前哪个值？"
+      ]
+    },
+    "53": {
+      "id": 53,
+      "title": "最大子数组和",
+      "slug": "maximum-subarray",
+      "difficulty": "中等",
+      "topic": "动态规划",
+      "summary": "寻找具有最大和的非空连续子数组。",
+      "hints": [
+        "以 i 结尾时，是延续前段还是重新开始？",
+        "局部最优和全局最优分别是什么？"
+      ]
+    },
+    "121": {
+      "id": 121,
+      "title": "买卖股票的最佳时机",
+      "slug": "best-time-to-buy-and-sell-stock",
+      "difficulty": "简单",
+      "topic": "贪心",
+      "summary": "只能先买后卖一次，求最大利润。",
+      "hints": [
+        "固定卖出日，最佳买入价格是什么？",
+        "能否一次遍历维护历史最低价？"
+      ]
+    },
+    "238": {
+      "id": 238,
+      "title": "除自身以外数组的乘积",
+      "slug": "product-of-array-except-self",
+      "difficulty": "中等",
+      "topic": "前后缀积",
+      "summary": "不使用除法，计算每个位置以外所有元素乘积。",
+      "hints": [
+        "将结果拆成左侧积和右侧积。",
+        "能否利用输出数组保存前缀积？"
+      ]
+    },
+    "189": {
+      "id": 189,
+      "title": "轮转数组",
+      "slug": "rotate-array",
+      "difficulty": "中等",
+      "topic": "数组翻转",
+      "summary": "原地将数组向右轮转 k 位。",
+      "hints": [
+        "先对 k 取模有何意义？",
+        "整体翻转与局部翻转可以完成轮转吗？"
+      ]
+    },
+    "56": {
+      "id": 56,
+      "title": "合并区间",
+      "slug": "merge-intervals",
+      "difficulty": "中等",
+      "topic": "排序与贪心",
+      "summary": "合并所有有重叠的区间。",
+      "hints": [
+        "先按左端点排序会怎样？",
+        "重叠时该如何更新右边界？"
+      ]
+    },
+    "57": {
+      "id": 57,
+      "title": "插入区间",
+      "slug": "insert-interval",
+      "difficulty": "中等",
+      "topic": "有序区间扫描",
+      "summary": "在已排序的不相交区间中插入并合并新区间。",
+      "hints": [
+        "区间可分为左侧、重叠、右侧三类吗？",
+        "合并重叠区间会怎样改变新边界？"
+      ]
+    },
+    "73": {
+      "id": 73,
+      "title": "矩阵置零",
+      "slug": "set-matrix-zeroes",
+      "difficulty": "中等",
+      "topic": "原地标记",
+      "summary": "含零元素所在的整行整列都置零。",
+      "hints": [
+        "立即清零会污染后续检查吗？",
+        "能借用首行首列存标记吗？"
+      ]
+    },
+    "54": {
+      "id": 54,
+      "title": "螺旋矩阵",
+      "slug": "spiral-matrix",
+      "difficulty": "中等",
+      "topic": "边界模拟",
+      "summary": "顺时针、由外向内输出矩阵所有元素。",
+      "hints": [
+        "四条边界分别代表什么？",
+        "只剩一行或一列时怎样防止重复？"
+      ]
+    },
+    "48": {
+      "id": 48,
+      "title": "旋转图像",
+      "slug": "rotate-image",
+      "difficulty": "中等",
+      "topic": "矩阵原地变换",
+      "summary": "将方阵顺时针旋转 90°。",
+      "hints": [
+        "旋转后的坐标如何变化？",
+        "能否用转置加某种翻转完成？"
+      ]
+    },
+    "240": {
+      "id": 240,
+      "title": "搜索二维矩阵 II",
+      "slug": "search-a-2d-matrix-ii",
+      "difficulty": "中等",
+      "topic": "有序矩阵搜索",
+      "summary": "在行列均有序的矩阵中判断目标值是否存在。",
+      "hints": [
+        "从右上角看，两个方向怎样变化？",
+        "比较大小后能排除一行或一列吗？"
+      ]
+    },
+    "160": {
+      "id": 160,
+      "title": "相交链表",
+      "slug": "intersection-of-two-linked-lists",
+      "difficulty": "简单",
+      "topic": "链表双指针",
+      "summary": "返回两个链表共享的第一个节点，不相交则为空。",
+      "hints": [
+        "节点值相等是否代表节点相同？",
+        "两指针分别走 A+B 与 B+A 会如何？"
+      ]
+    },
+    "206": {
+      "id": 206,
+      "title": "反转链表",
+      "slug": "reverse-linked-list",
+      "difficulty": "简单",
+      "topic": "三指针迭代",
+      "summary": "原地反转单链表方向。",
+      "hints": [
+        "改变 next 前必须保存什么？",
+        "prev、cur、next 各自起什么作用？"
+      ]
+    },
+    "234": {
+      "id": 234,
+      "title": "回文链表",
+      "slug": "palindrome-linked-list",
+      "difficulty": "简单",
+      "topic": "快慢指针",
+      "summary": "判断链表值是否正反相同。",
+      "hints": [
+        "如何 O(n) 时间找到中点？",
+        "反转后半部分后能否逐节点比较？"
+      ]
+    },
+    "141": {
+      "id": 141,
+      "title": "环形链表",
+      "slug": "linked-list-cycle",
+      "difficulty": "简单",
+      "topic": "快慢指针",
+      "summary": "判断单链表是否存在环。",
+      "hints": [
+        "若有环，速度不同的两个指针会怎样？",
+        "快指针下一步是否可能为空？"
+      ]
+    },
+    "142": {
+      "id": 142,
+      "title": "环形链表 II",
+      "slug": "linked-list-cycle-ii",
+      "difficulty": "中等",
+      "topic": "快慢指针",
+      "summary": "如果链表有环，返回入环的第一个节点。",
+      "hints": [
+        "相遇点和环入口之间有距离关系吗？",
+        "相遇后从头出发的慢速指针会在哪里相遇？"
+      ]
+    },
+    "21": {
+      "id": 21,
+      "title": "合并两个有序链表",
+      "slug": "merge-two-sorted-lists",
+      "difficulty": "简单",
+      "topic": "链表合并",
+      "summary": "把两个升序链表合并成一个升序链表。",
+      "hints": [
+        "用虚拟头节点是否更简单？",
+        "每次应接哪一边的当前节点？"
+      ]
+    },
+    "2": {
+      "id": 2,
+      "title": "两数相加",
+      "slug": "add-two-numbers",
+      "difficulty": "中等",
+      "topic": "链表模拟",
+      "summary": "两个逆序数字链表相加，返回和的逆序链表。",
+      "hints": [
+        "每位的进位如何处理？",
+        "两条链表长度不同怎么办？"
+      ]
+    },
+    "19": {
+      "id": 19,
+      "title": "删除链表的倒数第 N 个结点",
+      "slug": "remove-nth-node-from-end-of-list",
+      "difficulty": "中等",
+      "topic": "快慢指针",
+      "summary": "删除单链表倒数第 n 个节点。",
+      "hints": [
+        "快慢指针保持多大距离？",
+        "虚拟头节点如何统一删除头结点情况？"
+      ]
+    },
+    "24": {
+      "id": 24,
+      "title": "两两交换链表中的节点",
+      "slug": "swap-nodes-in-pairs",
+      "difficulty": "中等",
+      "topic": "链表指针操作",
+      "summary": "交换每相邻两个节点的连接，不改节点值。",
+      "hints": [
+        "虚拟头节点能简化首组交换吗？",
+        "每次交换前需保存哪些连接？"
+      ]
+    },
+    "138": {
+      "id": 138,
+      "title": "随机链表的复制",
+      "slug": "copy-list-with-random-pointer",
+      "difficulty": "中等",
+      "topic": "链表哈希映射",
+      "summary": "深拷贝同时含 next、random 指针的链表。",
+      "hints": [
+        "如何让旧节点映射到新节点？",
+        "两次遍历分别构建和连接是否可行？"
+      ]
+    },
+    "148": {
+      "id": 148,
+      "title": "排序链表",
+      "slug": "sort-list",
+      "difficulty": "中等",
+      "topic": "归并排序",
+      "summary": "将单链表按升序排序。",
+      "hints": [
+        "链表适合哪种分治排序？",
+        "如何用快慢指针断开左右两半？"
+      ]
+    },
+    "146": {
+      "id": 146,
+      "title": "LRU 缓存",
+      "slug": "lru-cache",
+      "difficulty": "中等",
+      "topic": "哈希表与双向链表",
+      "summary": "实现固定容量、近期最少使用淘汰的缓存。",
+      "hints": [
+        "何种结构支持 O(1) 查找？",
+        "何种结构支持 O(1) 移动和删除？"
+      ]
+    },
+    "94": {
+      "id": 94,
+      "title": "二叉树的中序遍历",
+      "slug": "binary-tree-inorder-traversal",
+      "difficulty": "简单",
+      "topic": "树的 DFS",
+      "summary": "按左、根、右顺序访问二叉树。",
+      "hints": [
+        "递归函数访问顺序是什么？",
+        "迭代时需要什么栈？"
+      ]
+    },
+    "104": {
+      "id": 104,
+      "title": "二叉树的最大深度",
+      "slug": "maximum-depth-of-binary-tree",
+      "difficulty": "简单",
+      "topic": "树的递归",
+      "summary": "求根节点到最远叶子节点的节点数。",
+      "hints": [
+        "左右子树深度如何组合？",
+        "空节点的深度是多少？"
+      ]
+    },
+    "226": {
+      "id": 226,
+      "title": "翻转二叉树",
+      "slug": "invert-binary-tree",
+      "difficulty": "简单",
+      "topic": "树的递归",
+      "summary": "交换每个节点的左右子树。",
+      "hints": [
+        "在每个节点上应做什么操作？",
+        "递归的终止条件是什么？"
+      ]
+    },
+    "101": {
+      "id": 101,
+      "title": "对称二叉树",
+      "slug": "symmetric-tree",
+      "difficulty": "简单",
+      "topic": "镜像递归",
+      "summary": "判断二叉树是否关于根节点轴对称。",
+      "hints": [
+        "应比较哪两棵子树？",
+        "外侧和内侧节点分别如何对应？"
+      ]
+    },
+    "543": {
+      "id": 543,
+      "title": "二叉树的直径",
+      "slug": "diameter-of-binary-tree",
+      "difficulty": "简单",
+      "topic": "树的 DFS",
+      "summary": "求任意两节点间最长路径的边数。",
+      "hints": [
+        "经过某节点的最长路径如何计算？",
+        "递归能否顺便返回子树高度？"
+      ]
+    },
+    "102": {
+      "id": 102,
+      "title": "二叉树的层序遍历",
+      "slug": "binary-tree-level-order-traversal",
+      "difficulty": "中等",
+      "topic": "队列 BFS",
+      "summary": "按层从上至下输出二叉树节点。",
+      "hints": [
+        "队列中的节点代表什么？",
+        "如何按当前队列长度分层？"
+      ]
+    },
+    "108": {
+      "id": 108,
+      "title": "将有序数组转换为二叉搜索树",
+      "slug": "convert-sorted-array-to-binary-search-tree",
+      "difficulty": "简单",
+      "topic": "分治",
+      "summary": "将升序数组构造为高度平衡 BST。",
+      "hints": [
+        "选择哪个元素当根比较均衡？",
+        "左右区间如何递归构建？"
+      ]
+    },
+    "98": {
+      "id": 98,
+      "title": "验证二叉搜索树",
+      "slug": "validate-binary-search-tree",
+      "difficulty": "中等",
+      "topic": "树的递归",
+      "summary": "判断二叉树是否满足严格 BST 有序性。",
+      "hints": [
+        "只比较父子节点够吗？",
+        "每个节点的合法数值上下界是什么？"
+      ]
+    },
+    "230": {
+      "id": 230,
+      "title": "二叉搜索树中第 K 小的元素",
+      "slug": "kth-smallest-element-in-a-bst",
+      "difficulty": "中等",
+      "topic": "中序遍历",
+      "summary": "查找 BST 的第 k 小元素。",
+      "hints": [
+        "BST 中序遍历得到什么顺序？",
+        "计数到第 k 个能提前结束吗？"
+      ]
+    },
+    "199": {
+      "id": 199,
+      "title": "二叉树的右视图",
+      "slug": "binary-tree-right-side-view",
+      "difficulty": "中等",
+      "topic": "树的 BFS",
+      "summary": "从右侧看二叉树，每层保留一个节点。",
+      "hints": [
+        "每层最后一个节点是哪一个？",
+        "DFS 先访问右侧行不行？"
+      ]
+    },
+    "114": {
+      "id": 114,
+      "title": "二叉树展开为链表",
+      "slug": "flatten-binary-tree-to-linked-list",
+      "difficulty": "中等",
+      "topic": "树的原地操作",
+      "summary": "按先序顺序将二叉树展开为仅 right 指针的链。",
+      "hints": [
+        "先序顺序是什么？",
+        "左子树移到右边时，原右子树接到哪里？"
+      ]
+    },
+    "105": {
+      "id": 105,
+      "title": "从前序与中序遍历序列构造二叉树",
+      "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+      "difficulty": "中等",
+      "topic": "分治与哈希",
+      "summary": "依据前序和中序遍历重建二叉树。",
+      "hints": [
+        "前序第一个节点是什么？",
+        "中序如何划分左右子树？"
+      ]
+    },
+    "437": {
+      "id": 437,
+      "title": "路径总和 III",
+      "slug": "path-sum-iii",
+      "difficulty": "中等",
+      "topic": "树的前缀和",
+      "summary": "统计二叉树中向下路径和等于目标值的条数。",
+      "hints": [
+        "根到当前节点的路径和怎么表示？",
+        "路径结束离开节点时为什么要撤销统计？"
+      ]
+    },
+    "236": {
+      "id": 236,
+      "title": "二叉树的最近公共祖先",
+      "slug": "lowest-common-ancestor-of-a-binary-tree",
+      "difficulty": "中等",
+      "topic": "树的递归",
+      "summary": "寻找两个节点的最近公共祖先。",
+      "hints": [
+        "两节点分布在不同子树时返回什么？",
+        "遇到目标节点时怎样处理？"
+      ]
+    },
+    "200": {
+      "id": 200,
+      "title": "岛屿数量",
+      "slug": "number-of-islands",
+      "difficulty": "中等",
+      "topic": "图的 DFS/BFS",
+      "summary": "统计网格中由相邻陆地连成的岛屿数。",
+      "hints": [
+        "怎样标记已访问的陆地？",
+        "每发现新陆地如何遍历整块岛屿？"
+      ]
+    },
+    "994": {
+      "id": 994,
+      "title": "腐烂的橘子",
+      "slug": "rotting-oranges",
+      "difficulty": "中等",
+      "topic": "多源 BFS",
+      "summary": "求所有新鲜橘子腐烂所需的最少分钟数。",
+      "hints": [
+        "多个腐烂橘子能同时进入队列吗？",
+        "每一层 BFS 是否对应一分钟？"
+      ]
+    },
+    "207": {
+      "id": 207,
+      "title": "课程表",
+      "slug": "course-schedule",
+      "difficulty": "中等",
+      "topic": "拓扑排序",
+      "summary": "判断课程先修关系是否能全部完成。",
+      "hints": [
+        "依赖关系如何建成有向图？",
+        "入度为零的课程如何逐步出队？"
+      ]
+    },
+    "208": {
+      "id": 208,
+      "title": "实现 Trie（前缀树）",
+      "slug": "implement-trie-prefix-tree",
+      "difficulty": "中等",
+      "topic": "Trie",
+      "summary": "支持插入、完整单词搜索和前缀检查。",
+      "hints": [
+        "公共前缀能否共用节点？",
+        "如何区分路径存在和完整单词结束？"
+      ]
+    },
+    "46": {
+      "id": 46,
+      "title": "全排列",
+      "slug": "permutations",
+      "difficulty": "中等",
+      "topic": "回溯",
+      "summary": "返回所有互不相同数字的排列。",
+      "hints": [
+        "每层选择一个尚未使用的数字。",
+        "回溯时应恢复什么状态？"
+      ]
+    },
+    "78": {
+      "id": 78,
+      "title": "子集",
+      "slug": "subsets",
+      "difficulty": "中等",
+      "topic": "回溯",
+      "summary": "返回数组的全部子集。",
+      "hints": [
+        "每个元素可以选或不选。",
+        "递归时如何避免重复排列？"
+      ]
+    },
+    "17": {
+      "id": 17,
+      "title": "电话号码的字母组合",
+      "slug": "letter-combinations-of-a-phone-number",
+      "difficulty": "中等",
+      "topic": "回溯",
+      "summary": "根据数字键盘映射生成所有字母组合。",
+      "hints": [
+        "每个数字有几个选择？",
+        "完成一个长度等于数字串的组合后做什么？"
+      ]
+    },
+    "39": {
+      "id": 39,
+      "title": "组合总和",
+      "slug": "combination-sum",
+      "difficulty": "中等",
+      "topic": "回溯",
+      "summary": "从候选数字中重复选取，使和恰好为目标值。",
+      "hints": [
+        "什么时候可剪枝？",
+        "为什么下一次选取可以从当前下标继续？"
+      ]
+    },
+    "22": {
+      "id": 22,
+      "title": "括号生成",
+      "slug": "generate-parentheses",
+      "difficulty": "中等",
+      "topic": "回溯",
+      "summary": "生成所有合法的 n 对括号组合。",
+      "hints": [
+        "左括号使用数量不能超过多少？",
+        "右括号数量什么时候可以增加？"
+      ]
+    },
+    "79": {
+      "id": 79,
+      "title": "单词搜索",
+      "slug": "word-search",
+      "difficulty": "中等",
+      "topic": "网格回溯",
+      "summary": "判断网格中是否存在沿相邻格组成的单词。",
+      "hints": [
+        "单个格子在一次路径中可复用吗？",
+        "失败时如何恢复访问状态？"
+      ]
+    },
+    "131": {
+      "id": 131,
+      "title": "分割回文串",
+      "slug": "palindrome-partitioning",
+      "difficulty": "中等",
+      "topic": "回溯",
+      "summary": "把字符串分割为每段均回文的所有方案。",
+      "hints": [
+        "从当前位置尝试所有可能切点。",
+        "切出的段不回文时可以怎样处理？"
+      ]
+    },
+    "35": {
+      "id": 35,
+      "title": "搜索插入位置",
+      "slug": "search-insert-position",
+      "difficulty": "简单",
+      "topic": "二分查找",
+      "summary": "返回目标元素的下标或应插入的有序位置。",
+      "hints": [
+        "要找的是第一个大于等于 target 的位置吗？",
+        "边界为空或所有元素更小时怎么办？"
+      ]
+    },
+    "74": {
+      "id": 74,
+      "title": "搜索二维矩阵",
+      "slug": "search-a-2d-matrix",
+      "difficulty": "中等",
+      "topic": "二分查找",
+      "summary": "矩阵按行升序且下一行首元素大于上一行末元素，查找 target。",
+      "hints": [
+        "能将二维矩阵看成一维有序数组吗？",
+        "一维下标如何换算为行列？"
+      ]
+    },
+    "34": {
+      "id": 34,
+      "title": "在排序数组中查找元素的第一个和最后一个位置",
+      "slug": "find-first-and-last-position-of-element-in-sorted-array",
+      "difficulty": "中等",
+      "topic": "二分边界",
+      "summary": "找出排序数组中目标元素的左右边界。",
+      "hints": [
+        "能分别寻找第一个 >= target 和第一个 > target 吗？",
+        "目标不存在时如何判断？"
+      ]
+    },
+    "33": {
+      "id": 33,
+      "title": "搜索旋转排序数组",
+      "slug": "search-in-rotated-sorted-array",
+      "difficulty": "中等",
+      "topic": "二分查找",
+      "summary": "在无重复元素的旋转升序数组中查找目标值。",
+      "hints": [
+        "每次至少有哪一半仍然有序？",
+        "如何判断目标是否位于有序半边？"
+      ]
+    },
+    "153": {
+      "id": 153,
+      "title": "寻找旋转排序数组中的最小值",
+      "slug": "find-minimum-in-rotated-sorted-array",
+      "difficulty": "中等",
+      "topic": "二分查找",
+      "summary": "找旋转升序数组的最小值。",
+      "hints": [
+        "中点与右端点的比较能说明什么？",
+        "边界如何收缩到最小元素？"
+      ]
+    },
+    "20": {
+      "id": 20,
+      "title": "有效的括号",
+      "slug": "valid-parentheses",
+      "difficulty": "简单",
+      "topic": "栈",
+      "summary": "判断括号字符串是否正确配对和嵌套。",
+      "hints": [
+        "遇到左括号应保存什么？",
+        "右括号来时检查栈顶是否匹配。"
+      ]
+    },
+    "155": {
+      "id": 155,
+      "title": "最小栈",
+      "slug": "min-stack",
+      "difficulty": "中等",
+      "topic": "栈设计",
+      "summary": "实现普通栈并在 O(1) 时间获取最小元素。",
+      "hints": [
+        "能否同步维护每一步的最小值？",
+        "弹栈时最小值如何恢复？"
+      ]
+    },
+    "394": {
+      "id": 394,
+      "title": "字符串解码",
+      "slug": "decode-string",
+      "difficulty": "中等",
+      "topic": "栈",
+      "summary": "解码重复次数与方括号嵌套的字符串。",
+      "hints": [
+        "遇到左括号时需要保存哪些状态？",
+        "遇到右括号时如何拼接上一层？"
+      ]
+    },
+    "739": {
+      "id": 739,
+      "title": "每日温度",
+      "slug": "daily-temperatures",
+      "difficulty": "中等",
+      "topic": "单调栈",
+      "summary": "对每天求之后第几天温度更高。",
+      "hints": [
+        "栈内可保存什么下标？",
+        "当前温度能结算此前哪些天？"
+      ]
+    },
+    "215": {
+      "id": 215,
+      "title": "数组中的第 K 个最大元素",
+      "slug": "kth-largest-element-in-an-array",
+      "difficulty": "中等",
+      "topic": "堆/快速选择",
+      "summary": "寻找无序数组中的第 k 大元素。",
+      "hints": [
+        "容量为 k 的最小堆能做什么？",
+        "快速选择只需递归哪一侧？"
+      ]
+    },
+    "347": {
+      "id": 347,
+      "title": "前 K 个高频元素",
+      "slug": "top-k-frequent-elements",
+      "difficulty": "中等",
+      "topic": "哈希表与堆",
+      "summary": "返回出现次数最高的 k 个元素。",
+      "hints": [
+        "先用什么统计频次？",
+        "如何维护最高的 k 个元素？"
+      ]
+    },
+    "55": {
+      "id": 55,
+      "title": "跳跃游戏",
+      "slug": "jump-game",
+      "difficulty": "中等",
+      "topic": "贪心",
+      "summary": "判断能否从第一个位置跳到最后一个位置。",
+      "hints": [
+        "维护目前最远可以到达的位置。",
+        "当前位置不可达时能继续吗？"
+      ]
+    },
+    "45": {
+      "id": 45,
+      "title": "跳跃游戏 II",
+      "slug": "jump-game-ii",
+      "difficulty": "中等",
+      "topic": "贪心",
+      "summary": "求到达末尾所需的最少跳跃次数。",
+      "hints": [
+        "每一步可覆盖的最远边界是什么？",
+        "什么时候必须增加跳跃次数？"
+      ]
+    },
+    "763": {
+      "id": 763,
+      "title": "划分字母区间",
+      "slug": "partition-labels",
+      "difficulty": "中等",
+      "topic": "贪心",
+      "summary": "将字符串尽量划分多个片段，每个字母最多出现在一个片段。",
+      "hints": [
+        "每个字母最后出现的位置在哪？",
+        "遍历到当前片段最远位置时能切分吗？"
+      ]
+    },
+    "70": {
+      "id": 70,
+      "title": "爬楼梯",
+      "slug": "climbing-stairs",
+      "difficulty": "简单",
+      "topic": "动态规划",
+      "summary": "每次走一阶或两阶，求走到第 n 阶的方法数。",
+      "hints": [
+        "最后一步可能来自哪两阶？",
+        "只需保存前两个状态吗？"
+      ]
+    },
+    "118": {
+      "id": 118,
+      "title": "杨辉三角",
+      "slug": "pascals-triangle",
+      "difficulty": "简单",
+      "topic": "动态规划",
+      "summary": "生成杨辉三角的前 numRows 行。",
+      "hints": [
+        "每行边缘的值是多少？",
+        "内部值由上一行哪两项决定？"
+      ]
+    },
+    "198": {
+      "id": 198,
+      "title": "打家劫舍",
+      "slug": "house-robber",
+      "difficulty": "中等",
+      "topic": "动态规划",
+      "summary": "不偷相邻房屋，求最大收益。",
+      "hints": [
+        "当前房子选或不选各对应什么状态？",
+        "转移只依赖哪两个历史位置？"
+      ]
+    },
+    "279": {
+      "id": 279,
+      "title": "完全平方数",
+      "slug": "perfect-squares",
+      "difficulty": "中等",
+      "topic": "动态规划",
+      "summary": "求组成 n 的完全平方数的最少个数。",
+      "hints": [
+        "最后一个平方数可以选择哪些？",
+        "如何从更小的余数转移？"
+      ]
+    },
+    "322": {
+      "id": 322,
+      "title": "零钱兑换",
+      "slug": "coin-change",
+      "difficulty": "中等",
+      "topic": "完全背包",
+      "summary": "给定币值求凑成金额所需最少硬币数。",
+      "hints": [
+        "每种硬币可以无限使用。",
+        "不可达状态应该如何表示？"
+      ]
+    },
+    "139": {
+      "id": 139,
+      "title": "单词拆分",
+      "slug": "word-break",
+      "difficulty": "中等",
+      "topic": "动态规划",
+      "summary": "判断字符串能否由词典单词拼接而成。",
+      "hints": [
+        "dp[i] 能否表示前 i 个字符可被拆分？",
+        "枚举最后一段是否在词典中。"
+      ]
+    },
+    "300": {
+      "id": 300,
+      "title": "最长递增子序列",
+      "slug": "longest-increasing-subsequence",
+      "difficulty": "中等",
+      "topic": "动态规划/二分",
+      "summary": "求严格递增子序列的最大长度。",
+      "hints": [
+        "以每个位置结尾的最优长度如何转移？",
+        "是否能用二分维护候选结尾？"
+      ]
+    },
+    "152": {
+      "id": 152,
+      "title": "乘积最大子数组",
+      "slug": "maximum-product-subarray",
+      "difficulty": "中等",
+      "topic": "动态规划",
+      "summary": "寻找乘积最大的连续非空子数组。",
+      "hints": [
+        "负数会不会让最大和最小交换？",
+        "是否应同时维护最大积和最小积？"
+      ]
+    },
+    "416": {
+      "id": 416,
+      "title": "分割等和子集",
+      "slug": "partition-equal-subset-sum",
+      "difficulty": "中等",
+      "topic": "0-1 背包",
+      "summary": "判断数组能否分为和相等的两部分。",
+      "hints": [
+        "总和为奇数时可以直接排除吗？",
+        "能否转为选出和为总和一半的子集？"
+      ]
+    },
+    "62": {
+      "id": 62,
+      "title": "不同路径",
+      "slug": "unique-paths",
+      "difficulty": "中等",
+      "topic": "二维动态规划",
+      "summary": "从网格左上走到右下，只能向右或向下，求路径数。",
+      "hints": [
+        "到当前位置的路径来自哪里？",
+        "第一行与第一列如何初始化？"
+      ]
+    },
+    "64": {
+      "id": 64,
+      "title": "最小路径和",
+      "slug": "minimum-path-sum",
+      "difficulty": "中等",
+      "topic": "二维动态规划",
+      "summary": "从左上到右下只向右或下，求经过数字的最小和。",
+      "hints": [
+        "当前最小和依赖哪两个邻居？",
+        "边界只能从一个方向到达。"
+      ]
+    },
+    "5": {
+      "id": 5,
+      "title": "最长回文子串",
+      "slug": "longest-palindromic-substring",
+      "difficulty": "中等",
+      "topic": "中心扩展",
+      "summary": "寻找字符串中最长连续回文子串。",
+      "hints": [
+        "回文具有怎样的对称中心？",
+        "奇偶长度应分别如何处理？"
+      ]
+    },
+    "1143": {
+      "id": 1143,
+      "title": "最长公共子序列",
+      "slug": "longest-common-subsequence",
+      "difficulty": "中等",
+      "topic": "二维动态规划",
+      "summary": "求两个字符串最长公共子序列长度。",
+      "hints": [
+        "最后字符相同与不同时如何转移？",
+        "子序列是否必须连续？"
+      ]
+    },
+    "72": {
+      "id": 72,
+      "title": "编辑距离",
+      "slug": "edit-distance",
+      "difficulty": "中等",
+      "topic": "二维动态规划",
+      "summary": "求字符串由插入、删除、替换转换的最少操作数。",
+      "hints": [
+        "定义 dp[i][j] 表示哪两个前缀？",
+        "最后一步可能属于三种操作哪一种？"
+      ]
+    },
+    "136": {
+      "id": 136,
+      "title": "只出现一次的数字",
+      "slug": "single-number",
+      "difficulty": "简单",
+      "topic": "位运算",
+      "summary": "其他数字恰好出现两次，找唯一出现一次的数字。",
+      "hints": [
+        "异或相同数字会发生什么？",
+        "异或是否满足交换律？"
+      ]
+    },
+    "169": {
+      "id": 169,
+      "title": "多数元素",
+      "slug": "majority-element",
+      "difficulty": "简单",
+      "topic": "摩尔投票",
+      "summary": "寻找出现次数超过一半的元素。",
+      "hints": [
+        "不同元素能成对抵消吗？",
+        "候选值计数归零时如何处理？"
+      ]
+    },
+    "75": {
+      "id": 75,
+      "title": "颜色分类",
+      "slug": "sort-colors",
+      "difficulty": "中等",
+      "topic": "三指针",
+      "summary": "原地将 0、1、2 三种颜色排序。",
+      "hints": [
+        "能否维护三个不同区域？",
+        "交换 2 到右边后是否应该立即前进？"
+      ]
+    },
+    "31": {
+      "id": 31,
+      "title": "下一个排列",
+      "slug": "next-permutation",
+      "difficulty": "中等",
+      "topic": "排列算法",
+      "summary": "原地生成字典序的下一个排列，不存在则变最小排列。",
+      "hints": [
+        "从右往左先找到什么逆序位置？",
+        "交换后后缀如何变得尽量小？"
+      ]
+    },
+    "287": {
+      "id": 287,
+      "title": "寻找重复数",
+      "slug": "find-the-duplicate-number",
+      "difficulty": "中等",
+      "topic": "快慢指针",
+      "summary": "长度 n+1、取值 1..n 的数组中找重复数，不能修改数组。",
+      "hints": [
+        "下标到数值可看作什么链式映射？",
+        "重复值为什么会产生环？"
+      ]
+    },
+    "217": {
+      "id": 217,
+      "title": "存在重复元素",
+      "slug": "contains-duplicate",
+      "difficulty": "简单",
+      "topic": "哈希集合",
+      "summary": "判断数组中是否有重复数字。",
+      "hints": [
+        "集合插入前先检查什么？",
+        "能否一边遍历一边终止？"
+      ]
+    },
+    "14": {
+      "id": 14,
+      "title": "最长公共前缀",
+      "slug": "longest-common-prefix",
+      "difficulty": "简单",
+      "topic": "字符串",
+      "summary": "查找字符串数组所有元素的最长公共前缀。",
+      "hints": [
+        "拿第一个字符串作为候选可以吗？",
+        "某一位置不匹配后还能继续吗？"
+      ]
+    },
+    "13": {
+      "id": 13,
+      "title": "罗马数字转整数",
+      "slug": "roman-to-integer",
+      "difficulty": "简单",
+      "topic": "字符串模拟",
+      "summary": "把罗马数字表示转换为整数。",
+      "hints": [
+        "较小符号位于较大符号之前时怎样处理？",
+        "从左到右还是从右到左更方便？"
+      ]
+    },
+    "66": {
+      "id": 66,
+      "title": "加一",
+      "slug": "plus-one",
+      "difficulty": "简单",
+      "topic": "数组模拟",
+      "summary": "将十进制数字数组整体加一。",
+      "hints": [
+        "从最低位开始处理什么？",
+        "全为 9 时怎么办？"
+      ]
+    },
+    "88": {
+      "id": 88,
+      "title": "合并两个有序数组",
+      "slug": "merge-sorted-array",
+      "difficulty": "简单",
+      "topic": "逆向双指针",
+      "summary": "在 nums1 的末尾空位中原地合并两个有序数组。",
+      "hints": [
+        "从头合并会覆盖未读取元素吗？",
+        "从末尾比较两个数组更方便吗？"
+      ]
+    },
+    "26": {
+      "id": 26,
+      "title": "删除有序数组中的重复项",
+      "slug": "remove-duplicates-from-sorted-array",
+      "difficulty": "简单",
+      "topic": "快慢指针",
+      "summary": "原地去除升序数组中的重复项并返回长度。",
+      "hints": [
+        "快指针与慢指针分别表示什么？",
+        "不同元素应该写到哪里？"
+      ]
+    },
+    "36": {
+      "id": 36,
+      "title": "有效的数独",
+      "slug": "valid-sudoku",
+      "difficulty": "中等",
+      "topic": "哈希计数",
+      "summary": "判断已填数字是否违反行、列与九宫格限制。",
+      "hints": [
+        "需要检查哪三类约束？",
+        "如何为每个九宫格编号？"
+      ]
+    },
+    "8": {
+      "id": 8,
+      "title": "字符串转换整数 (atoi)",
+      "slug": "string-to-integer-atoi",
+      "difficulty": "中等",
+      "topic": "字符串模拟",
+      "summary": "解析可选空格、正负号与数字，返回 32 位整数。",
+      "hints": [
+        "何时停止读取？",
+        "乘十加数字之前如何检测溢出？"
+      ]
+    }
+  }
+};window.__SOLUTIONS__={
+  "solutions": {
+    "1": {
+      "idea": "把寻找两个数转为寻找 target − 当前值。遍历数组时，用哈希表保存之前出现过的数及其下标。先查询补数是否存在，再插入当前元素，避免重复使用同一下标。",
+      "code": "#include <vector>\n#include <unordered_map>\nusing namespace std;\nclass Solution {\npublic:\n    vector<int> twoSum(vector<int>& nums, int target) {\n        unordered_map<int,int> pos;\n        for (int i = 0; i < (int)nums.size(); ++i) {\n            auto it = pos.find(target - nums[i]);\n            if (it != pos.end()) return {it->second, i};\n            pos[nums[i]] = i;\n        }\n        return {};\n    }\n};",
+      "complexity": "平均 O(n) 时间 / O(n) 空间",
+      "pitfall": "先查再存，才能避免同一下标使用两次。",
+      "alternative": "双层循环枚举，O(n²)。"
+    },
+    "242": {
+      "idea": "字母异位词必须具有相同的字符及频次。两个字符串长度不一致时直接返回 false。仅包含小写英文字母，可用 26 个计数槽：遍历 s 加一、遍历 t 减一，最后全部为零则匹配。",
+      "code": "#include <string>\n#include <array>\nusing namespace std;\nclass Solution {\npublic:\n    bool isAnagram(string s, string t) {\n        if (s.size() != t.size()) return false;\n        array<int,26> cnt{};\n        for (int i = 0; i < (int)s.size(); ++i) {\n            ++cnt[s[i]-'a'];\n            --cnt[t[i]-'a'];\n        }\n        for (int x : cnt) if (x != 0) return false;\n        return true;\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 空间",
+      "pitfall": "不能只判断字符种类，要判断出现次数。",
+      "alternative": "排序后比较，O(n log n)。"
+    },
+    "49": {
+      "idea": "异位词在排序后具有相同的规范形式。对每个字符串复制并排序，作为哈希表 key，把原始字符串追加到相同 key 的分组。最后输出所有分组即可。",
+      "code": "#include <vector>\n#include <string>\n#include <unordered_map>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    vector<vector<string>> groupAnagrams(vector<string>& strs) {\n        unordered_map<string, vector<string>> groups;\n        for (const string& s : strs) {\n            string key = s;\n            sort(key.begin(), key.end());\n            groups[key].push_back(s);\n        }\n        vector<vector<string>> ans;\n        for (auto& kv : groups) ans.push_back(kv.second);\n        return ans;\n    }\n};",
+      "complexity": "O(NK log K) 时间 / O(NK) 空间",
+      "pitfall": "要存原字符串而不是排序后的 key；分组顺序无需固定。",
+      "alternative": "用 26 个字符频次生成 key，可达 O(NK)。"
+    },
+    "128": {
+      "idea": "使用哈希集合去重并实现平均 O(1) 查找。只有当 x−1 不在集合中时，才从 x 向右寻找连续序列；这样每段序列只扫描一次。不断更新最长长度。",
+      "code": "#include <vector>\n#include <unordered_set>\n#include <algorithm>\n#include <climits>\nusing namespace std;\nclass Solution {\npublic:\n    int longestConsecutive(vector<int>& nums) {\n        unordered_set<int> st(nums.begin(),nums.end());\n        int best=0;\n        for (int x:st) {\n            if (x!=INT_MIN && st.count(x-1)) continue;\n            int cur=x, len=1;\n            while (cur!=INT_MAX && st.count(cur+1)) {\n                ++cur;\n                ++len;\n            }\n            best=max(best,len);\n        }\n        return best;\n    }\n};",
+      "complexity": "平均 O(n) 时间 / O(n) 空间",
+      "pitfall": "只从序列起点扩展；处理 INT_MIN、INT_MAX 避免溢出。",
+      "alternative": "排序并扫描，O(n log n)。"
+    },
+    "283": {
+      "idea": "快指针扫描所有元素，慢指针指向下一个非零元素应该放置的位置。发现非零元素时，与慢指针位置交换并将慢指针加一。处理好的前缀始终保持非零元素的原有顺序。",
+      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    void moveZeroes(vector<int>& nums) {\n        int slow=0;\n        for (int fast=0;fast<(int)nums.size();++fast) {\n            if (nums[fast]!=0) {\n                if (slow!=fast) swap(nums[slow],nums[fast]);\n                ++slow;\n            }\n        }\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 空间",
+      "pitfall": "不能直接删除 0 再插入末尾，否则可能退化为 O(n²)。",
+      "alternative": "覆盖非零元素后统一补零。"
+    },
+    "11": {
+      "idea": "面积由宽度乘以两边较小高度决定。左右指针从两端开始，每轮更新最大面积，并向内移动较短的一侧。因为保持短边不变只会缩小宽度，不可能得到更大的面积。",
+      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    int maxArea(vector<int>& height) {\n        int l=0,r=(int)height.size()-1,best=0;\n        while(l<r) {\n            best=max(best,(r-l)*min(height[l],height[r]));\n            if(height[l]<height[r]) ++l;\n            else --r;\n        }\n        return best;\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 空间",
+      "pitfall": "移动短边；不要先移动指针再计算面积。",
+      "alternative": "暴力枚举两条线，O(n²)。"
+    },
+    "15": {
+      "idea": "先排序，固定第一个数，将问题降维为寻找其余两数之和。左右指针利用单调性移动：总和小于 0 则左移右界的相反方向（增大左值），大于 0 则右界向左。找到一组三元组后，跳过连续重复值。",
+      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    vector<vector<int>> threeSum(vector<int>& nums) {\n        sort(nums.begin(),nums.end());\n        vector<vector<int>> ans;\n        int n=nums.size();\n        for(int i=0;i+2<n;++i) {\n            if(i>0 && nums[i]==nums[i-1]) continue;\n            if(nums[i]>0) break;\n            int l=i+1,r=n-1;\n            while(l<r) {\n                int s=nums[i]+nums[l]+nums[r];\n                if(s<0) ++l;\n                else if(s>0) --r;\n                else {\n                    ans.push_back({nums[i],nums[l],nums[r]});\n                    ++l;--r;\n                    while(l<r && nums[l]==nums[l-1]) ++l;\n                    while(l<r && nums[r]==nums[r+1]) --r;\n                }\n            }\n        }\n        return ans;\n    }\n};",
+      "complexity": "O(n²) 时间 / 排序 O(log n) 栈空间（结果另计）",
+      "pitfall": "固定数字和左右两侧都需去重；[0,0,0] 是合法答案。",
+      "alternative": "固定一个数 + 哈希集合，去重相对繁琐。"
+    },
+    "125": {
+      "idea": "两个指针从字符串两端向中间移动。遇到非字母数字字符就跳过，将两个有效字符转换成小写后比较。任意一对不同即可返回 false；指针相遇则为回文。",
+      "code": "#include <string>\n#include <cctype>\nusing namespace std;\nclass Solution {\npublic:\n    bool isPalindrome(string s) {\n        int l=0,r=(int)s.size()-1;\n        while(l<r) {\n            while(l<r && !isalnum((unsigned char)s[l])) ++l;\n            while(l<r && !isalnum((unsigned char)s[r])) --r;\n            if(tolower((unsigned char)s[l])!=tolower((unsigned char)s[r])) return false;\n            ++l;--r;\n        }\n        return true;\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 空间",
+      "pitfall": "不要只过滤空格，还需忽略标点；cctype 函数传 unsigned char 更安全。",
+      "alternative": "先构建净化字符串再反转比较，O(n) 空间。"
+    },
+    "3": {
+      "idea": "维护不含重复字符的可变窗口。右指针遍历，记录每个字节上次出现的下标；遇到重复时把左边界移动到上次位置后一位，但绝不能后退。不断更新最大窗口长度。",
+      "code": "#include <string>\n#include <array>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    int lengthOfLongestSubstring(string s) {\n        array<int,256> last;\n        last.fill(-1);\n        int l=0,best=0;\n        for(int r=0;r<(int)s.size();++r) {\n            unsigned char c=s[r];\n            l=max(l,last[c]+1);\n            last[c]=r;\n            best=max(best,r-l+1);\n        }\n        return best;\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 空间",
+      "pitfall": "用 max 保证左边界不回退，例如 abba。",
+      "alternative": "用 unordered_set 逐步缩窗，也能平均 O(n)。"
+    },
+    "438": {
+      "idea": "目标串长度就是固定窗口长度。统计 p 的 26 字母频次，扫描 s 时把新字符加入计数，窗口超长时移除最左字符。窗口长度达标且计数与目标一致时记录起点。",
+      "code": "#include <vector>\n#include <string>\n#include <array>\nusing namespace std;\nclass Solution {\npublic:\n    vector<int> findAnagrams(string s,string p) {\n        int n=s.size(),m=p.size();\n        vector<int> ans;\n        if(m>n) return ans;\n        array<int,26> need{},win{};\n        for(char c:p) ++need[c-'a'];\n        for(int r=0;r<n;++r) {\n            ++win[s[r]-'a'];\n            if(r>=m) --win[s[r-m]-'a'];\n            if(r>=m-1 && win==need) ans.push_back(r-m+1);\n        }\n        return ans;\n    }\n};",
+      "complexity": "O(n+m) 时间 / O(1) 空间（输出另计）",
+      "pitfall": "窗口未达到 p 的长度时不能比较；统计频次而不只是字符是否存在。",
+      "alternative": "维护差分计数的非零槽数可减少常数。"
+    },
+    "209": {
+      "idea": "数组全是正数，因此右边界扩大时区间和只增，左边界收缩时只减。逐步扩大窗口；当和达到 target 时，记录长度并不断尝试收缩，以获得最短区间。",
+      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    int minSubArrayLen(int target,vector<int>& nums) {\n        int l=0,sum=0,ans=(int)nums.size()+1;\n        for(int r=0;r<(int)nums.size();++r) {\n            sum+=nums[r];\n            while(sum>=target) {\n                ans=min(ans,r-l+1);\n                sum-=nums[l++];\n            }\n        }\n        return ans==(int)nums.size()+1?0:ans;\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 空间",
+      "pitfall": "达到 target 后必须 while 收缩；依赖所有元素为正。",
+      "alternative": "前缀和 + 二分，O(n log n)。"
+    },
+    "560": {
+      "idea": "负数和零使区间和不具备滑动窗口所需的单调性。若当前前缀和为 s，之前出现一次 s−k 就构成一个合法子数组；出现多次就对应多个答案。哈希表存各前缀和出现次数，先统计再记录当前前缀和。",
+      "code": "#include <vector>\n#include <unordered_map>\nusing namespace std;\nclass Solution {\npublic:\n    int subarraySum(vector<int>& nums,int k) {\n        unordered_map<int,int> cnt;\n        cnt[0]=1;\n        int sum=0,ans=0;\n        for(int x:nums) {\n            sum+=x;\n            auto it=cnt.find(sum-k);\n            if(it!=cnt.end()) ans+=it->second;\n            ++cnt[sum];\n        }\n        return ans;\n    }\n};",
+      "complexity": "平均 O(n) 时间 / O(n) 空间",
+      "pitfall": "空前缀 cnt[0]=1 不可省；一定先查询后插入。",
+      "alternative": "前缀和 + 双层枚举，O(n²)。"
+    },
+    "53": {
+      "idea": "以当前位置结尾的最大子数组，要么接到前一个最优子数组后面，要么从当前元素重新开始。状态 cur=max(x,cur+x)，同时以 ans 维护扫描至今的全局最大值。",
+      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    int maxSubArray(vector<int>& nums) {\n        int cur=nums[0],ans=nums[0];\n        for(int i=1;i<(int)nums.size();++i) {\n            cur=max(nums[i],cur+nums[i]);\n            ans=max(ans,cur);\n        }\n        return ans;\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 空间",
+      "pitfall": "全负数时答案也可能为负；不要初始化 ans=0。",
+      "alternative": "前缀和减历史最小前缀和。"
+    },
+    "121": {
+      "idea": "固定今天为卖出日时，最优买入日是此前价格最低的一天。因此一次遍历维护 minPrice，同时计算当天卖出的潜在利润并更新 ans。最大利润初始为 0，允许不交易。",
+      "code": "#include <vector>\n#include <algorithm>\n#include <climits>\nusing namespace std;\nclass Solution {\npublic:\n    int maxProfit(vector<int>& prices) {\n        int low=INT_MAX,ans=0;\n        for(int p:prices) {\n            low=min(low,p);\n            ans=max(ans,p-low);\n        }\n        return ans;\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 空间",
+      "pitfall": "持续跌价应返回 0；买入日必须早于卖出日。",
+      "alternative": "把相邻价格差转化为最大子数组和。"
+    },
+    "238": {
+      "idea": "不使用除法，将每个位置的答案拆成左侧所有数的积乘以右侧所有数的积。先从左到右将左积写入输出，再从右到左维护右积乘到输出。两个方向都必须先用积再更新积，保证排除自己。",
+      "code": "#include <vector>\nusing namespace std;\nclass Solution {\npublic:\n    vector<int> productExceptSelf(vector<int>& nums) {\n        int n=nums.size();\n        vector<int> ans(n,1);\n        int left=1;\n        for(int i=0;i<n;++i) {\n            ans[i]=left;\n            left*=nums[i];\n        }\n        int right=1;\n        for(int i=n-1;i>=0;--i) {\n            ans[i]*=right;\n            right*=nums[i];\n        }\n        return ans;\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 额外空间（输出另计）",
+      "pitfall": "包含零仍然正确；不要在写入当前答案前将自己乘进去。",
+      "alternative": "两个独立的前后缀数组，O(n) 额外空间。"
+    },
+    "189": {
+      "idea": "向右轮转 k 位等价于把最后 k 个元素挪到最前面。先对 k 取模，再整体翻转、翻转前 k 个、翻转剩余部分，就能恢复两段内部顺序并交换位置。",
+      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    void rotate(vector<int>& nums,int k) {\n        int n=nums.size();\n        if(n==0) return;\n        k%=n;\n        reverse(nums.begin(),nums.end());\n        reverse(nums.begin(),nums.begin()+k);\n        reverse(nums.begin()+k,nums.end());\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 空间",
+      "pitfall": "先判断 n=0，避免对零取模；k 可以超过 n。",
+      "alternative": "额外数组按新下标放置，O(n) 空间。"
+    },
+    "56": {
+      "idea": "输入区间不一定有序。先按起点排序，再从左到右扫描；当前区间与结果最后一个区间重叠时，更新其右端点为两个终点的较大值，否则直接添加新区间。",
+      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    vector<vector<int>> merge(vector<vector<int>>& intervals) {\n        sort(intervals.begin(),intervals.end());\n        vector<vector<int>> ans;\n        for(const auto& x:intervals) {\n            if(ans.empty() || x[0]>ans.back()[1]) ans.push_back(x);\n            else ans.back()[1]=max(ans.back()[1],x[1]);\n        }\n        return ans;\n    }\n};",
+      "complexity": "O(n log n) 时间 / O(n) 输出空间",
+      "pitfall": "端点相等也算重叠；包含关系时右端点取 max。",
+      "alternative": "先把端点扫描转换为事件也可合并。"
+    },
+    "57": {
+      "idea": "原有区间有序且互不重叠，因此不必排序。先加入完全在新区间左侧的区间，再用 min/max 合并所有与新区间重叠的区间。最后加入合并结果及其余右侧区间。",
+      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    vector<vector<int>> insert(vector<vector<int>>& intervals,vector<int>& newInterval) {\n        vector<vector<int>> ans;\n        int i=0,n=intervals.size();\n        while(i<n && intervals[i][1]<newInterval[0]) ans.push_back(intervals[i++]);\n        while(i<n && intervals[i][0]<=newInterval[1]) {\n            newInterval[0]=min(newInterval[0],intervals[i][0]);\n            newInterval[1]=max(newInterval[1],intervals[i][1]);\n            ++i;\n        }\n        ans.push_back(newInterval);\n        while(i<n) ans.push_back(intervals[i++]);\n        return ans;\n    }\n};",
+      "complexity": "O(n) 时间 / O(n) 输出空间",
+      "pitfall": "合并时右边界可能扩大；此实现会修改 newInterval。",
+      "alternative": "加入新区间后套用第 56 题，O(n log n)。"
+    },
+    "73": {
+      "idea": "立即清空含零的行列会把新零当作原始零，导致污染。利用首行、首列保存内部的置零标记，另外用两个布尔变量记住首行首列原本是否含零。先依据标记处理内部，最后处理首行首列。",
+      "code": "#include <vector>\nusing namespace std;\nclass Solution {\npublic:\n    void setZeroes(vector<vector<int>>& a) {\n        int m=a.size(),n=a[0].size();\n        bool row=false,col=false;\n        for(int j=0;j<n;++j) if(a[0][j]==0) row=true;\n        for(int i=0;i<m;++i) if(a[i][0]==0) col=true;\n        for(int i=1;i<m;++i)\n            for(int j=1;j<n;++j)\n                if(a[i][j]==0) a[i][0]=a[0][j]=0;\n        for(int i=1;i<m;++i)\n            for(int j=1;j<n;++j)\n                if(a[i][0]==0 || a[0][j]==0) a[i][j]=0;\n        if(row) for(int j=0;j<n;++j) a[0][j]=0;\n        if(col) for(int i=0;i<m;++i) a[i][0]=0;\n    }\n};",
+      "complexity": "O(mn) 时间 / O(1) 空间",
+      "pitfall": "先完成内部置零，再修改首行首列，否则标记会被破坏。",
+      "alternative": "两个布尔数组标记行列，O(m+n) 空间。"
+    },
+    "54": {
+      "idea": "维护尚未访问的 top、bottom、left、right 四条边界。按上边、右边、下边、左边依次遍历；每完成一条边就收缩对应边界。处理下边和左边时要检查边界是否仍然有效，避免单行单列重复访问。",
+      "code": "#include <vector>\nusing namespace std;\nclass Solution {\npublic:\n    vector<int> spiralOrder(vector<vector<int>>& a) {\n        int m=a.size(),n=a[0].size();\n        int top=0,bot=m-1,left=0,right=n-1;\n        vector<int> ans;\n        while(top<=bot && left<=right) {\n            for(int j=left;j<=right;++j) ans.push_back(a[top][j]);\n            ++top;\n            for(int i=top;i<=bot;++i) ans.push_back(a[i][right]);\n            --right;\n            if(top<=bot) {\n                for(int j=right;j>=left;--j) ans.push_back(a[bot][j]);\n                --bot;\n            }\n            if(left<=right) {\n                for(int i=bot;i>=top;--i) ans.push_back(a[i][left]);\n                ++left;\n            }\n        }\n        return ans;\n    }\n};",
+      "complexity": "O(mn) 时间 / O(1) 额外空间（输出另计）",
+      "pitfall": "单行和单列需检查边界，防止重复读取。",
+      "alternative": "方向数组 + 访问标记，O(mn) 空间。"
+    },
+    "48": {
+      "idea": "顺时针旋转 90° 对应坐标 (i,j)→(j,n−1−i)。将旋转拆为主对角线转置再逐行反转，两步仅在原矩阵内交换元素，不需额外二维矩阵。",
+      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    void rotate(vector<vector<int>>& a) {\n        int n=a.size();\n        for(int i=0;i<n;++i)\n            for(int j=i+1;j<n;++j)\n                swap(a[i][j],a[j][i]);\n        for(auto& row:a) reverse(row.begin(),row.end());\n    }\n};",
+      "complexity": "O(n²) 时间 / O(1) 空间",
+      "pitfall": "转置只遍历对角线上方；顺时针是逐行翻转。",
+      "alternative": "按矩阵层四点循环交换。"
+    },
+    "240": {
+      "idea": "从右上角出发，左移数字变小、下移数字变大。如果当前值大于目标，当前列下面元素都不可能匹配，左移；反之排除当前行并下移。每次移除一整行或一整列。",
+      "code": "#include <vector>\nusing namespace std;\nclass Solution {\npublic:\n    bool searchMatrix(vector<vector<int>>& a,int target) {\n        if(a.empty() || a[0].empty()) return false;\n        int m=a.size(),r=0,c=a[0].size()-1;\n        while(r<m && c>=0) {\n            if(a[r][c]==target) return true;\n            if(a[r][c]>target) --c;\n            else ++r;\n        }\n        return false;\n    }\n};",
+      "complexity": "O(m+n) 时间 / O(1) 空间",
+      "pitfall": "选择右上角（或左下角），不是左上角。",
+      "alternative": "每行二分查找，O(m log n)。"
+    },
+    "160": {
+      "idea": "相交指的是两个指针指向同一个节点对象。分别从两条链表的头出发，走到尾端后切换到另一条链表头部。这样两指针都走过 A+B 的总长度，若存在公共尾部就会在首个公共节点相遇；否则同时变为 nullptr。",
+      "code": "/**\n * Definition for singly-linked list.\n * struct ListNode { int val; ListNode *next; ListNode(int x) : val(x), next(nullptr) {} };\n */\nclass Solution {\npublic:\n    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {\n        ListNode *a=headA,*b=headB;\n        while(a!=b) {\n            a=a?a->next:headB;\n            b=b?b->next:headA;\n        }\n        return a;\n    }\n};",
+      "complexity": "O(m+n) 时间 / O(1) 空间",
+      "pitfall": "必须比较节点地址而非 val；不相交时两个指针最终都是空。",
+      "alternative": "先分别计算长度，长链表先走长度差。"
+    },
+    "206": {
+      "idea": "反转链表时需要先保存当前节点的 next，否则改写后会丢失余下链表。用 prev 表示已反转部分头，cur 指向待处理节点，逐个改变 cur->next 指向 prev。扫描结束后 prev 就是新头。",
+      "code": "/**\n * Definition for singly-linked list.\n * struct ListNode { int val; ListNode *next; ListNode() : val(0), next(nullptr) {} ListNode(int x) : val(x), next(nullptr) {} ListNode(int x, ListNode *next) : val(x), next(next) {} };\n */\nclass Solution {\npublic:\n    ListNode* reverseList(ListNode* head) {\n        ListNode* prev=nullptr;\n        ListNode* cur=head;\n        while(cur) {\n            ListNode* next=cur->next;\n            cur->next=prev;\n            prev=cur;\n            cur=next;\n        }\n        return prev;\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 空间",
+      "pitfall": "必须先保存 next 再改变方向；空链表返回 nullptr。",
+      "alternative": "递归反转，O(n) 调用栈空间。"
+    }
+  },
+  "editorialUpdatedThroughDay": 12
+};</script>
+<script>(() => {
+  'use strict';
+  const $ = (s) => document.querySelector(s);
+  const zone = 'Asia/Shanghai';
+  let curriculum, solutionDb;
+  let state = { day: 1, problem: 0, mode: 'question', followToday: true, search: '' };
+
+  function shanghaiNow() {
+    const v = {};
+    for (const part of new Intl.DateTimeFormat('en-US', {
+      timeZone: zone, year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+    }).formatToParts(new Date())) if (part.type !== 'literal') v[part.type] = +part.value;
+    const diff = Math.floor((Date.UTC(v.year, v.month - 1, v.day) - Date.UTC(2026, 9, 26)) / 86400000);
+    return { ...v, dayNo: Math.max(1, diff + 1), minuteOfDay: v.hour * 60 + v.minute };
+  }
+  const cycleNum = (day) => Math.floor((day - 1) / 50) + 1;
+  const pairForDay = (day) => curriculum.pairs[(day - 1) % 50];
+  const question = (day, idx) => curriculum.problems[pairForDay(day)[idx]];
+  function dayDate(day) {
+    const dt = new Date(Date.UTC(2026, 9, 26) + (day - 1) * 86400000);
+    const [yyyy, mm, dd] = [dt.getUTCFullYear(), String(dt.getUTCMonth() + 1).padStart(2, '0'), String(dt.getUTCDate()).padStart(2, '0')];
+    const week = ['日','一','二','三','四','五','六'][dt.getUTCDay()];
+    return { label: `${yyyy} 年 ${+mm} 月 ${+dd} 日 · 星期${week}`, compact: `${mm}/${dd}`, machine: `${yyyy}-${mm}-${dd}` };
+  }
+  function h(tag, props = {}, children = []) {
+    const e = document.createElement(tag);
+    for (const [k, v] of Object.entries(props)) {
+      if (k === 'className') e.className = v;
+      else if (k === 'text') e.textContent = v;
+      else if (k === 'htmlFor') e.htmlFor = v;
+      else if (k === 'onClick') e.addEventListener('click', v);
+      else e.setAttribute(k, String(v));
+    }
+    for (const c of children) e.append(c);
+    return e;
+  }
+  function safeStoreGet(key, fallback = '') {
+    try { return localStorage.getItem(key) ?? fallback; } catch { return fallback; }
+  }
+  function safeStoreSet(key, value) {
+    try { localStorage.setItem(key, value); } catch { /* storage disabled */ }
+  }
+  function doneKey(day, problemId) { return `algo-daily:done:${day}:${problemId}`; }
+  function noteKey(day) { return `algo-daily:note:${day}`; }
+  function isDone(day, id) { return safeStoreGet(doneKey(day, id)) === 'yes'; }
+  function completedCount() {
+    const dayN = Math.min(shanghaiNow().dayNo, 50);
+    let num = 0;
+    for (let day = 1; day <= dayN; day++) {
+      for (const id of pairForDay(day)) if (isDone(day, id)) num++;
+    }
+    return num;
+  }
+  function switchDay(day, keepMode = false) {
+    state.day = Math.max(1, day);
+    state.problem = 0;
+    state.followToday = state.day === shanghaiNow().dayNo;
+    if (!keepMode) state.mode = 'question';
+    render();
+    closeNav();
+  }
+  function switchProblem(idx) { state.problem = idx; render(); }
+  function switchMode(mode) { state.mode = mode; render(); }
+  function openNav() { $('#sidebar').classList.add('open'); document.body.classList.add('nav-open'); }
+  function closeNav() { $('#sidebar').classList.remove('open'); document.body.classList.remove('nav-open'); }
+
+  function renderArchive() {
+    const archive = $('#archive');
+    archive.replaceChildren();
+    const limit = Math.max(50, shanghaiNow().dayNo);
+    let shown = 0;
+    for (let day = 1; day <= limit; day++) {
+      const [a,b] = pairForDay(day).map(i => curriculum.problems[i]);
+      const searchText = `${day} ${a.id} ${b.id} ${a.title} ${b.title} ${a.topic} ${b.topic}`.toLowerCase();
+      if (!searchText.includes(state.search.trim().toLowerCase())) continue;
+      shown++;
+      const button = h('button', { className: 'archive-row' + (state.day === day ? ' active' : ''), type: 'button' });
+      button.append(
+        h('span', {className:'archive-index',text:`D${String(day).padStart(2,'0')}`}),
+        h('span',{className:'archive-info'},[
+          h('span',{className:'archive-title',text:`${a.id}. ${a.title} / ${b.id}. ${b.title}`}),
+          h('span',{className:'archive-date',text:`${dayDate(day).compact} · ${a.topic} / ${b.topic}`})
+        ])
+      );
+      if (isDone(day,a.id) && isDone(day,b.id)) button.append(h('span',{className:'archive-check',text:'✓'}));
+      button.addEventListener('click',()=>switchDay(day));
+      archive.append(button);
+    }
+    if (!shown) archive.append(h('div',{className:'empty-search',text:'没有找到匹配的题目'}));
+    $('#archiveCount').textContent = `${completedCount()}/100`;
+  }
+
+  function renderHead() {
+    const today = shanghaiNow();
+    const pair = pairForDay(state.day);
+    $('#heroDay').textContent = String(Math.min((today.dayNo - 1) % 50 + 1,50)).padStart(2, '0');
+    $('#heroStage').textContent = `第 ${cycleNum(today.dayNo)} 轮${today.dayNo > 50 ? ' · 间隔复习' : ' · 新题训练'}`;
+    $('#heroSolved').textContent = `${completedCount()}/100`;
+    $('#dayCaption').textContent = `DAY ${String(state.day).padStart(2,'0')} · ${cycleNum(state.day) > 1 ? 'SPACED REVIEW' : 'PRACTICE'}`;
+    $('#dayHeading').textContent = state.day === today.dayNo ? '今天的两道题' : `第 ${state.day} 天 · 两道练习`;
+    $('#dayDate').textContent = dayDate(state.day).label;
+    $('#prevDay').disabled = state.day <= 1;
+    $('#nextDay').disabled = state.day >= Math.max(50, today.dayNo);
+    const notice = $('#notice');
+    if (state.day > today.dayNo) {
+      notice.hidden = false;
+      notice.textContent = '这是尚未到来的练习日。你可以提前查看题目，但答案将在对应日期晚间开放。';
+    } else if (cycleNum(state.day) > 1) {
+      notice.hidden = false;
+      notice.textContent = `第 ${cycleNum(state.day)} 轮 · 间隔复习。与第 ${(state.day-1)%50+1} 天使用相同题目，尝试不看答案重新完成。`;
+    } else notice.hidden = true;
+
+    const selector = $('#problemSelector');
+    selector.replaceChildren();
+    pair.forEach((id,i) => {
+      const p = curriculum.problems[id];
+      const b = h('button',{className:'problem-choice'+(state.problem===i?' active':''),type:'button',role:'tab','aria-selected':state.problem===i?'true':'false'});
+      b.append(h('span',{className:'problem-number',text:String(id)}),h('span',{},[
+        h('b',{text:p.title}),h('small',{text:`题目 ${i+1} · ${p.difficulty} · ${p.topic}`})
+      ]));
+      b.addEventListener('click',()=>switchProblem(i));
+      selector.append(b);
+    });
+    $('#questionTab').classList.toggle('selected', state.mode==='question');
+    $('#answerTab').classList.toggle('selected', state.mode==='answer');
+    $('#questionTab').setAttribute('aria-selected',String(state.mode==='question'));
+    $('#answerTab').setAttribute('aria-selected',String(state.mode==='answer'));
+  }
+  function published(day) {
+    const now = shanghaiNow();
+    return (day < now.dayNo) || (day === now.dayNo && now.minuteOfDay >= 19*60);
+  }
+  function renderDetail() {
+    const p = question(state.day,state.problem);
+    const detail = $('#detail');
+    detail.replaceChildren();
+    const body = h('div',{className:'detail-body'});
+    const titleRow=h('div',{className:'problem-title-row'});
+    const titleBlock=h('div');
+    titleBlock.append(h('h3',{text:`${p.id}. ${p.title}`}),h('div',{className:'tags'},[
+      h('span',{className:'tag '+(p.difficulty==='简单'?'easy':'medium'),text:p.difficulty}),
+      h('span',{className:'tag',text:p.topic}),
+      h('span',{className:'tag',text:'C++17'})
+    ]));
+    titleRow.append(titleBlock,h('a',{className:'official',href:`https://leetcode.cn/problems/${p.slug}/`,target:'_blank',rel:'noopener noreferrer',text:'打开 LeetCode ↗'}));
+    body.append(titleRow);
+    if (state.mode === 'question') {
+      body.append(h('p',{className:'summary',text:p.summary}),h('h4',{text:'💡 渐进提示（点击展开）'}));
+      const hints=h('div',{className:'hint-list'});
+      p.hints.forEach((hint,i)=>{
+        const box=h('div',{className:'hint'});
+        const d=h('details');
+        d.append(h('summary',{text:`提示 ${i+1} · ${i===0?'先想方向':'再进一步'}`}),h('p',{text:hint}));
+        box.append(d);hints.append(box);
+      });
+      body.append(hints);
+      const done=isDone(state.day,p.id);
+      const action=h('div',{className:'action-line'});
+      action.append(h('button',{className:'completion'+(done?' done':''),text:done?'✓ 已完成 · 点击撤销':'✓ 标记这道题已完成',type:'button',onClick:()=>{
+        safeStoreSet(doneKey(state.day,p.id),done?'no':'yes');render();
+      }}));
+      action.append(h('span',{className:'small-muted',text:'建议先独立完成，再看晚间解析'}));
+      body.append(action);
+      $('#publishNote').textContent = '08:00 出题 · 19:00 解析';
+    } else {
+      if (!published(state.day)) {
+        const lock=h('div',{className:'locked'});
+        lock.append(h('div',{className:'lock-icon',text:'🔒'}),h('h4',{text:'答案将在当天 19:00（北京时间）开放'}),h('p',{text:'先完成早间练习，晚上再来核对解法。'}));
+        body.append(lock);
+      } else {
+        const s=solutionDb.solutions[String(p.id)];
+        if (!s) {
+          const pending=h('div',{className:'locked'});
+          pending.append(h('div',{className:'lock-icon',text:'☁'}),h('h4',{text:'本题解析尚未发布'}),h('p',{text:'部署 GitHub Actions 自动生成流程后，晚间会自动写入 C++17 解析；也可手动补充到 data/solutions.json。'}));
+          body.append(pending);
+        } else {
+          body.append(h('h4',{text:'为什么这样做？'}),h('div',{className:'ideabox',text:s.idea}),h('h4',{text:'C++17 可提交代码'}));
+          const head=h('div',{className:'code-head'},[
+            h('span',{text:'solution.cpp · C++17'}),
+            h('button',{className:'copy',text:'复制代码',type:'button',onClick:async()=>{
+              try { await navigator.clipboard.writeText(s.code);head.lastChild.textContent='✓ 已复制';setTimeout(()=>head.lastChild.textContent='复制代码',1500); }
+              catch { const ta=h('textarea');ta.value=s.code;document.body.append(ta);ta.select();document.execCommand('copy');ta.remove();head.lastChild.textContent='✓ 已复制'; }
+            }})
+          ]);
+          const pre=h('pre',{className:'code-block'});pre.append(h('code',{text:s.code}));
+          body.append(head,pre,h('p',{className:'tipline'},[h('strong',{text:'复杂度：'}),document.createTextNode(s.complexity)]),h('p',{className:'tipline'},[h('strong',{text:'易错点：'}),document.createTextNode(s.pitfall)]));
+          if(s.alternative) body.append(h('p',{className:'tipline'},[h('strong',{text:'其他思路：'}),document.createTextNode(s.alternative)]));
+        }
+      }
+      $('#publishNote').textContent = published(state.day)?'已到解锁时间':'今晚 19:00 解锁';
+    }
+    detail.append(body);
+  }
+  function renderNotes(){ $('#userNote').value=safeStoreGet(noteKey(state.day));$('#savedNote').textContent='自动保存在本机浏览器'; }
+  function renderUrl(){
+    try {
+      const url=new URL(location.href);
+      url.searchParams.set('day',String(state.day));
+      url.searchParams.set('id',String(question(state.day,state.problem).id));
+      url.searchParams.set('mode',state.mode);
+      history.replaceState(null,'',url);
+    } catch { /* no URL history */ }
+  }
+  function render(){if(!curriculum)return;renderHead();renderDetail();renderNotes();renderArchive();renderUrl();}
+  async function refreshAnswers(){
+    if(window.__SOLUTIONS__) return;
+    try {
+      const res=await fetch(`data/solutions.json?t=${Date.now()}`,{cache:'no-store'});
+      if(!res.ok) return;
+      solutionDb=await res.json();
+      if(state.mode==='answer') renderDetail();
+    } catch { /* temporarily offline */ }
+  }
+  async function init(){
+    try {
+      [curriculum,solutionDb]=await Promise.all([
+        window.__CURRICULUM__ ? Promise.resolve(window.__CURRICULUM__) : fetch('data/curriculum.json').then(r=>{if(!r.ok)throw Error('无法读取 curriculum.json');return r.json()}),
+        window.__SOLUTIONS__ ? Promise.resolve(window.__SOLUTIONS__) : fetch('data/solutions.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('无法读取 solutions.json');return r.json()})
+      ]);
+      const now=shanghaiNow(), params=new URLSearchParams(location.search);
+      const rawDay=Number(params.get('day'));
+      state.day=Number.isInteger(rawDay)&&rawDay>0?Math.min(rawDay,Math.max(now.dayNo,50)):now.dayNo;
+      const requestedId=Number(params.get('id'));
+      state.problem=pairForDay(state.day).indexOf(requestedId)===1?1:0;
+      state.mode=params.get('mode')==='answer'?'answer':'question';
+      state.followToday=state.day===now.dayNo;
+      $('#goToday').addEventListener('click',()=>switchDay(shanghaiNow().dayNo));
+      $('#todayTop').addEventListener('click',()=>switchDay(shanghaiNow().dayNo));
+      $('#archiveToggle').addEventListener('click',()=>$('#sidebar').classList.contains('open')?closeNav():openNav());
+      document.addEventListener('click',(e)=>{if(document.body.classList.contains('nav-open') && !e.target.closest('#sidebar') && !e.target.closest('#archiveToggle')) closeNav();});
+      $('#prevDay').addEventListener('click',()=>switchDay(state.day-1));
+      $('#nextDay').addEventListener('click',()=>switchDay(state.day+1));
+      $('#questionTab').addEventListener('click',()=>switchMode('question'));
+      $('#answerTab').addEventListener('click',()=>switchMode('answer'));
+      $('#daySearch').addEventListener('input',e=>{state.search=e.target.value;renderArchive();});
+      $('#userNote').addEventListener('input',e=>{safeStoreSet(noteKey(state.day),e.target.value);$('#savedNote').textContent='已自动保存 ✓';});
+      render();
+      let lastDay=now.dayNo,lastEvening=now.minuteOfDay>=19*60;
+      setInterval(()=>{
+        const current=shanghaiNow(),evening=current.minuteOfDay>=19*60;
+        if(current.dayNo!==lastDay){if(state.followToday)state.day=current.dayNo;lastDay=current.dayNo;render();}
+        if(evening!==lastEvening){lastEvening=evening;refreshAnswers();render();}
+      },60000);
+    } catch(err){
+      console.error(err);
+      $('#detail').replaceChildren(h('div',{className:'loading',text:'数据加载失败。请通过 HTTP 服务器打开网页，或使用离线预览 HTML。'}));
+    }
+  }
+  init();
+})();
+</script>
+</body>
+</html>
