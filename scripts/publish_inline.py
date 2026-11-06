@@ -68,7 +68,7 @@ def generate(problem):
     obj = json.loads(response["choices"][0]["message"]["content"])
     if not all(isinstance(obj.get(k), str) and obj[k].strip() for k in keys[:4]):
         raise RuntimeError("Generated explanation is incomplete")
-    if not re.search(r"\\bclass\\s+" + re.escape(class_name) + r"\\b", obj["code"]):
+    if not re.search(r"\bclass\s+" + re.escape(class_name) + r"\b", obj["code"]):
         raise RuntimeError("Generated C++ does not declare expected class")
     if "```" in obj["code"]:
         raise RuntimeError("Generated code contains Markdown fences")
