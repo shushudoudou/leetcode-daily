@@ -13,6 +13,7 @@
 @media(max-width:790px){.layout{display:block}.sidebar{position:fixed;left:0;top:0;height:100dvh;width:min(310px,87vw);transform:translateX(-110%);transition:transform .2s;box-shadow:10px 0 50px #0008}.sidebar.open{transform:translateX(0)}body.nav-open:after{content:"";position:fixed;inset:0;background:#0009;z-index:8}.main{padding:0 19px}.topbar{height:68px}.topbar-sub{display:none}.mobile-brand{display:flex}.top-actions .ghost-button:last-child{display:none}.hero{padding:34px 0}.hero h1{font-size:34px}.hero-stat{display:none}.hero p{font-size:12px}.study{margin-top:27px}.selector{gap:8px}.problem-choice{padding:10px}.problem-number{width:35px;height:35px;font-size:12px}.problem-choice b{font-size:11px}.problem-choice small{font-size:10px}.content-card-head{padding:13px 14px;flex-wrap:wrap}.detail-body{padding:18px 16px 23px}.study-header h2{font-size:22px}.problem-title-row h3{font-size:20px}.footer{flex-direction:column}.hero-pills{gap:5px}.hero-pills span{font-size:10px}}
 @media(max-width:390px){.main{padding:0 12px}.selector{grid-template-columns:1fr}.problem-choice{padding:9px 12px}.study-header h2{font-size:20px}.segmented button{padding:7px 12px}.content-card-head{padding:11px}.date-controls button{width:34px;height:34px}}
 .example-card{margin:17px 0 22px;padding:16px 18px;border:1px solid #2c4664;border-radius:14px;background:#111e33}.example-label{color:#91e7d1;font-size:13px;font-weight:750;margin-bottom:12px;letter-spacing:.3px}.example-row{display:grid;grid-template-columns:42px minmax(0,1fr);gap:10px;align-items:start;margin:9px 0}.example-key{color:#9eacc5;font-size:12px;font-weight:700;padding-top:4px}.example-value{font:12.5px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;margin:0;color:#e9f3ff;white-space:pre-wrap;overflow-wrap:anywhere;min-width:0}.example-note{font-size:12.5px;color:#aebbd0;line-height:1.65;margin:12px 0 0;border-top:1px solid #263851;padding-top:10px}@media(max-width:480px){.example-card{padding:12px 14px}.example-row{grid-template-columns:36px minmax(0,1fr)}}
+.ideabox{white-space:pre-line;line-height:1.85}.pattern-box{margin-top:16px;padding:14px 16px;background:#12322e;border-left:3px solid #56e2c2;border-radius:8px;color:#c5f4e8;font-size:13.5px;line-height:1.7}
 </style>
 </head>
 <body>
@@ -1978,172 +1979,196 @@
 };window.__SOLUTIONS__={
   "solutions": {
     "1": {
-      "idea": "把寻找两个数转为寻找 target − 当前值。遍历数组时，用哈希表保存之前出现过的数及其下标。先查询补数是否存在，再插入当前元素，避免重复使用同一下标。",
-      "code": "#include <vector>\n#include <unordered_map>\nusing namespace std;\nclass Solution {\npublic:\n    vector<int> twoSum(vector<int>& nums, int target) {\n        unordered_map<int,int> pos;\n        for (int i = 0; i < (int)nums.size(); ++i) {\n            auto it = pos.find(target - nums[i]);\n            if (it != pos.end()) return {it->second, i};\n            pos[nums[i]] = i;\n        }\n        return {};\n    }\n};",
+      "idea": "暴力枚举两个下标需要 O(n²)，但题目只要求找到一组答案，可以把“找两个数”变为“查一个补数”。遍历到 nums[i] 时，先计算 target−nums[i]，再用哈希表判断这个数是否在之前出现过。若找到，哈希表保存的下标与 i 就是一组合法解；否则才记录当前数字和下标。先查询后插入可保证不会重复使用同一个元素，这也是单次扫描正确的关键。",
+      "code": "#include \u003cvector>\n#include \u003cunordered_map>\nusing namespace std;\nclass Solution {\npublic:\n    vector\u003cint> twoSum(vector\u003cint>& nums, int target) {\n        unordered_map\u003cint,int> pos;\n        for (int i = 0; i \u003c (int)nums.size(); ++i) {\n            auto it = pos.find(target - nums[i]);\n            if (it != pos.end()) return {it->second, i};\n            pos[nums[i]] = i;\n        }\n        return {};\n    }\n};",
       "complexity": "平均 O(n) 时间 / O(n) 空间",
       "pitfall": "先查再存，才能避免同一下标使用两次。",
-      "alternative": "双层循环枚举，O(n²)。"
-    },
-    "242": {
-      "idea": "字母异位词必须具有相同的字符及频次。两个字符串长度不一致时直接返回 false。仅包含小写英文字母，可用 26 个计数槽：遍历 s 加一、遍历 t 减一，最后全部为零则匹配。",
-      "code": "#include <string>\n#include <array>\nusing namespace std;\nclass Solution {\npublic:\n    bool isAnagram(string s, string t) {\n        if (s.size() != t.size()) return false;\n        array<int,26> cnt{};\n        for (int i = 0; i < (int)s.size(); ++i) {\n            ++cnt[s[i]-'a'];\n            --cnt[t[i]-'a'];\n        }\n        for (int x : cnt) if (x != 0) return false;\n        return true;\n    }\n};",
-      "complexity": "O(n) 时间 / O(1) 空间",
-      "pitfall": "不能只判断字符种类，要判断出现次数。",
-      "alternative": "排序后比较，O(n log n)。"
-    },
-    "49": {
-      "idea": "异位词在排序后具有相同的规范形式。对每个字符串复制并排序，作为哈希表 key，把原始字符串追加到相同 key 的分组。最后输出所有分组即可。",
-      "code": "#include <vector>\n#include <string>\n#include <unordered_map>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    vector<vector<string>> groupAnagrams(vector<string>& strs) {\n        unordered_map<string, vector<string>> groups;\n        for (const string& s : strs) {\n            string key = s;\n            sort(key.begin(), key.end());\n            groups[key].push_back(s);\n        }\n        vector<vector<string>> ans;\n        for (auto& kv : groups) ans.push_back(kv.second);\n        return ans;\n    }\n};",
-      "complexity": "O(NK log K) 时间 / O(NK) 空间",
-      "pitfall": "要存原字符串而不是排序后的 key；分组顺序无需固定。",
-      "alternative": "用 26 个字符频次生成 key，可达 O(NK)。"
-    },
-    "128": {
-      "idea": "使用哈希集合去重并实现平均 O(1) 查找。只有当 x−1 不在集合中时，才从 x 向右寻找连续序列；这样每段序列只扫描一次。不断更新最长长度。",
-      "code": "#include <vector>\n#include <unordered_set>\n#include <algorithm>\n#include <climits>\nusing namespace std;\nclass Solution {\npublic:\n    int longestConsecutive(vector<int>& nums) {\n        unordered_set<int> st(nums.begin(),nums.end());\n        int best=0;\n        for (int x:st) {\n            if (x!=INT_MIN && st.count(x-1)) continue;\n            int cur=x, len=1;\n            while (cur!=INT_MAX && st.count(cur+1)) {\n                ++cur;\n                ++len;\n            }\n            best=max(best,len);\n        }\n        return best;\n    }\n};",
-      "complexity": "平均 O(n) 时间 / O(n) 空间",
-      "pitfall": "只从序列起点扩展；处理 INT_MIN、INT_MAX 避免溢出。",
-      "alternative": "排序并扫描，O(n log n)。"
-    },
-    "283": {
-      "idea": "快指针扫描所有元素，慢指针指向下一个非零元素应该放置的位置。发现非零元素时，与慢指针位置交换并将慢指针加一。处理好的前缀始终保持非零元素的原有顺序。",
-      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    void moveZeroes(vector<int>& nums) {\n        int slow=0;\n        for (int fast=0;fast<(int)nums.size();++fast) {\n            if (nums[fast]!=0) {\n                if (slow!=fast) swap(nums[slow],nums[fast]);\n                ++slow;\n            }\n        }\n    }\n};",
-      "complexity": "O(n) 时间 / O(1) 空间",
-      "pitfall": "不能直接删除 0 再插入末尾，否则可能退化为 O(n²)。",
-      "alternative": "覆盖非零元素后统一补零。"
-    },
-    "11": {
-      "idea": "面积由宽度乘以两边较小高度决定。左右指针从两端开始，每轮更新最大面积，并向内移动较短的一侧。因为保持短边不变只会缩小宽度，不可能得到更大的面积。",
-      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    int maxArea(vector<int>& height) {\n        int l=0,r=(int)height.size()-1,best=0;\n        while(l<r) {\n            best=max(best,(r-l)*min(height[l],height[r]));\n            if(height[l]<height[r]) ++l;\n            else --r;\n        }\n        return best;\n    }\n};",
-      "complexity": "O(n) 时间 / O(1) 空间",
-      "pitfall": "移动短边；不要先移动指针再计算面积。",
-      "alternative": "暴力枚举两条线，O(n²)。"
-    },
-    "15": {
-      "idea": "先排序，固定第一个数，将问题降维为寻找其余两数之和。左右指针利用单调性移动：总和小于 0 则左移右界的相反方向（增大左值），大于 0 则右界向左。找到一组三元组后，跳过连续重复值。",
-      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    vector<vector<int>> threeSum(vector<int>& nums) {\n        sort(nums.begin(),nums.end());\n        vector<vector<int>> ans;\n        int n=nums.size();\n        for(int i=0;i+2<n;++i) {\n            if(i>0 && nums[i]==nums[i-1]) continue;\n            if(nums[i]>0) break;\n            int l=i+1,r=n-1;\n            while(l<r) {\n                int s=nums[i]+nums[l]+nums[r];\n                if(s<0) ++l;\n                else if(s>0) --r;\n                else {\n                    ans.push_back({nums[i],nums[l],nums[r]});\n                    ++l;--r;\n                    while(l<r && nums[l]==nums[l-1]) ++l;\n                    while(l<r && nums[r]==nums[r+1]) --r;\n                }\n            }\n        }\n        return ans;\n    }\n};",
-      "complexity": "O(n²) 时间 / 排序 O(log n) 栈空间（结果另计）",
-      "pitfall": "固定数字和左右两侧都需去重；[0,0,0] 是合法答案。",
-      "alternative": "固定一个数 + 哈希集合，去重相对繁琐。"
-    },
-    "125": {
-      "idea": "两个指针从字符串两端向中间移动。遇到非字母数字字符就跳过，将两个有效字符转换成小写后比较。任意一对不同即可返回 false；指针相遇则为回文。",
-      "code": "#include <string>\n#include <cctype>\nusing namespace std;\nclass Solution {\npublic:\n    bool isPalindrome(string s) {\n        int l=0,r=(int)s.size()-1;\n        while(l<r) {\n            while(l<r && !isalnum((unsigned char)s[l])) ++l;\n            while(l<r && !isalnum((unsigned char)s[r])) --r;\n            if(tolower((unsigned char)s[l])!=tolower((unsigned char)s[r])) return false;\n            ++l;--r;\n        }\n        return true;\n    }\n};",
-      "complexity": "O(n) 时间 / O(1) 空间",
-      "pitfall": "不要只过滤空格，还需忽略标点；cctype 函数传 unsigned char 更安全。",
-      "alternative": "先构建净化字符串再反转比较，O(n) 空间。"
+      "alternative": "双层循环枚举，O(n²)。",
+      "pattern": "哈希查询：遇到“查找另一半”先考虑补数映射；查询要在插入前。"
     },
     "3": {
-      "idea": "维护不含重复字符的可变窗口。右指针遍历，记录每个字节上次出现的下标；遇到重复时把左边界移动到上次位置后一位，但绝不能后退。不断更新最大窗口长度。",
-      "code": "#include <string>\n#include <array>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    int lengthOfLongestSubstring(string s) {\n        array<int,256> last;\n        last.fill(-1);\n        int l=0,best=0;\n        for(int r=0;r<(int)s.size();++r) {\n            unsigned char c=s[r];\n            l=max(l,last[c]+1);\n            last[c]=r;\n            best=max(best,r-l+1);\n        }\n        return best;\n    }\n};",
+      "idea": "“最长连续子串”意味着不能随意跳过字符，“无重复”则为窗口提供了收缩条件。右指针逐个加入字符，同时记录每个字符上次出现的位置。当该字符上次出现位置仍在当前窗口内时，将左边界直接跳到那个位置的下一格。左边界只能右移不能回退；每轮更新右边界与左边界之间的窗口长度，就可在线性时间得到答案。",
+      "code": "#include \u003cstring>\n#include \u003carray>\n#include \u003calgorithm>\nusing namespace std;\nclass Solution {\npublic:\n    int lengthOfLongestSubstring(string s) {\n        array\u003cint,256> last;\n        last.fill(-1);\n        int l=0,best=0;\n        for(int r=0;r\u003c(int)s.size();++r) {\n            unsigned char c=s[r];\n            l=max(l,last[c]+1);\n            last[c]=r;\n            best=max(best,r-l+1);\n        }\n        return best;\n    }\n};",
       "complexity": "O(n) 时间 / O(1) 空间",
       "pitfall": "用 max 保证左边界不回退，例如 abba。",
-      "alternative": "用 unordered_set 逐步缩窗，也能平均 O(n)。"
+      "alternative": "用 unordered_set 逐步缩窗，也能平均 O(n)。",
+      "pattern": "可变窗口：右端逐步加入元素，左端单调移动以恢复合法性。"
     },
-    "438": {
-      "idea": "目标串长度就是固定窗口长度。统计 p 的 26 字母频次，扫描 s 时把新字符加入计数，窗口超长时移除最左字符。窗口长度达标且计数与目标一致时记录起点。",
-      "code": "#include <vector>\n#include <string>\n#include <array>\nusing namespace std;\nclass Solution {\npublic:\n    vector<int> findAnagrams(string s,string p) {\n        int n=s.size(),m=p.size();\n        vector<int> ans;\n        if(m>n) return ans;\n        array<int,26> need{},win{};\n        for(char c:p) ++need[c-'a'];\n        for(int r=0;r<n;++r) {\n            ++win[s[r]-'a'];\n            if(r>=m) --win[s[r-m]-'a'];\n            if(r>=m-1 && win==need) ans.push_back(r-m+1);\n        }\n        return ans;\n    }\n};",
-      "complexity": "O(n+m) 时间 / O(1) 空间（输出另计）",
-      "pitfall": "窗口未达到 p 的长度时不能比较；统计频次而不只是字符是否存在。",
-      "alternative": "维护差分计数的非零槽数可减少常数。"
-    },
-    "209": {
-      "idea": "数组全是正数，因此右边界扩大时区间和只增，左边界收缩时只减。逐步扩大窗口；当和达到 target 时，记录长度并不断尝试收缩，以获得最短区间。",
-      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    int minSubArrayLen(int target,vector<int>& nums) {\n        int l=0,sum=0,ans=(int)nums.size()+1;\n        for(int r=0;r<(int)nums.size();++r) {\n            sum+=nums[r];\n            while(sum>=target) {\n                ans=min(ans,r-l+1);\n                sum-=nums[l++];\n            }\n        }\n        return ans==(int)nums.size()+1?0:ans;\n    }\n};",
+    "11": {
+      "idea": "选定左右两条线之后，容器面积是“指针间距 × 两条线的较小高度”。如果短边不动而移动长边，宽度只会变小，容器高度仍受短边限制，因此面积不可能变大。这就说明每一步可以安全地舍弃较短边，而不需要枚举所有组合。双指针从最外侧开始，先计算当前面积并更新答案，再移动较短的一侧，最终在线性时间内找到最大面积。",
+      "code": "#include \u003cvector>\n#include \u003calgorithm>\nusing namespace std;\nclass Solution {\npublic:\n    int maxArea(vector\u003cint>& height) {\n        int l=0,r=(int)height.size()-1,best=0;\n        while(l\u003cr) {\n            best=max(best,(r-l)*min(height[l],height[r]));\n            if(height[l]\u003cheight[r]) ++l;\n            else --r;\n        }\n        return best;\n    }\n};",
       "complexity": "O(n) 时间 / O(1) 空间",
-      "pitfall": "达到 target 后必须 while 收缩；依赖所有元素为正。",
-      "alternative": "前缀和 + 二分，O(n log n)。"
+      "pitfall": "移动短边；不要先移动指针再计算面积。",
+      "alternative": "暴力枚举两条线，O(n²)。",
+      "pattern": "相向双指针 + 贪心排除：用无法改善的上界证明移动哪一端。"
     },
-    "560": {
-      "idea": "负数和零使区间和不具备滑动窗口所需的单调性。若当前前缀和为 s，之前出现一次 s−k 就构成一个合法子数组；出现多次就对应多个答案。哈希表存各前缀和出现次数，先统计再记录当前前缀和。",
-      "code": "#include <vector>\n#include <unordered_map>\nusing namespace std;\nclass Solution {\npublic:\n    int subarraySum(vector<int>& nums,int k) {\n        unordered_map<int,int> cnt;\n        cnt[0]=1;\n        int sum=0,ans=0;\n        for(int x:nums) {\n            sum+=x;\n            auto it=cnt.find(sum-k);\n            if(it!=cnt.end()) ans+=it->second;\n            ++cnt[sum];\n        }\n        return ans;\n    }\n};",
-      "complexity": "平均 O(n) 时间 / O(n) 空间",
-      "pitfall": "空前缀 cnt[0]=1 不可省；一定先查询后插入。",
-      "alternative": "前缀和 + 双层枚举，O(n²)。"
-    },
-    "53": {
-      "idea": "以当前位置结尾的最大子数组，要么接到前一个最优子数组后面，要么从当前元素重新开始。状态 cur=max(x,cur+x)，同时以 ans 维护扫描至今的全局最大值。",
-      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    int maxSubArray(vector<int>& nums) {\n        int cur=nums[0],ans=nums[0];\n        for(int i=1;i<(int)nums.size();++i) {\n            cur=max(nums[i],cur+nums[i]);\n            ans=max(ans,cur);\n        }\n        return ans;\n    }\n};",
-      "complexity": "O(n) 时间 / O(1) 空间",
-      "pitfall": "全负数时答案也可能为负；不要初始化 ans=0。",
-      "alternative": "前缀和减历史最小前缀和。"
-    },
-    "121": {
-      "idea": "固定今天为卖出日时，最优买入日是此前价格最低的一天。因此一次遍历维护 minPrice，同时计算当天卖出的潜在利润并更新 ans。最大利润初始为 0，允许不交易。",
-      "code": "#include <vector>\n#include <algorithm>\n#include <climits>\nusing namespace std;\nclass Solution {\npublic:\n    int maxProfit(vector<int>& prices) {\n        int low=INT_MAX,ans=0;\n        for(int p:prices) {\n            low=min(low,p);\n            ans=max(ans,p-low);\n        }\n        return ans;\n    }\n};",
-      "complexity": "O(n) 时间 / O(1) 空间",
-      "pitfall": "持续跌价应返回 0；买入日必须早于卖出日。",
-      "alternative": "把相邻价格差转化为最大子数组和。"
-    },
-    "238": {
-      "idea": "不使用除法，将每个位置的答案拆成左侧所有数的积乘以右侧所有数的积。先从左到右将左积写入输出，再从右到左维护右积乘到输出。两个方向都必须先用积再更新积，保证排除自己。",
-      "code": "#include <vector>\nusing namespace std;\nclass Solution {\npublic:\n    vector<int> productExceptSelf(vector<int>& nums) {\n        int n=nums.size();\n        vector<int> ans(n,1);\n        int left=1;\n        for(int i=0;i<n;++i) {\n            ans[i]=left;\n            left*=nums[i];\n        }\n        int right=1;\n        for(int i=n-1;i>=0;--i) {\n            ans[i]*=right;\n            right*=nums[i];\n        }\n        return ans;\n    }\n};",
-      "complexity": "O(n) 时间 / O(1) 额外空间（输出另计）",
-      "pitfall": "包含零仍然正确；不要在写入当前答案前将自己乘进去。",
-      "alternative": "两个独立的前后缀数组，O(n) 额外空间。"
-    },
-    "189": {
-      "idea": "向右轮转 k 位等价于把最后 k 个元素挪到最前面。先对 k 取模，再整体翻转、翻转前 k 个、翻转剩余部分，就能恢复两段内部顺序并交换位置。",
-      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    void rotate(vector<int>& nums,int k) {\n        int n=nums.size();\n        if(n==0) return;\n        k%=n;\n        reverse(nums.begin(),nums.end());\n        reverse(nums.begin(),nums.begin()+k);\n        reverse(nums.begin()+k,nums.end());\n    }\n};",
-      "complexity": "O(n) 时间 / O(1) 空间",
-      "pitfall": "先判断 n=0，避免对零取模；k 可以超过 n。",
-      "alternative": "额外数组按新下标放置，O(n) 空间。"
-    },
-    "56": {
-      "idea": "输入区间不一定有序。先按起点排序，再从左到右扫描；当前区间与结果最后一个区间重叠时，更新其右端点为两个终点的较大值，否则直接添加新区间。",
-      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    vector<vector<int>> merge(vector<vector<int>>& intervals) {\n        sort(intervals.begin(),intervals.end());\n        vector<vector<int>> ans;\n        for(const auto& x:intervals) {\n            if(ans.empty() || x[0]>ans.back()[1]) ans.push_back(x);\n            else ans.back()[1]=max(ans.back()[1],x[1]);\n        }\n        return ans;\n    }\n};",
-      "complexity": "O(n log n) 时间 / O(n) 输出空间",
-      "pitfall": "端点相等也算重叠；包含关系时右端点取 max。",
-      "alternative": "先把端点扫描转换为事件也可合并。"
-    },
-    "57": {
-      "idea": "原有区间有序且互不重叠，因此不必排序。先加入完全在新区间左侧的区间，再用 min/max 合并所有与新区间重叠的区间。最后加入合并结果及其余右侧区间。",
-      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    vector<vector<int>> insert(vector<vector<int>>& intervals,vector<int>& newInterval) {\n        vector<vector<int>> ans;\n        int i=0,n=intervals.size();\n        while(i<n && intervals[i][1]<newInterval[0]) ans.push_back(intervals[i++]);\n        while(i<n && intervals[i][0]<=newInterval[1]) {\n            newInterval[0]=min(newInterval[0],intervals[i][0]);\n            newInterval[1]=max(newInterval[1],intervals[i][1]);\n            ++i;\n        }\n        ans.push_back(newInterval);\n        while(i<n) ans.push_back(intervals[i++]);\n        return ans;\n    }\n};",
-      "complexity": "O(n) 时间 / O(n) 输出空间",
-      "pitfall": "合并时右边界可能扩大；此实现会修改 newInterval。",
-      "alternative": "加入新区间后套用第 56 题，O(n log n)。"
-    },
-    "73": {
-      "idea": "立即清空含零的行列会把新零当作原始零，导致污染。利用首行、首列保存内部的置零标记，另外用两个布尔变量记住首行首列原本是否含零。先依据标记处理内部，最后处理首行首列。",
-      "code": "#include <vector>\nusing namespace std;\nclass Solution {\npublic:\n    void setZeroes(vector<vector<int>>& a) {\n        int m=a.size(),n=a[0].size();\n        bool row=false,col=false;\n        for(int j=0;j<n;++j) if(a[0][j]==0) row=true;\n        for(int i=0;i<m;++i) if(a[i][0]==0) col=true;\n        for(int i=1;i<m;++i)\n            for(int j=1;j<n;++j)\n                if(a[i][j]==0) a[i][0]=a[0][j]=0;\n        for(int i=1;i<m;++i)\n            for(int j=1;j<n;++j)\n                if(a[i][0]==0 || a[0][j]==0) a[i][j]=0;\n        if(row) for(int j=0;j<n;++j) a[0][j]=0;\n        if(col) for(int i=0;i<m;++i) a[i][0]=0;\n    }\n};",
-      "complexity": "O(mn) 时间 / O(1) 空间",
-      "pitfall": "先完成内部置零，再修改首行首列，否则标记会被破坏。",
-      "alternative": "两个布尔数组标记行列，O(m+n) 空间。"
-    },
-    "54": {
-      "idea": "维护尚未访问的 top、bottom、left、right 四条边界。按上边、右边、下边、左边依次遍历；每完成一条边就收缩对应边界。处理下边和左边时要检查边界是否仍然有效，避免单行单列重复访问。",
-      "code": "#include <vector>\nusing namespace std;\nclass Solution {\npublic:\n    vector<int> spiralOrder(vector<vector<int>>& a) {\n        int m=a.size(),n=a[0].size();\n        int top=0,bot=m-1,left=0,right=n-1;\n        vector<int> ans;\n        while(top<=bot && left<=right) {\n            for(int j=left;j<=right;++j) ans.push_back(a[top][j]);\n            ++top;\n            for(int i=top;i<=bot;++i) ans.push_back(a[i][right]);\n            --right;\n            if(top<=bot) {\n                for(int j=right;j>=left;--j) ans.push_back(a[bot][j]);\n                --bot;\n            }\n            if(left<=right) {\n                for(int i=bot;i>=top;--i) ans.push_back(a[i][left]);\n                ++left;\n            }\n        }\n        return ans;\n    }\n};",
-      "complexity": "O(mn) 时间 / O(1) 额外空间（输出另计）",
-      "pitfall": "单行和单列需检查边界，防止重复读取。",
-      "alternative": "方向数组 + 访问标记，O(mn) 空间。"
+    "15": {
+      "idea": "三数之和既要找到和为零的三元组，又要避免相同三元组重复出现，因此先排序让数字有序且相同元素相邻。枚举第一个数 nums[i]，剩余问题就变成在右侧寻找两数之和等于 −nums[i]。左右指针根据总和与零的比较移动：过小则左指针右移，过大则右指针左移；等于零时记录答案并跳过重复值。固定数本身也需要去重，确保同一个数值组合只出现一次。",
+      "code": "#include \u003cvector>\n#include \u003calgorithm>\nusing namespace std;\nclass Solution {\npublic:\n    vector\u003cvector\u003cint>> threeSum(vector\u003cint>& nums) {\n        sort(nums.begin(),nums.end());\n        vector\u003cvector\u003cint>> ans;\n        int n=nums.size();\n        for(int i=0;i+2\u003cn;++i) {\n            if(i>0 && nums[i]==nums[i-1]) continue;\n            if(nums[i]>0) break;\n            int l=i+1,r=n-1;\n            while(l\u003cr) {\n                int s=nums[i]+nums[l]+nums[r];\n                if(s\u003c0) ++l;\n                else if(s>0) --r;\n                else {\n                    ans.push_back({nums[i],nums[l],nums[r]});\n                    ++l;--r;\n                    while(l\u003cr && nums[l]==nums[l-1]) ++l;\n                    while(l\u003cr && nums[r]==nums[r+1]) --r;\n                }\n            }\n        }\n        return ans;\n    }\n};",
+      "complexity": "O(n²) 时间 / 排序 O(log n) 栈空间（结果另计）",
+      "pitfall": "固定数字和左右两侧都需去重；[0,0,0] 是合法答案。",
+      "alternative": "固定一个数 + 哈希集合，去重相对繁琐。",
+      "pattern": "排序降维：固定一个数字后，用有序双指针解决两数求和并去重。"
     },
     "48": {
-      "idea": "顺时针旋转 90° 对应坐标 (i,j)→(j,n−1−i)。将旋转拆为主对角线转置再逐行反转，两步仅在原矩阵内交换元素，不需额外二维矩阵。",
-      "code": "#include <vector>\n#include <algorithm>\nusing namespace std;\nclass Solution {\npublic:\n    void rotate(vector<vector<int>>& a) {\n        int n=a.size();\n        for(int i=0;i<n;++i)\n            for(int j=i+1;j<n;++j)\n                swap(a[i][j],a[j][i]);\n        for(auto& row:a) reverse(row.begin(),row.end());\n    }\n};",
+      "idea": "顺时针旋转 90° 时，原坐标 (i,j) 对应新坐标 (j,n−1−i)，直接按映射写入会覆盖尚未处理的元素。可以将这一变化拆成两种不会覆盖数据的交换操作：先沿主对角线转置，再将每一行左右反转。转置时只访问对角线上方的元素并交换对称位置，否则可能交换两次恢复原状。两步都发生在原矩阵内部，满足题目要求的 O(1) 额外空间。",
+      "code": "#include \u003cvector>\n#include \u003calgorithm>\nusing namespace std;\nclass Solution {\npublic:\n    void rotate(vector\u003cvector\u003cint>>& a) {\n        int n=a.size();\n        for(int i=0;i\u003cn;++i)\n            for(int j=i+1;j\u003cn;++j)\n                swap(a[i][j],a[j][i]);\n        for(auto& row:a) reverse(row.begin(),row.end());\n    }\n};",
       "complexity": "O(n²) 时间 / O(1) 空间",
       "pitfall": "转置只遍历对角线上方；顺时针是逐行翻转。",
-      "alternative": "按矩阵层四点循环交换。"
+      "alternative": "按矩阵层四点循环交换。",
+      "pattern": "矩阵坐标变换：将复杂旋转拆成转置和镜像翻转。"
     },
-    "240": {
-      "idea": "从右上角出发，左移数字变小、下移数字变大。如果当前值大于目标，当前列下面元素都不可能匹配，左移；反之排除当前行并下移。每次移除一整行或一整列。",
-      "code": "#include <vector>\nusing namespace std;\nclass Solution {\npublic:\n    bool searchMatrix(vector<vector<int>>& a,int target) {\n        if(a.empty() || a[0].empty()) return false;\n        int m=a.size(),r=0,c=a[0].size()-1;\n        while(r<m && c>=0) {\n            if(a[r][c]==target) return true;\n            if(a[r][c]>target) --c;\n            else ++r;\n        }\n        return false;\n    }\n};",
-      "complexity": "O(m+n) 时间 / O(1) 空间",
-      "pitfall": "选择右上角（或左下角），不是左上角。",
-      "alternative": "每行二分查找，O(m log n)。"
+    "49": {
+      "idea": "一组异位词无论原来的字符顺序如何，排序后都会得到完全相同的字符串。利用这一性质，把每个原字符串复制一份并排序，形成稳定的分组键。以该键访问哈希表，把未修改的原字符串加入对应数组，最后取出所有数组即可。这样把两两比较是否为异位词的问题，转化成了“相同键直接分组”，避免 O(N²) 的成对检查。",
+      "code": "#include \u003cvector>\n#include \u003cstring>\n#include \u003cunordered_map>\n#include \u003calgorithm>\nusing namespace std;\nclass Solution {\npublic:\n    vector\u003cvector\u003cstring>> groupAnagrams(vector\u003cstring>& strs) {\n        unordered_map\u003cstring, vector\u003cstring>> groups;\n        for (const string& s : strs) {\n            string key = s;\n            sort(key.begin(), key.end());\n            groups[key].push_back(s);\n        }\n        vector\u003cvector\u003cstring>> ans;\n        for (auto& kv : groups) ans.push_back(kv.second);\n        return ans;\n    }\n};",
+      "complexity": "O(NK log K) 时间 / O(NK) 空间",
+      "pitfall": "要存原字符串而不是排序后的 key；分组顺序无需固定。",
+      "alternative": "用 26 个字符频次生成 key，可达 O(NK)。",
+      "pattern": "哈希分组：给等价对象构造规范化 key，把同类数据归入一组。"
+    },
+    "53": {
+      "idea": "对于以位置 i 结尾的最大子数组，只存在两种选择：延续前一位置的最优结尾子数组，或者从 nums[i] 重新开始。因此可令 cur=max(nums[i], cur+nums[i])，用常量空间保存当前状态。扫描每个元素后，再用 best 记录迄今遇到的最大值，而不是只在最后返回 cur。所有元素都为负数时最大和仍为负，所以应从第一个元素初始化答案，不能简单地用零初始化。",
+      "code": "#include \u003cvector>\n#include \u003calgorithm>\nusing namespace std;\nclass Solution {\npublic:\n    int maxSubArray(vector\u003cint>& nums) {\n        int cur=nums[0],ans=nums[0];\n        for(int i=1;i\u003c(int)nums.size();++i) {\n            cur=max(nums[i],cur+nums[i]);\n            ans=max(ans,cur);\n        }\n        return ans;\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 空间",
+      "pitfall": "全负数时答案也可能为负；不要初始化 ans=0。",
+      "alternative": "前缀和减历史最小前缀和。",
+      "pattern": "动态规划压缩：明确状态为“必须以当前位置结尾”的最优值。"
+    },
+    "54": {
+      "idea": "按顺时针螺旋顺序访问矩阵，可以把未遍历部分看成一个不断缩小的矩形。用 top、bottom、left、right 表示矩形四条边，每轮依次访问上边、右边、下边、左边，走过一条边就向内收缩对应边界。前两边处理之后，剩下的矩形可能已经为空，因此访问下边前要检查 top\u003c=bottom，访问左边前要检查 left\u003c=right。这样单行、单列和非方阵都不会重复读取。",
+      "code": "#include \u003cvector>\nusing namespace std;\nclass Solution {\npublic:\n    vector\u003cint> spiralOrder(vector\u003cvector\u003cint>>& a) {\n        int m=a.size(),n=a[0].size();\n        int top=0,bot=m-1,left=0,right=n-1;\n        vector\u003cint> ans;\n        while(top\u003c=bot && left\u003c=right) {\n            for(int j=left;j\u003c=right;++j) ans.push_back(a[top][j]);\n            ++top;\n            for(int i=top;i\u003c=bot;++i) ans.push_back(a[i][right]);\n            --right;\n            if(top\u003c=bot) {\n                for(int j=right;j>=left;--j) ans.push_back(a[bot][j]);\n                --bot;\n            }\n            if(left\u003c=right) {\n                for(int i=bot;i>=top;--i) ans.push_back(a[i][left]);\n                ++left;\n            }\n        }\n        return ans;\n    }\n};",
+      "complexity": "O(mn) 时间 / O(1) 额外空间（输出另计）",
+      "pitfall": "单行和单列需检查边界，防止重复读取。",
+      "alternative": "方向数组 + 访问标记，O(mn) 空间。",
+      "pattern": "四边界收缩：访问一条边后缩小矩形，防止重复访问。"
+    },
+    "56": {
+      "idea": "输入区间不保证有序，直接扫描不能确保所有重叠部分被放在一起，因此首先按左端点升序排序。维护一个已经合并、彼此不重叠的结果列表。若当前区间的左端点小于等于结果最后区间的右端点，说明两者重叠，应把结果右端点更新为两个右端点的最大值；否则直接加入一个新区间。排序保证后面的区间不会再与更早、已分离的区间重叠。",
+      "code": "#include \u003cvector>\n#include \u003calgorithm>\nusing namespace std;\nclass Solution {\npublic:\n    vector\u003cvector\u003cint>> merge(vector\u003cvector\u003cint>>& intervals) {\n        sort(intervals.begin(),intervals.end());\n        vector\u003cvector\u003cint>> ans;\n        for(const auto& x:intervals) {\n            if(ans.empty() || x[0]>ans.back()[1]) ans.push_back(x);\n            else ans.back()[1]=max(ans.back()[1],x[1]);\n        }\n        return ans;\n    }\n};",
+      "complexity": "O(n log n) 时间 / O(n) 输出空间",
+      "pitfall": "端点相等也算重叠；包含关系时右端点取 max。",
+      "alternative": "先把端点扫描转换为事件也可合并。",
+      "pattern": "区间排序合并：先按左边界排序，再维护已合并的最后一个区间。"
+    },
+    "57": {
+      "idea": "这题与第 56 题最大的区别，是原有区间已经按起点排序而且互不重叠，因此无需额外排序。先把所有完全位于新区间左侧的区间加入答案，它们不会受到插入影响。之后不断合并与新区间重叠的区间，用 min 更新左端点、max 更新右端点；右边界变大时可能继续覆盖后续区间。最后把合并后的新区间和剩余的右侧区间依次追加，即可保持结果有序。",
+      "code": "#include \u003cvector>\n#include \u003calgorithm>\nusing namespace std;\nclass Solution {\npublic:\n    vector\u003cvector\u003cint>> insert(vector\u003cvector\u003cint>>& intervals,vector\u003cint>& newInterval) {\n        vector\u003cvector\u003cint>> ans;\n        int i=0,n=intervals.size();\n        while(i\u003cn && intervals[i][1]\u003cnewInterval[0]) ans.push_back(intervals[i++]);\n        while(i\u003cn && intervals[i][0]\u003c=newInterval[1]) {\n            newInterval[0]=min(newInterval[0],intervals[i][0]);\n            newInterval[1]=max(newInterval[1],intervals[i][1]);\n            ++i;\n        }\n        ans.push_back(newInterval);\n        while(i\u003cn) ans.push_back(intervals[i++]);\n        return ans;\n    }\n};",
+      "complexity": "O(n) 时间 / O(n) 输出空间",
+      "pitfall": "合并时右边界可能扩大；此实现会修改 newInterval。",
+      "alternative": "加入新区间后套用第 56 题，O(n log n)。",
+      "pattern": "有序区间分段：左侧不交、重叠合并、右侧不交三个阶段。"
+    },
+    "73": {
+      "idea": "如果发现零时立即把所在行列全部清零，随后扫描到的人为新增零会继续扩散，所以必须先记录哪些行列原本含零。为了做到 O(1) 额外空间，可以借用矩阵第一行和第一列保存其他行、列的置零标记。第一行和第一列自身原本是否含零，先用两个布尔变量单独保存。接着扫描内部设标记、根据标记修改内部元素，最后再处理第一行和第一列，避免破坏尚未读取的标记。",
+      "code": "#include \u003cvector>\nusing namespace std;\nclass Solution {\npublic:\n    void setZeroes(vector\u003cvector\u003cint>>& a) {\n        int m=a.size(),n=a[0].size();\n        bool row=false,col=false;\n        for(int j=0;j\u003cn;++j) if(a[0][j]==0) row=true;\n        for(int i=0;i\u003cm;++i) if(a[i][0]==0) col=true;\n        for(int i=1;i\u003cm;++i)\n            for(int j=1;j\u003cn;++j)\n                if(a[i][j]==0) a[i][0]=a[0][j]=0;\n        for(int i=1;i\u003cm;++i)\n            for(int j=1;j\u003cn;++j)\n                if(a[i][0]==0 || a[0][j]==0) a[i][j]=0;\n        if(row) for(int j=0;j\u003cn;++j) a[0][j]=0;\n        if(col) for(int i=0;i\u003cm;++i) a[i][0]=0;\n    }\n};",
+      "complexity": "O(mn) 时间 / O(1) 空间",
+      "pitfall": "先完成内部置零，再修改首行首列，否则标记会被破坏。",
+      "alternative": "两个布尔数组标记行列，O(m+n) 空间。",
+      "pattern": "原地标记：复用首行首列保存状态，最后再处理标记载体。"
+    },
+    "121": {
+      "idea": "买卖股票必须先买后卖，枚举每一天为卖出日时，最好的买入价格就是此前出现过的最低价。于是只需一次扫描，用 minPrice 记录历史最低价格，用 price−minPrice 计算当前卖出的利润并更新答案。每次处理当前价格后再更新最低价格，始终只利用当前及之前的数据。因为可以选择不交易，最大利润应从 0 开始，整个过程不需要保存全部候选交易对。",
+      "code": "#include \u003cvector>\n#include \u003calgorithm>\n#include \u003cclimits>\nusing namespace std;\nclass Solution {\npublic:\n    int maxProfit(vector\u003cint>& prices) {\n        int low=INT_MAX,ans=0;\n        for(int p:prices) {\n            low=min(low,p);\n            ans=max(ans,p-low);\n        }\n        return ans;\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 空间",
+      "pitfall": "持续跌价应返回 0；买入日必须早于卖出日。",
+      "alternative": "把相邻价格差转化为最大子数组和。",
+      "pattern": "一次扫描历史最优：枚举当前卖点，同时维护之前的最低买点。"
+    },
+    "125": {
+      "idea": "回文判断本质是比较字符串两端对应的有效字符，而题目明确要求忽略标点、空格与大小写。设置左右指针，从两端向中间扫描；不属于字母或数字的字符直接跳过。两个有效字符统一转成小写再比较，出现不同就能立即返回 false。指针相遇仍没有差异则是回文，整个过程不必额外构造清洗后的字符串。",
+      "code": "#include \u003cstring>\n#include \u003ccctype>\nusing namespace std;\nclass Solution {\npublic:\n    bool isPalindrome(string s) {\n        int l=0,r=(int)s.size()-1;\n        while(l\u003cr) {\n            while(l\u003cr && !isalnum((unsigned char)s[l])) ++l;\n            while(l\u003cr && !isalnum((unsigned char)s[r])) --r;\n            if(tolower((unsigned char)s[l])!=tolower((unsigned char)s[r])) return false;\n            ++l;--r;\n        }\n        return true;\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 空间",
+      "pitfall": "不要只过滤空格，还需忽略标点；cctype 函数传 unsigned char 更安全。",
+      "alternative": "先构建净化字符串再反转比较，O(n) 空间。",
+      "pattern": "两端比较：跳过无关字符，在有效字符上应用回文约束。"
+    },
+    "128": {
+      "idea": "题目要求在无序数组中找最长的连续整数序列，排序虽然直观，却达不到期望的 O(n) 时间。把所有整数放入哈希集合，既去重又能平均 O(1) 判断某个整数是否存在。只从没有前驱 x−1 的元素开始向右扩展，因为从序列内部开始扫描会重复计算同一段。每段连续序列只被完整扫描一次，因此总计平均线性时间；计算 x±1 时须避免整型边界溢出。",
+      "code": "#include \u003cvector>\n#include \u003cunordered_set>\n#include \u003calgorithm>\n#include \u003cclimits>\nusing namespace std;\nclass Solution {\npublic:\n    int longestConsecutive(vector\u003cint>& nums) {\n        unordered_set\u003cint> st(nums.begin(),nums.end());\n        int best=0;\n        for (int x:st) {\n            if (x!=INT_MIN && st.count(x-1)) continue;\n            int cur=x, len=1;\n            while (cur!=INT_MAX && st.count(cur+1)) {\n                ++cur;\n                ++len;\n            }\n            best=max(best,len);\n        }\n        return best;\n    }\n};",
+      "complexity": "平均 O(n) 时间 / O(n) 空间",
+      "pitfall": "只从序列起点扩展；处理 INT_MIN、INT_MAX 避免溢出。",
+      "alternative": "排序并扫描，O(n log n)。",
+      "pattern": "集合起点法：只从合法连续段的起点扩展，避免重复扫描。"
     },
     "160": {
-      "idea": "相交指的是两个指针指向同一个节点对象。分别从两条链表的头出发，走到尾端后切换到另一条链表头部。这样两指针都走过 A+B 的总长度，若存在公共尾部就会在首个公共节点相遇；否则同时变为 nullptr。",
+      "idea": "这道题判断相交要比较节点对象地址，而不是两个节点中保存的数值。若两链表长度不同，直接同步移动可能因为起点未对齐而错过交点。让指针 a 走完链表 A 后转到 B，让指针 b 走完 B 后转到 A；两个指针最终走过相同的 A+B 总路径长度。若存在公共尾段，它们会在首个公共节点相遇；若没有交点，两者最后会同时到达 nullptr，循环自然结束。",
       "code": "/**\n * Definition for singly-linked list.\n * struct ListNode { int val; ListNode *next; ListNode(int x) : val(x), next(nullptr) {} };\n */\nclass Solution {\npublic:\n    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {\n        ListNode *a=headA,*b=headB;\n        while(a!=b) {\n            a=a?a->next:headB;\n            b=b?b->next:headA;\n        }\n        return a;\n    }\n};",
       "complexity": "O(m+n) 时间 / O(1) 空间",
       "pitfall": "必须比较节点地址而非 val；不相交时两个指针最终都是空。",
-      "alternative": "先分别计算长度，长链表先走长度差。"
+      "alternative": "先分别计算长度，长链表先走长度差。",
+      "pattern": "双链表换头：交换遍历路径以抵消两个链表的长度差。"
+    },
+    "189": {
+      "idea": "向右轮转 k 位会把数组末尾的 k 个元素放到开头，原来前面的部分顺序也应保持不变。先将 k 对 n 取模，处理 k 超过数组长度的情况。把整个数组翻转后，原末尾部分已经到前面，但各部分内部顺序反了。继续分别翻转前 k 个元素和后 n−k 个元素，就能恢复两段内部顺序，并在 O(1) 额外空间完成轮转。",
+      "code": "#include \u003cvector>\n#include \u003calgorithm>\nusing namespace std;\nclass Solution {\npublic:\n    void rotate(vector\u003cint>& nums,int k) {\n        int n=nums.size();\n        if(n==0) return;\n        k%=n;\n        reverse(nums.begin(),nums.end());\n        reverse(nums.begin(),nums.begin()+k);\n        reverse(nums.begin()+k,nums.end());\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 空间",
+      "pitfall": "先判断 n=0，避免对零取模；k 可以超过 n。",
+      "alternative": "额外数组按新下标放置，O(n) 空间。",
+      "pattern": "三次翻转：整体倒序后分别恢复被交换的两段顺序。"
     },
     "206": {
-      "idea": "反转链表时需要先保存当前节点的 next，否则改写后会丢失余下链表。用 prev 表示已反转部分头，cur 指向待处理节点，逐个改变 cur->next 指向 prev。扫描结束后 prev 就是新头。",
+      "idea": "反转链表需要真正修改节点的 next 指针，而不是只把节点值倒过来。初始化 prev=nullptr、cur=head，表示已经反转的部分最初为空。每轮必须先保存 next=cur->next，否则将 cur->next 改为 prev 后，就无法找到后续待处理节点。随后把 prev 移到 cur、cur 移到 next；循环结束时 prev 恰好指向反转后的新头节点，空链表也能直接适配。",
       "code": "/**\n * Definition for singly-linked list.\n * struct ListNode { int val; ListNode *next; ListNode() : val(0), next(nullptr) {} ListNode(int x) : val(x), next(nullptr) {} ListNode(int x, ListNode *next) : val(x), next(next) {} };\n */\nclass Solution {\npublic:\n    ListNode* reverseList(ListNode* head) {\n        ListNode* prev=nullptr;\n        ListNode* cur=head;\n        while(cur) {\n            ListNode* next=cur->next;\n            cur->next=prev;\n            prev=cur;\n            cur=next;\n        }\n        return prev;\n    }\n};",
       "complexity": "O(n) 时间 / O(1) 空间",
       "pitfall": "必须先保存 next 再改变方向；空链表返回 nullptr。",
-      "alternative": "递归反转，O(n) 调用栈空间。"
+      "alternative": "递归反转，O(n) 调用栈空间。",
+      "pattern": "链表三指针：先保存后继，再反转当前连接，最后整体前进。"
+    },
+    "209": {
+      "idea": "本题所有数字都是正数，这是滑动窗口能够成立的关键前提：右端扩展不会降低区间和，左端收缩不会增加区间和。用 right 逐步扩大窗口并累加元素；一旦窗口和达到 target，就尝试连续收缩左端，同时更新最短长度。这样对固定右端能找到所有需要考虑的更短合法窗口，而左右指针各最多移动 n 次。若最终从未满足目标，返回 0；若包含负数，这套单调性就不成立。",
+      "code": "#include \u003cvector>\n#include \u003calgorithm>\nusing namespace std;\nclass Solution {\npublic:\n    int minSubArrayLen(int target,vector\u003cint>& nums) {\n        int l=0,sum=0,ans=(int)nums.size()+1;\n        for(int r=0;r\u003c(int)nums.size();++r) {\n            sum+=nums[r];\n            while(sum>=target) {\n                ans=min(ans,r-l+1);\n                sum-=nums[l++];\n            }\n        }\n        return ans==(int)nums.size()+1?0:ans;\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 空间",
+      "pitfall": "达到 target 后必须 while 收缩；依赖所有元素为正。",
+      "alternative": "前缀和 + 二分，O(n log n)。",
+      "pattern": "正数窗口：利用和的单调性，扩张直到满足条件，再缩小优化长度。"
+    },
+    "238": {
+      "idea": "不能使用除法且数组可能包含零，直接先求总乘积再相除并不可行。每个位置的结果可以拆为“左侧所有元素的乘积 × 右侧所有元素的乘积”。先从左向右扫描，将当前位置之前的前缀积写入答案数组；再从右向左扫描，维护后缀积并乘到对应答案。两次扫描都应先使用当前积，再乘入 nums[i]，这样才能严格排除当前位置本身。",
+      "code": "#include \u003cvector>\nusing namespace std;\nclass Solution {\npublic:\n    vector\u003cint> productExceptSelf(vector\u003cint>& nums) {\n        int n=nums.size();\n        vector\u003cint> ans(n,1);\n        int left=1;\n        for(int i=0;i\u003cn;++i) {\n            ans[i]=left;\n            left*=nums[i];\n        }\n        int right=1;\n        for(int i=n-1;i>=0;--i) {\n            ans[i]*=right;\n            right*=nums[i];\n        }\n        return ans;\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 额外空间（输出另计）",
+      "pitfall": "包含零仍然正确；不要在写入当前答案前将自己乘进去。",
+      "alternative": "两个独立的前后缀数组，O(n) 额外空间。",
+      "pattern": "前后缀乘积：拆解当前项左侧贡献和右侧贡献，避免除法。"
+    },
+    "240": {
+      "idea": "行和列分别递增，但整个矩阵并不一定能当作一个一维有序数组来二分。右上角是一个特殊起点：向左数字变小，向下数字变大，因此比较结果能决定唯一的排除方向。当前值大于 target 时，这一列下面的值都更大，可以向左移排除该列；当前值小于 target 时，这一行左侧都更小，可以向下移排除该行。每次至少排除一行或一列，最多走 m+n 步。",
+      "code": "#include \u003cvector>\nusing namespace std;\nclass Solution {\npublic:\n    bool searchMatrix(vector\u003cvector\u003cint>>& a,int target) {\n        if(a.empty() || a[0].empty()) return false;\n        int m=a.size(),r=0,c=a[0].size()-1;\n        while(r\u003cm && c>=0) {\n            if(a[r][c]==target) return true;\n            if(a[r][c]>target) --c;\n            else ++r;\n        }\n        return false;\n    }\n};",
+      "complexity": "O(m+n) 时间 / O(1) 空间",
+      "pitfall": "选择右上角（或左下角），不是左上角。",
+      "alternative": "每行二分查找，O(m log n)。",
+      "pattern": "单调矩阵排除：从右上/左下角进入，每步删去一整行或列。"
+    },
+    "242": {
+      "idea": "字母异位词允许调整字符顺序，但每种字符的出现次数必须完全相同，所以无需模拟排序过程。先比较长度，长度不同必定不是异位词。题目限定小写英文字母，可以用 26 个计数槽，扫描 s 时加一、扫描 t 时减一。最后每个槽都归零，意味着两串字符频次逐一相等；相较于排序，计数方案仅需线性时间。",
+      "code": "#include \u003cstring>\n#include \u003carray>\nusing namespace std;\nclass Solution {\npublic:\n    bool isAnagram(string s, string t) {\n        if (s.size() != t.size()) return false;\n        array\u003cint,26> cnt{};\n        for (int i = 0; i \u003c (int)s.size(); ++i) {\n            ++cnt[s[i]-'a'];\n            --cnt[t[i]-'a'];\n        }\n        for (int x : cnt) if (x != 0) return false;\n        return true;\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 空间",
+      "pitfall": "不能只判断字符种类，要判断出现次数。",
+      "alternative": "排序后比较，O(n log n)。",
+      "pattern": "计数统计：判断无序字符集合是否相同，比较每个元素出现次数。"
+    },
+    "283": {
+      "idea": "要求原地移动零且保留非零元素的相对次序，所以不能通过随意交换两端元素来完成。维护 slow 指向下一个应放非零元素的位置，fast 遍历原数组。遇到非零元素就与 slow 位置交换，再递增 slow；遇到零则只移动 fast。循环中 [0, slow) 始终是已按原顺序排好的非零前缀，剩下的零自然落到数组尾部。",
+      "code": "#include \u003cvector>\n#include \u003calgorithm>\nusing namespace std;\nclass Solution {\npublic:\n    void moveZeroes(vector\u003cint>& nums) {\n        int slow=0;\n        for (int fast=0;fast\u003c(int)nums.size();++fast) {\n            if (nums[fast]!=0) {\n                if (slow!=fast) swap(nums[slow],nums[fast]);\n                ++slow;\n            }\n        }\n    }\n};",
+      "complexity": "O(n) 时间 / O(1) 空间",
+      "pitfall": "不能直接删除 0 再插入末尾，否则可能退化为 O(n²)。",
+      "alternative": "覆盖非零元素后统一补零。",
+      "pattern": "快慢指针：快指针扫描，慢指针维护满足性质的稳定前缀。"
+    },
+    "438": {
+      "idea": "字母异位词需要字符频次完全相同，因此合法子串的长度一定等于目标串 p 的长度。先统计 p 中 26 个小写字母的出现次数，再让 s 上的固定长度窗口从左向右滑动。右侧加入一个字符，窗口超长时从左侧移出一个字符，始终维护窗口自己的 26 个频次。只有当窗口长度达到 p.size() 且两份频次数组相同时，才记录该窗口的起始下标。",
+      "code": "#include \u003cvector>\n#include \u003cstring>\n#include \u003carray>\nusing namespace std;\nclass Solution {\npublic:\n    vector\u003cint> findAnagrams(string s,string p) {\n        int n=s.size(),m=p.size();\n        vector\u003cint> ans;\n        if(m>n) return ans;\n        array\u003cint,26> need{},win{};\n        for(char c:p) ++need[c-'a'];\n        for(int r=0;r\u003cn;++r) {\n            ++win[s[r]-'a'];\n            if(r>=m) --win[s[r-m]-'a'];\n            if(r>=m-1 && win==need) ans.push_back(r-m+1);\n        }\n        return ans;\n    }\n};",
+      "complexity": "O(n+m) 时间 / O(1) 空间（输出另计）",
+      "pitfall": "窗口未达到 p 的长度时不能比较；统计频次而不只是字符是否存在。",
+      "alternative": "维护差分计数的非零槽数可减少常数。",
+      "pattern": "定长窗口：固定窗口长度，只维护进入与离开的字符统计。"
+    },
+    "560": {
+      "idea": "这道题允许负数和零，窗口和不具备单调性，因此不能沿用第 209 题的正数滑动窗口。定义当前位置前缀和为 s，如果此前某个前缀和等于 s−k，那么两者之间的连续子数组和恰好是 k。哈希表维护每种历史前缀和出现的次数，遍历时先将 cnt[s−k] 累加到答案，再把当前 s 的次数加一。必须初始化 cnt[0]=1，表示从数组开头开始的子数组也能被统计。",
+      "code": "#include \u003cvector>\n#include \u003cunordered_map>\nusing namespace std;\nclass Solution {\npublic:\n    int subarraySum(vector\u003cint>& nums,int k) {\n        unordered_map\u003cint,int> cnt;\n        cnt[0]=1;\n        int sum=0,ans=0;\n        for(int x:nums) {\n            sum+=x;\n            auto it=cnt.find(sum-k);\n            if(it!=cnt.end()) ans+=it->second;\n            ++cnt[sum];\n        }\n        return ans;\n    }\n};",
+      "complexity": "平均 O(n) 时间 / O(n) 空间",
+      "pitfall": "空前缀 cnt[0]=1 不可省；一定先查询后插入。",
+      "alternative": "前缀和 + 双层枚举，O(n²)。",
+      "pattern": "前缀和 + 频次哈希：用 prefix[j]−prefix[i]=k 转换为历史前缀查询。"
     }
   },
   "editorialUpdatedThroughDay": 12
@@ -2351,6 +2376,7 @@
           const pre=h('pre',{className:'code-block'});pre.append(h('code',{text:s.code}));
           body.append(head,pre,h('p',{className:'tipline'},[h('strong',{text:'复杂度：'}),document.createTextNode(s.complexity)]),h('p',{className:'tipline'},[h('strong',{text:'易错点：'}),document.createTextNode(s.pitfall)]));
           if(s.alternative) body.append(h('p',{className:'tipline'},[h('strong',{text:'其他思路：'}),document.createTextNode(s.alternative)]));
+          if(s.pattern) body.append(h('div',{className:'pattern-box'},[h('strong',{text:'题型识别与复用：'}),document.createTextNode(s.pattern)]));
         }
       }
       $('#publishNote').textContent = published(state.day)?'已到解锁时间':'今晚 19:00 解锁';
