@@ -1,0 +1,62 @@
+name: Publish LeetCode Study Site
+on:
+  push:
+    branches: [main]
+  schedule:
+    # 19:15 Beijing time, can be delayed by GitHub
+    - cron: "15 11 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Publish evening solutions if API credentials exist
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+        run: |
+          if [ -n "$OPENAI_API_KEY" ]; then
+            python scripts/publish_inline.py
+          else
+            echo "No OPENAI_API_KEY configured: existing verified solution archive only."
+          fi
+      - name: Save any newly generated solutions
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish daily C++17 solution"
+            git push
+          fi
+      - name: Prepare Pages bundle
+        run: |
+          mkdir -p _site
+          cp index.html _site/
+          if [ -f favicon.svg ]; then cp favicon.svg _site/; fi
+          touch _site/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./_site"
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
