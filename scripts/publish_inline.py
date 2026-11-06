@@ -35,18 +35,25 @@ def generate(problem):
     key = os.environ["OPENAI_API_KEY"]
     model = os.environ.get("OPENAI_MODEL") or "gpt-4.1-mini"
     class_name = CLASSES.get(int(problem["id"]), "Solution")
-    keys = ["idea", "code", "complexity", "pitfall", "alternative"]
+    keys = ["idea", "code", "complexity", "pitfall", "alternative", "pattern"]
     schema = {"type": "object", "properties": {k: {"type": "string"} for k in keys},
               "required": keys, "additionalProperties": False}
     prompt = (
         f'LeetCode {problem["id"]} {problem["title"]} '
         f'(https://leetcode.cn/problems/{problem["slug"]}/). '
         f'题意：{problem["summary"]}。题型：{problem["topic"]}。'
+        f'输入输出示例：{json.dumps(problem.get("example", {}), ensure_ascii=False)}。'
         f'严格生成适配官方函数签名和约束的 C++17 可提交答案；使用 class {class_name}。'
         '平台 ListNode/TreeNode 类型不要重复定义。'
-        'idea 用中文3-5句精简解释，complexity写时间和空间，'
-        'pitfall写关键边界和陷阱，alternative写一条替代解法。'
+        'idea 用中文4-6句（至少180个汉字）解释为什么采用此解法、核心步骤、'
+        '必要不变量或正确性理由，以及相对于暴力算法的优势，不要仅写算法名称。'
+        'complexity写时间空间并明确是否含输出，'
+        'pitfall写至少两个关键边界或易错点，'
+        'alternative写一条替代解法及其复杂度，'
+        'pattern给出一句话可迁移的题型识别套路。'
         'code中包含必要标准库头文件和完整提交代码，不要 Markdown 代码围栏。'
+        '对于设计题使用官方类名，构造函数和全部方法签名完整。'
+        '特别核查输入输出示例与 C++17 解法逻辑一致。'
     )
     payload = {
         "model": model,
@@ -66,7 +73,7 @@ def generate(problem):
     with urllib.request.urlopen(req, timeout=130) as res:
         response = json.load(res)
     obj = json.loads(response["choices"][0]["message"]["content"])
-    if not all(isinstance(obj.get(k), str) and obj[k].strip() for k in keys[:4]):
+    if not all(isinstance(obj.get(k), str) and obj[k].strip() for k in keys):
         raise RuntimeError("Generated explanation is incomplete")
     if not re.search(r"\bclass\s+" + re.escape(class_name) + r"\b", obj["code"]):
         raise RuntimeError("Generated C++ does not declare expected class")
