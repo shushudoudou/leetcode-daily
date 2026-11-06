@@ -12,6 +12,7 @@
 @media(max-width:1050px){.layout{grid-template-columns:240px minmax(0,1fr)}.main{padding:0 28px}.hero h1{font-size:36px}.hero-stat{width:158px;min-width:158px;padding:15px}.hero-stat strong{font-size:51px}}
 @media(max-width:790px){.layout{display:block}.sidebar{position:fixed;left:0;top:0;height:100dvh;width:min(310px,87vw);transform:translateX(-110%);transition:transform .2s;box-shadow:10px 0 50px #0008}.sidebar.open{transform:translateX(0)}body.nav-open:after{content:"";position:fixed;inset:0;background:#0009;z-index:8}.main{padding:0 19px}.topbar{height:68px}.topbar-sub{display:none}.mobile-brand{display:flex}.top-actions .ghost-button:last-child{display:none}.hero{padding:34px 0}.hero h1{font-size:34px}.hero-stat{display:none}.hero p{font-size:12px}.study{margin-top:27px}.selector{gap:8px}.problem-choice{padding:10px}.problem-number{width:35px;height:35px;font-size:12px}.problem-choice b{font-size:11px}.problem-choice small{font-size:10px}.content-card-head{padding:13px 14px;flex-wrap:wrap}.detail-body{padding:18px 16px 23px}.study-header h2{font-size:22px}.problem-title-row h3{font-size:20px}.footer{flex-direction:column}.hero-pills{gap:5px}.hero-pills span{font-size:10px}}
 @media(max-width:390px){.main{padding:0 12px}.selector{grid-template-columns:1fr}.problem-choice{padding:9px 12px}.study-header h2{font-size:20px}.segmented button{padding:7px 12px}.content-card-head{padding:11px}.date-controls button{width:34px;height:34px}}
+.example-card{margin:17px 0 22px;padding:16px 18px;border:1px solid #2c4664;border-radius:14px;background:#111e33}.example-label{color:#91e7d1;font-size:13px;font-weight:750;margin-bottom:12px;letter-spacing:.3px}.example-row{display:grid;grid-template-columns:42px minmax(0,1fr);gap:10px;align-items:start;margin:9px 0}.example-key{color:#9eacc5;font-size:12px;font-weight:700;padding-top:4px}.example-value{font:12.5px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;margin:0;color:#e9f3ff;white-space:pre-wrap;overflow-wrap:anywhere;min-width:0}.example-note{font-size:12.5px;color:#aebbd0;line-height:1.65;margin:12px 0 0;border-top:1px solid #263851;padding-top:10px}@media(max-width:480px){.example-card{padding:12px 14px}.example-row{grid-template-columns:36px minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -283,331 +284,12 @@
       "hints": [
         "对固定数字 x，另一个数应是多少？",
         "如何在遍历时快速查找之前出现过的数字？"
-      ]
-    },
-    "242": {
-      "id": 242,
-      "title": "有效的字母异位词",
-      "slug": "valid-anagram",
-      "difficulty": "简单",
-      "topic": "字符计数",
-      "summary": "判断两个字符串的字母及其出现次数是否完全相同。",
-      "hints": [
-        "长度不同能直接判断吗？",
-        "若只包含小写字母，可以用多长的计数数组？"
-      ]
-    },
-    "49": {
-      "id": 49,
-      "title": "字母异位词分组",
-      "slug": "group-anagrams",
-      "difficulty": "中等",
-      "topic": "哈希分组",
-      "summary": "将字母异位词归入同一组。",
-      "hints": [
-        "异位词拥有怎样的共同特征？",
-        "能为每一组构造相同的 key 吗？"
-      ]
-    },
-    "128": {
-      "id": 128,
-      "title": "最长连续序列",
-      "slug": "longest-consecutive-sequence",
-      "difficulty": "中等",
-      "topic": "哈希集合",
-      "summary": "在无序数组中寻找最长连续整数序列。",
-      "hints": [
-        "不用排序，如何快速判断相邻整数存在？",
-        "什么数字才有必要成为序列的起点？"
-      ]
-    },
-    "283": {
-      "id": 283,
-      "title": "移动零",
-      "slug": "move-zeroes",
-      "difficulty": "简单",
-      "topic": "快慢指针",
-      "summary": "原地把所有零移动到末尾，保持非零元素顺序。",
-      "hints": [
-        "快指针负责找什么？",
-        "慢指针应记录下一个非零元素的位置吗？"
-      ]
-    },
-    "11": {
-      "id": 11,
-      "title": "盛最多水的容器",
-      "slug": "container-with-most-water",
-      "difficulty": "中等",
-      "topic": "相向双指针",
-      "summary": "从多条竖线中选择两条，使容器盛水量最大。",
-      "hints": [
-        "面积由宽度和哪条边的高度决定？",
-        "宽度缩小时，应该舍弃较高还是较短的一侧？"
-      ]
-    },
-    "15": {
-      "id": 15,
-      "title": "三数之和",
-      "slug": "3sum",
-      "difficulty": "中等",
-      "topic": "排序与双指针",
-      "summary": "找到数组中所有不重复的和为零的三元组。",
-      "hints": [
-        "固定第一个数字后，剩余问题是什么？",
-        "排序后如何避免相同三元组出现多次？"
-      ]
-    },
-    "125": {
-      "id": 125,
-      "title": "验证回文串",
-      "slug": "valid-palindrome",
-      "difficulty": "简单",
-      "topic": "相向双指针",
-      "summary": "忽略标点和大小写，判断字符串是否回文。",
-      "hints": [
-        "从两端比较是否方便？",
-        "遇到非字母数字字符时怎么办？"
-      ]
-    },
-    "3": {
-      "id": 3,
-      "title": "无重复字符的最长子串",
-      "slug": "longest-substring-without-repeating-characters",
-      "difficulty": "中等",
-      "topic": "可变滑动窗口",
-      "summary": "求不含重复字符的最长连续子串长度。",
-      "hints": [
-        "什么情况让当前窗口失效？",
-        "出现重复时能否只移动左边界？"
-      ]
-    },
-    "438": {
-      "id": 438,
-      "title": "找到字符串中所有字母异位词",
-      "slug": "find-all-anagrams-in-a-string",
-      "difficulty": "中等",
-      "topic": "定长滑动窗口",
-      "summary": "找出字符串里所有与目标串字母频次相同的子串起点。",
-      "hints": [
-        "匹配子串长度应是多少？",
-        "窗口移动时只需更新哪两个字符？"
-      ]
-    },
-    "209": {
-      "id": 209,
-      "title": "长度最小的子数组",
-      "slug": "minimum-size-subarray-sum",
-      "difficulty": "中等",
-      "topic": "可变滑动窗口",
-      "summary": "在正整数数组中找和至少为 target 的最短连续子数组。",
-      "hints": [
-        "右端扩展时窗口和如何变化？",
-        "和达标后，能否不断收缩左侧？"
-      ]
-    },
-    "560": {
-      "id": 560,
-      "title": "和为 K 的子数组",
-      "slug": "subarray-sum-equals-k",
-      "difficulty": "中等",
-      "topic": "前缀和与哈希表",
-      "summary": "统计和恰为 k 的连续非空子数组数量。",
-      "hints": [
-        "如何用两个前缀和表达区间和？",
-        "当前前缀和需要匹配此前哪个值？"
-      ]
-    },
-    "53": {
-      "id": 53,
-      "title": "最大子数组和",
-      "slug": "maximum-subarray",
-      "difficulty": "中等",
-      "topic": "动态规划",
-      "summary": "寻找具有最大和的非空连续子数组。",
-      "hints": [
-        "以 i 结尾时，是延续前段还是重新开始？",
-        "局部最优和全局最优分别是什么？"
-      ]
-    },
-    "121": {
-      "id": 121,
-      "title": "买卖股票的最佳时机",
-      "slug": "best-time-to-buy-and-sell-stock",
-      "difficulty": "简单",
-      "topic": "贪心",
-      "summary": "只能先买后卖一次，求最大利润。",
-      "hints": [
-        "固定卖出日，最佳买入价格是什么？",
-        "能否一次遍历维护历史最低价？"
-      ]
-    },
-    "238": {
-      "id": 238,
-      "title": "除自身以外数组的乘积",
-      "slug": "product-of-array-except-self",
-      "difficulty": "中等",
-      "topic": "前后缀积",
-      "summary": "不使用除法，计算每个位置以外所有元素乘积。",
-      "hints": [
-        "将结果拆成左侧积和右侧积。",
-        "能否利用输出数组保存前缀积？"
-      ]
-    },
-    "189": {
-      "id": 189,
-      "title": "轮转数组",
-      "slug": "rotate-array",
-      "difficulty": "中等",
-      "topic": "数组翻转",
-      "summary": "原地将数组向右轮转 k 位。",
-      "hints": [
-        "先对 k 取模有何意义？",
-        "整体翻转与局部翻转可以完成轮转吗？"
-      ]
-    },
-    "56": {
-      "id": 56,
-      "title": "合并区间",
-      "slug": "merge-intervals",
-      "difficulty": "中等",
-      "topic": "排序与贪心",
-      "summary": "合并所有有重叠的区间。",
-      "hints": [
-        "先按左端点排序会怎样？",
-        "重叠时该如何更新右边界？"
-      ]
-    },
-    "57": {
-      "id": 57,
-      "title": "插入区间",
-      "slug": "insert-interval",
-      "difficulty": "中等",
-      "topic": "有序区间扫描",
-      "summary": "在已排序的不相交区间中插入并合并新区间。",
-      "hints": [
-        "区间可分为左侧、重叠、右侧三类吗？",
-        "合并重叠区间会怎样改变新边界？"
-      ]
-    },
-    "73": {
-      "id": 73,
-      "title": "矩阵置零",
-      "slug": "set-matrix-zeroes",
-      "difficulty": "中等",
-      "topic": "原地标记",
-      "summary": "含零元素所在的整行整列都置零。",
-      "hints": [
-        "立即清零会污染后续检查吗？",
-        "能借用首行首列存标记吗？"
-      ]
-    },
-    "54": {
-      "id": 54,
-      "title": "螺旋矩阵",
-      "slug": "spiral-matrix",
-      "difficulty": "中等",
-      "topic": "边界模拟",
-      "summary": "顺时针、由外向内输出矩阵所有元素。",
-      "hints": [
-        "四条边界分别代表什么？",
-        "只剩一行或一列时怎样防止重复？"
-      ]
-    },
-    "48": {
-      "id": 48,
-      "title": "旋转图像",
-      "slug": "rotate-image",
-      "difficulty": "中等",
-      "topic": "矩阵原地变换",
-      "summary": "将方阵顺时针旋转 90°。",
-      "hints": [
-        "旋转后的坐标如何变化？",
-        "能否用转置加某种翻转完成？"
-      ]
-    },
-    "240": {
-      "id": 240,
-      "title": "搜索二维矩阵 II",
-      "slug": "search-a-2d-matrix-ii",
-      "difficulty": "中等",
-      "topic": "有序矩阵搜索",
-      "summary": "在行列均有序的矩阵中判断目标值是否存在。",
-      "hints": [
-        "从右上角看，两个方向怎样变化？",
-        "比较大小后能排除一行或一列吗？"
-      ]
-    },
-    "160": {
-      "id": 160,
-      "title": "相交链表",
-      "slug": "intersection-of-two-linked-lists",
-      "difficulty": "简单",
-      "topic": "链表双指针",
-      "summary": "返回两个链表共享的第一个节点，不相交则为空。",
-      "hints": [
-        "节点值相等是否代表节点相同？",
-        "两指针分别走 A+B 与 B+A 会如何？"
-      ]
-    },
-    "206": {
-      "id": 206,
-      "title": "反转链表",
-      "slug": "reverse-linked-list",
-      "difficulty": "简单",
-      "topic": "三指针迭代",
-      "summary": "原地反转单链表方向。",
-      "hints": [
-        "改变 next 前必须保存什么？",
-        "prev、cur、next 各自起什么作用？"
-      ]
-    },
-    "234": {
-      "id": 234,
-      "title": "回文链表",
-      "slug": "palindrome-linked-list",
-      "difficulty": "简单",
-      "topic": "快慢指针",
-      "summary": "判断链表值是否正反相同。",
-      "hints": [
-        "如何 O(n) 时间找到中点？",
-        "反转后半部分后能否逐节点比较？"
-      ]
-    },
-    "141": {
-      "id": 141,
-      "title": "环形链表",
-      "slug": "linked-list-cycle",
-      "difficulty": "简单",
-      "topic": "快慢指针",
-      "summary": "判断单链表是否存在环。",
-      "hints": [
-        "若有环，速度不同的两个指针会怎样？",
-        "快指针下一步是否可能为空？"
-      ]
-    },
-    "142": {
-      "id": 142,
-      "title": "环形链表 II",
-      "slug": "linked-list-cycle-ii",
-      "difficulty": "中等",
-      "topic": "快慢指针",
-      "summary": "如果链表有环，返回入环的第一个节点。",
-      "hints": [
-        "相遇点和环入口之间有距离关系吗？",
-        "相遇后从头出发的慢速指针会在哪里相遇？"
-      ]
-    },
-    "21": {
-      "id": 21,
-      "title": "合并两个有序链表",
-      "slug": "merge-two-sorted-lists",
-      "difficulty": "简单",
-      "topic": "链表合并",
-      "summary": "把两个升序链表合并成一个升序链表。",
-      "hints": [
-        "用虚拟头节点是否更简单？",
-        "每次应接哪一边的当前节点？"
-      ]
+      ],
+      "example": {
+        "input": "nums = [2,7,11,15], target = 9",
+        "output": "[0,1]",
+        "explanation": "nums[0] + nums[1] = 9，返回下标而不是元素值。"
+      }
     },
     "2": {
       "id": 2,
@@ -619,667 +301,29 @@
       "hints": [
         "每位的进位如何处理？",
         "两条链表长度不同怎么办？"
-      ]
+      ],
+      "example": {
+        "input": "l1 = [2,4,3], l2 = [5,6,4]",
+        "output": "[7,0,8]",
+        "explanation": "342 + 465 = 807，数字按逆序存储于链表。"
+      }
     },
-    "19": {
-      "id": 19,
-      "title": "删除链表的倒数第 N 个结点",
-      "slug": "remove-nth-node-from-end-of-list",
+    "3": {
+      "id": 3,
+      "title": "无重复字符的最长子串",
+      "slug": "longest-substring-without-repeating-characters",
       "difficulty": "中等",
-      "topic": "快慢指针",
-      "summary": "删除单链表倒数第 n 个节点。",
+      "topic": "可变滑动窗口",
+      "summary": "求不含重复字符的最长连续子串长度。",
       "hints": [
-        "快慢指针保持多大距离？",
-        "虚拟头节点如何统一删除头结点情况？"
-      ]
-    },
-    "24": {
-      "id": 24,
-      "title": "两两交换链表中的节点",
-      "slug": "swap-nodes-in-pairs",
-      "difficulty": "中等",
-      "topic": "链表指针操作",
-      "summary": "交换每相邻两个节点的连接，不改节点值。",
-      "hints": [
-        "虚拟头节点能简化首组交换吗？",
-        "每次交换前需保存哪些连接？"
-      ]
-    },
-    "138": {
-      "id": 138,
-      "title": "随机链表的复制",
-      "slug": "copy-list-with-random-pointer",
-      "difficulty": "中等",
-      "topic": "链表哈希映射",
-      "summary": "深拷贝同时含 next、random 指针的链表。",
-      "hints": [
-        "如何让旧节点映射到新节点？",
-        "两次遍历分别构建和连接是否可行？"
-      ]
-    },
-    "148": {
-      "id": 148,
-      "title": "排序链表",
-      "slug": "sort-list",
-      "difficulty": "中等",
-      "topic": "归并排序",
-      "summary": "将单链表按升序排序。",
-      "hints": [
-        "链表适合哪种分治排序？",
-        "如何用快慢指针断开左右两半？"
-      ]
-    },
-    "146": {
-      "id": 146,
-      "title": "LRU 缓存",
-      "slug": "lru-cache",
-      "difficulty": "中等",
-      "topic": "哈希表与双向链表",
-      "summary": "实现固定容量、近期最少使用淘汰的缓存。",
-      "hints": [
-        "何种结构支持 O(1) 查找？",
-        "何种结构支持 O(1) 移动和删除？"
-      ]
-    },
-    "94": {
-      "id": 94,
-      "title": "二叉树的中序遍历",
-      "slug": "binary-tree-inorder-traversal",
-      "difficulty": "简单",
-      "topic": "树的 DFS",
-      "summary": "按左、根、右顺序访问二叉树。",
-      "hints": [
-        "递归函数访问顺序是什么？",
-        "迭代时需要什么栈？"
-      ]
-    },
-    "104": {
-      "id": 104,
-      "title": "二叉树的最大深度",
-      "slug": "maximum-depth-of-binary-tree",
-      "difficulty": "简单",
-      "topic": "树的递归",
-      "summary": "求根节点到最远叶子节点的节点数。",
-      "hints": [
-        "左右子树深度如何组合？",
-        "空节点的深度是多少？"
-      ]
-    },
-    "226": {
-      "id": 226,
-      "title": "翻转二叉树",
-      "slug": "invert-binary-tree",
-      "difficulty": "简单",
-      "topic": "树的递归",
-      "summary": "交换每个节点的左右子树。",
-      "hints": [
-        "在每个节点上应做什么操作？",
-        "递归的终止条件是什么？"
-      ]
-    },
-    "101": {
-      "id": 101,
-      "title": "对称二叉树",
-      "slug": "symmetric-tree",
-      "difficulty": "简单",
-      "topic": "镜像递归",
-      "summary": "判断二叉树是否关于根节点轴对称。",
-      "hints": [
-        "应比较哪两棵子树？",
-        "外侧和内侧节点分别如何对应？"
-      ]
-    },
-    "543": {
-      "id": 543,
-      "title": "二叉树的直径",
-      "slug": "diameter-of-binary-tree",
-      "difficulty": "简单",
-      "topic": "树的 DFS",
-      "summary": "求任意两节点间最长路径的边数。",
-      "hints": [
-        "经过某节点的最长路径如何计算？",
-        "递归能否顺便返回子树高度？"
-      ]
-    },
-    "102": {
-      "id": 102,
-      "title": "二叉树的层序遍历",
-      "slug": "binary-tree-level-order-traversal",
-      "difficulty": "中等",
-      "topic": "队列 BFS",
-      "summary": "按层从上至下输出二叉树节点。",
-      "hints": [
-        "队列中的节点代表什么？",
-        "如何按当前队列长度分层？"
-      ]
-    },
-    "108": {
-      "id": 108,
-      "title": "将有序数组转换为二叉搜索树",
-      "slug": "convert-sorted-array-to-binary-search-tree",
-      "difficulty": "简单",
-      "topic": "分治",
-      "summary": "将升序数组构造为高度平衡 BST。",
-      "hints": [
-        "选择哪个元素当根比较均衡？",
-        "左右区间如何递归构建？"
-      ]
-    },
-    "98": {
-      "id": 98,
-      "title": "验证二叉搜索树",
-      "slug": "validate-binary-search-tree",
-      "difficulty": "中等",
-      "topic": "树的递归",
-      "summary": "判断二叉树是否满足严格 BST 有序性。",
-      "hints": [
-        "只比较父子节点够吗？",
-        "每个节点的合法数值上下界是什么？"
-      ]
-    },
-    "230": {
-      "id": 230,
-      "title": "二叉搜索树中第 K 小的元素",
-      "slug": "kth-smallest-element-in-a-bst",
-      "difficulty": "中等",
-      "topic": "中序遍历",
-      "summary": "查找 BST 的第 k 小元素。",
-      "hints": [
-        "BST 中序遍历得到什么顺序？",
-        "计数到第 k 个能提前结束吗？"
-      ]
-    },
-    "199": {
-      "id": 199,
-      "title": "二叉树的右视图",
-      "slug": "binary-tree-right-side-view",
-      "difficulty": "中等",
-      "topic": "树的 BFS",
-      "summary": "从右侧看二叉树，每层保留一个节点。",
-      "hints": [
-        "每层最后一个节点是哪一个？",
-        "DFS 先访问右侧行不行？"
-      ]
-    },
-    "114": {
-      "id": 114,
-      "title": "二叉树展开为链表",
-      "slug": "flatten-binary-tree-to-linked-list",
-      "difficulty": "中等",
-      "topic": "树的原地操作",
-      "summary": "按先序顺序将二叉树展开为仅 right 指针的链。",
-      "hints": [
-        "先序顺序是什么？",
-        "左子树移到右边时，原右子树接到哪里？"
-      ]
-    },
-    "105": {
-      "id": 105,
-      "title": "从前序与中序遍历序列构造二叉树",
-      "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
-      "difficulty": "中等",
-      "topic": "分治与哈希",
-      "summary": "依据前序和中序遍历重建二叉树。",
-      "hints": [
-        "前序第一个节点是什么？",
-        "中序如何划分左右子树？"
-      ]
-    },
-    "437": {
-      "id": 437,
-      "title": "路径总和 III",
-      "slug": "path-sum-iii",
-      "difficulty": "中等",
-      "topic": "树的前缀和",
-      "summary": "统计二叉树中向下路径和等于目标值的条数。",
-      "hints": [
-        "根到当前节点的路径和怎么表示？",
-        "路径结束离开节点时为什么要撤销统计？"
-      ]
-    },
-    "236": {
-      "id": 236,
-      "title": "二叉树的最近公共祖先",
-      "slug": "lowest-common-ancestor-of-a-binary-tree",
-      "difficulty": "中等",
-      "topic": "树的递归",
-      "summary": "寻找两个节点的最近公共祖先。",
-      "hints": [
-        "两节点分布在不同子树时返回什么？",
-        "遇到目标节点时怎样处理？"
-      ]
-    },
-    "200": {
-      "id": 200,
-      "title": "岛屿数量",
-      "slug": "number-of-islands",
-      "difficulty": "中等",
-      "topic": "图的 DFS/BFS",
-      "summary": "统计网格中由相邻陆地连成的岛屿数。",
-      "hints": [
-        "怎样标记已访问的陆地？",
-        "每发现新陆地如何遍历整块岛屿？"
-      ]
-    },
-    "994": {
-      "id": 994,
-      "title": "腐烂的橘子",
-      "slug": "rotting-oranges",
-      "difficulty": "中等",
-      "topic": "多源 BFS",
-      "summary": "求所有新鲜橘子腐烂所需的最少分钟数。",
-      "hints": [
-        "多个腐烂橘子能同时进入队列吗？",
-        "每一层 BFS 是否对应一分钟？"
-      ]
-    },
-    "207": {
-      "id": 207,
-      "title": "课程表",
-      "slug": "course-schedule",
-      "difficulty": "中等",
-      "topic": "拓扑排序",
-      "summary": "判断课程先修关系是否能全部完成。",
-      "hints": [
-        "依赖关系如何建成有向图？",
-        "入度为零的课程如何逐步出队？"
-      ]
-    },
-    "208": {
-      "id": 208,
-      "title": "实现 Trie（前缀树）",
-      "slug": "implement-trie-prefix-tree",
-      "difficulty": "中等",
-      "topic": "Trie",
-      "summary": "支持插入、完整单词搜索和前缀检查。",
-      "hints": [
-        "公共前缀能否共用节点？",
-        "如何区分路径存在和完整单词结束？"
-      ]
-    },
-    "46": {
-      "id": 46,
-      "title": "全排列",
-      "slug": "permutations",
-      "difficulty": "中等",
-      "topic": "回溯",
-      "summary": "返回所有互不相同数字的排列。",
-      "hints": [
-        "每层选择一个尚未使用的数字。",
-        "回溯时应恢复什么状态？"
-      ]
-    },
-    "78": {
-      "id": 78,
-      "title": "子集",
-      "slug": "subsets",
-      "difficulty": "中等",
-      "topic": "回溯",
-      "summary": "返回数组的全部子集。",
-      "hints": [
-        "每个元素可以选或不选。",
-        "递归时如何避免重复排列？"
-      ]
-    },
-    "17": {
-      "id": 17,
-      "title": "电话号码的字母组合",
-      "slug": "letter-combinations-of-a-phone-number",
-      "difficulty": "中等",
-      "topic": "回溯",
-      "summary": "根据数字键盘映射生成所有字母组合。",
-      "hints": [
-        "每个数字有几个选择？",
-        "完成一个长度等于数字串的组合后做什么？"
-      ]
-    },
-    "39": {
-      "id": 39,
-      "title": "组合总和",
-      "slug": "combination-sum",
-      "difficulty": "中等",
-      "topic": "回溯",
-      "summary": "从候选数字中重复选取，使和恰好为目标值。",
-      "hints": [
-        "什么时候可剪枝？",
-        "为什么下一次选取可以从当前下标继续？"
-      ]
-    },
-    "22": {
-      "id": 22,
-      "title": "括号生成",
-      "slug": "generate-parentheses",
-      "difficulty": "中等",
-      "topic": "回溯",
-      "summary": "生成所有合法的 n 对括号组合。",
-      "hints": [
-        "左括号使用数量不能超过多少？",
-        "右括号数量什么时候可以增加？"
-      ]
-    },
-    "79": {
-      "id": 79,
-      "title": "单词搜索",
-      "slug": "word-search",
-      "difficulty": "中等",
-      "topic": "网格回溯",
-      "summary": "判断网格中是否存在沿相邻格组成的单词。",
-      "hints": [
-        "单个格子在一次路径中可复用吗？",
-        "失败时如何恢复访问状态？"
-      ]
-    },
-    "131": {
-      "id": 131,
-      "title": "分割回文串",
-      "slug": "palindrome-partitioning",
-      "difficulty": "中等",
-      "topic": "回溯",
-      "summary": "把字符串分割为每段均回文的所有方案。",
-      "hints": [
-        "从当前位置尝试所有可能切点。",
-        "切出的段不回文时可以怎样处理？"
-      ]
-    },
-    "35": {
-      "id": 35,
-      "title": "搜索插入位置",
-      "slug": "search-insert-position",
-      "difficulty": "简单",
-      "topic": "二分查找",
-      "summary": "返回目标元素的下标或应插入的有序位置。",
-      "hints": [
-        "要找的是第一个大于等于 target 的位置吗？",
-        "边界为空或所有元素更小时怎么办？"
-      ]
-    },
-    "74": {
-      "id": 74,
-      "title": "搜索二维矩阵",
-      "slug": "search-a-2d-matrix",
-      "difficulty": "中等",
-      "topic": "二分查找",
-      "summary": "矩阵按行升序且下一行首元素大于上一行末元素，查找 target。",
-      "hints": [
-        "能将二维矩阵看成一维有序数组吗？",
-        "一维下标如何换算为行列？"
-      ]
-    },
-    "34": {
-      "id": 34,
-      "title": "在排序数组中查找元素的第一个和最后一个位置",
-      "slug": "find-first-and-last-position-of-element-in-sorted-array",
-      "difficulty": "中等",
-      "topic": "二分边界",
-      "summary": "找出排序数组中目标元素的左右边界。",
-      "hints": [
-        "能分别寻找第一个 >= target 和第一个 > target 吗？",
-        "目标不存在时如何判断？"
-      ]
-    },
-    "33": {
-      "id": 33,
-      "title": "搜索旋转排序数组",
-      "slug": "search-in-rotated-sorted-array",
-      "difficulty": "中等",
-      "topic": "二分查找",
-      "summary": "在无重复元素的旋转升序数组中查找目标值。",
-      "hints": [
-        "每次至少有哪一半仍然有序？",
-        "如何判断目标是否位于有序半边？"
-      ]
-    },
-    "153": {
-      "id": 153,
-      "title": "寻找旋转排序数组中的最小值",
-      "slug": "find-minimum-in-rotated-sorted-array",
-      "difficulty": "中等",
-      "topic": "二分查找",
-      "summary": "找旋转升序数组的最小值。",
-      "hints": [
-        "中点与右端点的比较能说明什么？",
-        "边界如何收缩到最小元素？"
-      ]
-    },
-    "20": {
-      "id": 20,
-      "title": "有效的括号",
-      "slug": "valid-parentheses",
-      "difficulty": "简单",
-      "topic": "栈",
-      "summary": "判断括号字符串是否正确配对和嵌套。",
-      "hints": [
-        "遇到左括号应保存什么？",
-        "右括号来时检查栈顶是否匹配。"
-      ]
-    },
-    "155": {
-      "id": 155,
-      "title": "最小栈",
-      "slug": "min-stack",
-      "difficulty": "中等",
-      "topic": "栈设计",
-      "summary": "实现普通栈并在 O(1) 时间获取最小元素。",
-      "hints": [
-        "能否同步维护每一步的最小值？",
-        "弹栈时最小值如何恢复？"
-      ]
-    },
-    "394": {
-      "id": 394,
-      "title": "字符串解码",
-      "slug": "decode-string",
-      "difficulty": "中等",
-      "topic": "栈",
-      "summary": "解码重复次数与方括号嵌套的字符串。",
-      "hints": [
-        "遇到左括号时需要保存哪些状态？",
-        "遇到右括号时如何拼接上一层？"
-      ]
-    },
-    "739": {
-      "id": 739,
-      "title": "每日温度",
-      "slug": "daily-temperatures",
-      "difficulty": "中等",
-      "topic": "单调栈",
-      "summary": "对每天求之后第几天温度更高。",
-      "hints": [
-        "栈内可保存什么下标？",
-        "当前温度能结算此前哪些天？"
-      ]
-    },
-    "215": {
-      "id": 215,
-      "title": "数组中的第 K 个最大元素",
-      "slug": "kth-largest-element-in-an-array",
-      "difficulty": "中等",
-      "topic": "堆/快速选择",
-      "summary": "寻找无序数组中的第 k 大元素。",
-      "hints": [
-        "容量为 k 的最小堆能做什么？",
-        "快速选择只需递归哪一侧？"
-      ]
-    },
-    "347": {
-      "id": 347,
-      "title": "前 K 个高频元素",
-      "slug": "top-k-frequent-elements",
-      "difficulty": "中等",
-      "topic": "哈希表与堆",
-      "summary": "返回出现次数最高的 k 个元素。",
-      "hints": [
-        "先用什么统计频次？",
-        "如何维护最高的 k 个元素？"
-      ]
-    },
-    "55": {
-      "id": 55,
-      "title": "跳跃游戏",
-      "slug": "jump-game",
-      "difficulty": "中等",
-      "topic": "贪心",
-      "summary": "判断能否从第一个位置跳到最后一个位置。",
-      "hints": [
-        "维护目前最远可以到达的位置。",
-        "当前位置不可达时能继续吗？"
-      ]
-    },
-    "45": {
-      "id": 45,
-      "title": "跳跃游戏 II",
-      "slug": "jump-game-ii",
-      "difficulty": "中等",
-      "topic": "贪心",
-      "summary": "求到达末尾所需的最少跳跃次数。",
-      "hints": [
-        "每一步可覆盖的最远边界是什么？",
-        "什么时候必须增加跳跃次数？"
-      ]
-    },
-    "763": {
-      "id": 763,
-      "title": "划分字母区间",
-      "slug": "partition-labels",
-      "difficulty": "中等",
-      "topic": "贪心",
-      "summary": "将字符串尽量划分多个片段，每个字母最多出现在一个片段。",
-      "hints": [
-        "每个字母最后出现的位置在哪？",
-        "遍历到当前片段最远位置时能切分吗？"
-      ]
-    },
-    "70": {
-      "id": 70,
-      "title": "爬楼梯",
-      "slug": "climbing-stairs",
-      "difficulty": "简单",
-      "topic": "动态规划",
-      "summary": "每次走一阶或两阶，求走到第 n 阶的方法数。",
-      "hints": [
-        "最后一步可能来自哪两阶？",
-        "只需保存前两个状态吗？"
-      ]
-    },
-    "118": {
-      "id": 118,
-      "title": "杨辉三角",
-      "slug": "pascals-triangle",
-      "difficulty": "简单",
-      "topic": "动态规划",
-      "summary": "生成杨辉三角的前 numRows 行。",
-      "hints": [
-        "每行边缘的值是多少？",
-        "内部值由上一行哪两项决定？"
-      ]
-    },
-    "198": {
-      "id": 198,
-      "title": "打家劫舍",
-      "slug": "house-robber",
-      "difficulty": "中等",
-      "topic": "动态规划",
-      "summary": "不偷相邻房屋，求最大收益。",
-      "hints": [
-        "当前房子选或不选各对应什么状态？",
-        "转移只依赖哪两个历史位置？"
-      ]
-    },
-    "279": {
-      "id": 279,
-      "title": "完全平方数",
-      "slug": "perfect-squares",
-      "difficulty": "中等",
-      "topic": "动态规划",
-      "summary": "求组成 n 的完全平方数的最少个数。",
-      "hints": [
-        "最后一个平方数可以选择哪些？",
-        "如何从更小的余数转移？"
-      ]
-    },
-    "322": {
-      "id": 322,
-      "title": "零钱兑换",
-      "slug": "coin-change",
-      "difficulty": "中等",
-      "topic": "完全背包",
-      "summary": "给定币值求凑成金额所需最少硬币数。",
-      "hints": [
-        "每种硬币可以无限使用。",
-        "不可达状态应该如何表示？"
-      ]
-    },
-    "139": {
-      "id": 139,
-      "title": "单词拆分",
-      "slug": "word-break",
-      "difficulty": "中等",
-      "topic": "动态规划",
-      "summary": "判断字符串能否由词典单词拼接而成。",
-      "hints": [
-        "dp[i] 能否表示前 i 个字符可被拆分？",
-        "枚举最后一段是否在词典中。"
-      ]
-    },
-    "300": {
-      "id": 300,
-      "title": "最长递增子序列",
-      "slug": "longest-increasing-subsequence",
-      "difficulty": "中等",
-      "topic": "动态规划/二分",
-      "summary": "求严格递增子序列的最大长度。",
-      "hints": [
-        "以每个位置结尾的最优长度如何转移？",
-        "是否能用二分维护候选结尾？"
-      ]
-    },
-    "152": {
-      "id": 152,
-      "title": "乘积最大子数组",
-      "slug": "maximum-product-subarray",
-      "difficulty": "中等",
-      "topic": "动态规划",
-      "summary": "寻找乘积最大的连续非空子数组。",
-      "hints": [
-        "负数会不会让最大和最小交换？",
-        "是否应同时维护最大积和最小积？"
-      ]
-    },
-    "416": {
-      "id": 416,
-      "title": "分割等和子集",
-      "slug": "partition-equal-subset-sum",
-      "difficulty": "中等",
-      "topic": "0-1 背包",
-      "summary": "判断数组能否分为和相等的两部分。",
-      "hints": [
-        "总和为奇数时可以直接排除吗？",
-        "能否转为选出和为总和一半的子集？"
-      ]
-    },
-    "62": {
-      "id": 62,
-      "title": "不同路径",
-      "slug": "unique-paths",
-      "difficulty": "中等",
-      "topic": "二维动态规划",
-      "summary": "从网格左上走到右下，只能向右或向下，求路径数。",
-      "hints": [
-        "到当前位置的路径来自哪里？",
-        "第一行与第一列如何初始化？"
-      ]
-    },
-    "64": {
-      "id": 64,
-      "title": "最小路径和",
-      "slug": "minimum-path-sum",
-      "difficulty": "中等",
-      "topic": "二维动态规划",
-      "summary": "从左上到右下只向右或下，求经过数字的最小和。",
-      "hints": [
-        "当前最小和依赖哪两个邻居？",
-        "边界只能从一个方向到达。"
-      ]
+        "什么情况让当前窗口失效？",
+        "出现重复时能否只移动左边界？"
+      ],
+      "example": {
+        "input": "s = \"abcabcbb\"",
+        "output": "3",
+        "explanation": "最长无重复子串如 \"abc\"，长度为 3。"
+      }
     },
     "5": {
       "id": 5,
@@ -1291,175 +335,12 @@
       "hints": [
         "回文具有怎样的对称中心？",
         "奇偶长度应分别如何处理？"
-      ]
-    },
-    "1143": {
-      "id": 1143,
-      "title": "最长公共子序列",
-      "slug": "longest-common-subsequence",
-      "difficulty": "中等",
-      "topic": "二维动态规划",
-      "summary": "求两个字符串最长公共子序列长度。",
-      "hints": [
-        "最后字符相同与不同时如何转移？",
-        "子序列是否必须连续？"
-      ]
-    },
-    "72": {
-      "id": 72,
-      "title": "编辑距离",
-      "slug": "edit-distance",
-      "difficulty": "中等",
-      "topic": "二维动态规划",
-      "summary": "求字符串由插入、删除、替换转换的最少操作数。",
-      "hints": [
-        "定义 dp[i][j] 表示哪两个前缀？",
-        "最后一步可能属于三种操作哪一种？"
-      ]
-    },
-    "136": {
-      "id": 136,
-      "title": "只出现一次的数字",
-      "slug": "single-number",
-      "difficulty": "简单",
-      "topic": "位运算",
-      "summary": "其他数字恰好出现两次，找唯一出现一次的数字。",
-      "hints": [
-        "异或相同数字会发生什么？",
-        "异或是否满足交换律？"
-      ]
-    },
-    "169": {
-      "id": 169,
-      "title": "多数元素",
-      "slug": "majority-element",
-      "difficulty": "简单",
-      "topic": "摩尔投票",
-      "summary": "寻找出现次数超过一半的元素。",
-      "hints": [
-        "不同元素能成对抵消吗？",
-        "候选值计数归零时如何处理？"
-      ]
-    },
-    "75": {
-      "id": 75,
-      "title": "颜色分类",
-      "slug": "sort-colors",
-      "difficulty": "中等",
-      "topic": "三指针",
-      "summary": "原地将 0、1、2 三种颜色排序。",
-      "hints": [
-        "能否维护三个不同区域？",
-        "交换 2 到右边后是否应该立即前进？"
-      ]
-    },
-    "31": {
-      "id": 31,
-      "title": "下一个排列",
-      "slug": "next-permutation",
-      "difficulty": "中等",
-      "topic": "排列算法",
-      "summary": "原地生成字典序的下一个排列，不存在则变最小排列。",
-      "hints": [
-        "从右往左先找到什么逆序位置？",
-        "交换后后缀如何变得尽量小？"
-      ]
-    },
-    "287": {
-      "id": 287,
-      "title": "寻找重复数",
-      "slug": "find-the-duplicate-number",
-      "difficulty": "中等",
-      "topic": "快慢指针",
-      "summary": "长度 n+1、取值 1..n 的数组中找重复数，不能修改数组。",
-      "hints": [
-        "下标到数值可看作什么链式映射？",
-        "重复值为什么会产生环？"
-      ]
-    },
-    "217": {
-      "id": 217,
-      "title": "存在重复元素",
-      "slug": "contains-duplicate",
-      "difficulty": "简单",
-      "topic": "哈希集合",
-      "summary": "判断数组中是否有重复数字。",
-      "hints": [
-        "集合插入前先检查什么？",
-        "能否一边遍历一边终止？"
-      ]
-    },
-    "14": {
-      "id": 14,
-      "title": "最长公共前缀",
-      "slug": "longest-common-prefix",
-      "difficulty": "简单",
-      "topic": "字符串",
-      "summary": "查找字符串数组所有元素的最长公共前缀。",
-      "hints": [
-        "拿第一个字符串作为候选可以吗？",
-        "某一位置不匹配后还能继续吗？"
-      ]
-    },
-    "13": {
-      "id": 13,
-      "title": "罗马数字转整数",
-      "slug": "roman-to-integer",
-      "difficulty": "简单",
-      "topic": "字符串模拟",
-      "summary": "把罗马数字表示转换为整数。",
-      "hints": [
-        "较小符号位于较大符号之前时怎样处理？",
-        "从左到右还是从右到左更方便？"
-      ]
-    },
-    "66": {
-      "id": 66,
-      "title": "加一",
-      "slug": "plus-one",
-      "difficulty": "简单",
-      "topic": "数组模拟",
-      "summary": "将十进制数字数组整体加一。",
-      "hints": [
-        "从最低位开始处理什么？",
-        "全为 9 时怎么办？"
-      ]
-    },
-    "88": {
-      "id": 88,
-      "title": "合并两个有序数组",
-      "slug": "merge-sorted-array",
-      "difficulty": "简单",
-      "topic": "逆向双指针",
-      "summary": "在 nums1 的末尾空位中原地合并两个有序数组。",
-      "hints": [
-        "从头合并会覆盖未读取元素吗？",
-        "从末尾比较两个数组更方便吗？"
-      ]
-    },
-    "26": {
-      "id": 26,
-      "title": "删除有序数组中的重复项",
-      "slug": "remove-duplicates-from-sorted-array",
-      "difficulty": "简单",
-      "topic": "快慢指针",
-      "summary": "原地去除升序数组中的重复项并返回长度。",
-      "hints": [
-        "快指针与慢指针分别表示什么？",
-        "不同元素应该写到哪里？"
-      ]
-    },
-    "36": {
-      "id": 36,
-      "title": "有效的数独",
-      "slug": "valid-sudoku",
-      "difficulty": "中等",
-      "topic": "哈希计数",
-      "summary": "判断已填数字是否违反行、列与九宫格限制。",
-      "hints": [
-        "需要检查哪三类约束？",
-        "如何为每个九宫格编号？"
-      ]
+      ],
+      "example": {
+        "input": "s = \"babad\"",
+        "output": "\"bab\"",
+        "explanation": "输出 \"aba\" 也正确，二者长度都是 3。"
+      }
     },
     "8": {
       "id": 8,
@@ -1471,7 +352,1627 @@
       "hints": [
         "何时停止读取？",
         "乘十加数字之前如何检测溢出？"
-      ]
+      ],
+      "example": {
+        "input": "s = \"   -42\"",
+        "output": "-42",
+        "explanation": "跳过前导空格，读取负号与数字后得到 -42。"
+      }
+    },
+    "11": {
+      "id": 11,
+      "title": "盛最多水的容器",
+      "slug": "container-with-most-water",
+      "difficulty": "中等",
+      "topic": "相向双指针",
+      "summary": "从多条竖线中选择两条，使容器盛水量最大。",
+      "hints": [
+        "面积由宽度和哪条边的高度决定？",
+        "宽度缩小时，应该舍弃较高还是较短的一侧？"
+      ],
+      "example": {
+        "input": "height = [1,8,6,2,5,4,8,3,7]",
+        "output": "49",
+        "explanation": "选下标 1 和 8：宽 7，较短边高度 7，面积 49。"
+      }
+    },
+    "13": {
+      "id": 13,
+      "title": "罗马数字转整数",
+      "slug": "roman-to-integer",
+      "difficulty": "简单",
+      "topic": "字符串模拟",
+      "summary": "把罗马数字表示转换为整数。",
+      "hints": [
+        "较小符号位于较大符号之前时怎样处理？",
+        "从左到右还是从右到左更方便？"
+      ],
+      "example": {
+        "input": "s = \"MCMXCIV\"",
+        "output": "1994",
+        "explanation": "M=1000、CM=900、XC=90、IV=4。"
+      }
+    },
+    "14": {
+      "id": 14,
+      "title": "最长公共前缀",
+      "slug": "longest-common-prefix",
+      "difficulty": "简单",
+      "topic": "字符串",
+      "summary": "查找字符串数组所有元素的最长公共前缀。",
+      "hints": [
+        "拿第一个字符串作为候选可以吗？",
+        "某一位置不匹配后还能继续吗？"
+      ],
+      "example": {
+        "input": "strs = [\"flower\",\"flow\",\"flight\"]",
+        "output": "\"fl\"",
+        "explanation": "所有单词共有的最长开头是 fl。"
+      }
+    },
+    "15": {
+      "id": 15,
+      "title": "三数之和",
+      "slug": "3sum",
+      "difficulty": "中等",
+      "topic": "排序与双指针",
+      "summary": "找到数组中所有不重复的和为零的三元组。",
+      "hints": [
+        "固定第一个数字后，剩余问题是什么？",
+        "排序后如何避免相同三元组出现多次？"
+      ],
+      "example": {
+        "input": "nums = [-1,0,1,2,-1,-4]",
+        "output": "[[-1,-1,2],[-1,0,1]]",
+        "explanation": "只返回不重复的三元组，顺序不限。"
+      }
+    },
+    "17": {
+      "id": 17,
+      "title": "电话号码的字母组合",
+      "slug": "letter-combinations-of-a-phone-number",
+      "difficulty": "中等",
+      "topic": "回溯",
+      "summary": "根据数字键盘映射生成所有字母组合。",
+      "hints": [
+        "每个数字有几个选择？",
+        "完成一个长度等于数字串的组合后做什么？"
+      ],
+      "example": {
+        "input": "digits = \"23\"",
+        "output": "[\"ad\",\"ae\",\"af\",\"bd\",\"be\",\"bf\",\"cd\",\"ce\",\"cf\"]",
+        "explanation": "数字 2 对应 abc，3 对应 def，两两组合。"
+      }
+    },
+    "19": {
+      "id": 19,
+      "title": "删除链表的倒数第 N 个结点",
+      "slug": "remove-nth-node-from-end-of-list",
+      "difficulty": "中等",
+      "topic": "快慢指针",
+      "summary": "删除单链表倒数第 n 个节点。",
+      "hints": [
+        "快慢指针保持多大距离？",
+        "虚拟头节点如何统一删除头结点情况？"
+      ],
+      "example": {
+        "input": "head = [1,2,3,4,5], n = 2",
+        "output": "[1,2,3,5]",
+        "explanation": "删除倒数第二个节点（值为 4）。"
+      }
+    },
+    "20": {
+      "id": 20,
+      "title": "有效的括号",
+      "slug": "valid-parentheses",
+      "difficulty": "简单",
+      "topic": "栈",
+      "summary": "判断括号字符串是否正确配对和嵌套。",
+      "hints": [
+        "遇到左括号应保存什么？",
+        "右括号来时检查栈顶是否匹配。"
+      ],
+      "example": {
+        "input": "s = \"()[]{}\"",
+        "output": "true",
+        "explanation": "三种括号均正确配对且嵌套合法。"
+      }
+    },
+    "21": {
+      "id": 21,
+      "title": "合并两个有序链表",
+      "slug": "merge-two-sorted-lists",
+      "difficulty": "简单",
+      "topic": "链表合并",
+      "summary": "把两个升序链表合并成一个升序链表。",
+      "hints": [
+        "用虚拟头节点是否更简单？",
+        "每次应接哪一边的当前节点？"
+      ],
+      "example": {
+        "input": "list1 = [1,2,4], list2 = [1,3,4]",
+        "output": "[1,1,2,3,4,4]",
+        "explanation": "依次取两个有序链表中较小的当前节点。"
+      }
+    },
+    "22": {
+      "id": 22,
+      "title": "括号生成",
+      "slug": "generate-parentheses",
+      "difficulty": "中等",
+      "topic": "回溯",
+      "summary": "生成所有合法的 n 对括号组合。",
+      "hints": [
+        "左括号使用数量不能超过多少？",
+        "右括号数量什么时候可以增加？"
+      ],
+      "example": {
+        "input": "n = 2",
+        "output": "[\"(())\",\"()()\"]",
+        "explanation": "只返回格式正确的两对括号组合。"
+      }
+    },
+    "24": {
+      "id": 24,
+      "title": "两两交换链表中的节点",
+      "slug": "swap-nodes-in-pairs",
+      "difficulty": "中等",
+      "topic": "链表指针操作",
+      "summary": "交换每相邻两个节点的连接，不改节点值。",
+      "hints": [
+        "虚拟头节点能简化首组交换吗？",
+        "每次交换前需保存哪些连接？"
+      ],
+      "example": {
+        "input": "head = [1,2,3,4]",
+        "output": "[2,1,4,3]",
+        "explanation": "每对相邻节点交换；如果最后只剩一个节点则保持不变。"
+      }
+    },
+    "26": {
+      "id": 26,
+      "title": "删除有序数组中的重复项",
+      "slug": "remove-duplicates-from-sorted-array",
+      "difficulty": "简单",
+      "topic": "快慢指针",
+      "summary": "原地去除升序数组中的重复项并返回长度。",
+      "hints": [
+        "快指针与慢指针分别表示什么？",
+        "不同元素应该写到哪里？"
+      ],
+      "example": {
+        "input": "nums = [0,0,1,1,2]",
+        "output": "k = 3, nums 前 3 项 = [0,1,2]",
+        "explanation": "只需要前 k 个位置正确，后续位置不作要求。"
+      }
+    },
+    "31": {
+      "id": 31,
+      "title": "下一个排列",
+      "slug": "next-permutation",
+      "difficulty": "中等",
+      "topic": "排列算法",
+      "summary": "原地生成字典序的下一个排列，不存在则变最小排列。",
+      "hints": [
+        "从右往左先找到什么逆序位置？",
+        "交换后后缀如何变得尽量小？"
+      ],
+      "example": {
+        "input": "nums = [1,2,3]",
+        "output": "[1,3,2]",
+        "explanation": "字典序中紧接 [1,2,3] 的下一个排列。"
+      }
+    },
+    "33": {
+      "id": 33,
+      "title": "搜索旋转排序数组",
+      "slug": "search-in-rotated-sorted-array",
+      "difficulty": "中等",
+      "topic": "二分查找",
+      "summary": "在无重复元素的旋转升序数组中查找目标值。",
+      "hints": [
+        "每次至少有哪一半仍然有序？",
+        "如何判断目标是否位于有序半边？"
+      ],
+      "example": {
+        "input": "nums = [4,5,6,7,0,1,2], target = 0",
+        "output": "4",
+        "explanation": "数组旋转后仍包含单调区间，可使用变形二分。"
+      }
+    },
+    "34": {
+      "id": 34,
+      "title": "在排序数组中查找元素的第一个和最后一个位置",
+      "slug": "find-first-and-last-position-of-element-in-sorted-array",
+      "difficulty": "中等",
+      "topic": "二分边界",
+      "summary": "找出排序数组中目标元素的左右边界。",
+      "hints": [
+        "能分别寻找第一个 >= target 和第一个 > target 吗？",
+        "目标不存在时如何判断？"
+      ],
+      "example": {
+        "input": "nums = [5,7,7,8,8,10], target = 8",
+        "output": "[3,4]",
+        "explanation": "8 在下标 3 和 4 出现。"
+      }
+    },
+    "35": {
+      "id": 35,
+      "title": "搜索插入位置",
+      "slug": "search-insert-position",
+      "difficulty": "简单",
+      "topic": "二分查找",
+      "summary": "返回目标元素的下标或应插入的有序位置。",
+      "hints": [
+        "要找的是第一个大于等于 target 的位置吗？",
+        "边界为空或所有元素更小时怎么办？"
+      ],
+      "example": {
+        "input": "nums = [1,3,5,6], target = 2",
+        "output": "1",
+        "explanation": "目标值不存在，应插入下标 1 来保持有序。"
+      }
+    },
+    "36": {
+      "id": 36,
+      "title": "有效的数独",
+      "slug": "valid-sudoku",
+      "difficulty": "中等",
+      "topic": "哈希计数",
+      "summary": "判断已填数字是否违反行、列与九宫格限制。",
+      "hints": [
+        "需要检查哪三类约束？",
+        "如何为每个九宫格编号？"
+      ],
+      "example": {
+        "input": "board = [\"55.......\",\".........\",\".........\",\".........\",\".........\",\".........\",\".........\",\".........\",\".........\"]",
+        "output": "false",
+        "explanation": "每个字符串表示一行；第一行数字 5 重复，违反数独规则。"
+      }
+    },
+    "39": {
+      "id": 39,
+      "title": "组合总和",
+      "slug": "combination-sum",
+      "difficulty": "中等",
+      "topic": "回溯",
+      "summary": "从候选数字中重复选取，使和恰好为目标值。",
+      "hints": [
+        "什么时候可剪枝？",
+        "为什么下一次选取可以从当前下标继续？"
+      ],
+      "example": {
+        "input": "candidates = [2,3,6,7], target = 7",
+        "output": "[[2,2,3],[7]]",
+        "explanation": "同一个候选数字可重复使用，组合顺序不限。"
+      }
+    },
+    "45": {
+      "id": 45,
+      "title": "跳跃游戏 II",
+      "slug": "jump-game-ii",
+      "difficulty": "中等",
+      "topic": "贪心",
+      "summary": "求到达末尾所需的最少跳跃次数。",
+      "hints": [
+        "每一步可覆盖的最远边界是什么？",
+        "什么时候必须增加跳跃次数？"
+      ],
+      "example": {
+        "input": "nums = [2,3,1,1,4]",
+        "output": "2",
+        "explanation": "最少需要 2 次跳跃才能到末尾。"
+      }
+    },
+    "46": {
+      "id": 46,
+      "title": "全排列",
+      "slug": "permutations",
+      "difficulty": "中等",
+      "topic": "回溯",
+      "summary": "返回所有互不相同数字的排列。",
+      "hints": [
+        "每层选择一个尚未使用的数字。",
+        "回溯时应恢复什么状态？"
+      ],
+      "example": {
+        "input": "nums = [1,2,3]",
+        "output": "[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]",
+        "explanation": "共有 3! = 6 个排列，顺序不限。"
+      }
+    },
+    "48": {
+      "id": 48,
+      "title": "旋转图像",
+      "slug": "rotate-image",
+      "difficulty": "中等",
+      "topic": "矩阵原地变换",
+      "summary": "将方阵顺时针旋转 90°。",
+      "hints": [
+        "旋转后的坐标如何变化？",
+        "能否用转置加某种翻转完成？"
+      ],
+      "example": {
+        "input": "matrix = [[1,2,3],[4,5,6],[7,8,9]]",
+        "output": "[[7,4,1],[8,5,2],[9,6,3]]",
+        "explanation": "整个 n×n 矩阵顺时针原地旋转 90°。"
+      }
+    },
+    "49": {
+      "id": 49,
+      "title": "字母异位词分组",
+      "slug": "group-anagrams",
+      "difficulty": "中等",
+      "topic": "哈希分组",
+      "summary": "将字母异位词归入同一组。",
+      "hints": [
+        "异位词拥有怎样的共同特征？",
+        "能为每一组构造相同的 key 吗？"
+      ],
+      "example": {
+        "input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
+        "output": "[[\"eat\",\"tea\",\"ate\"],[\"tan\",\"nat\"],[\"bat\"]]",
+        "explanation": "组内、组间的输出顺序均可不同。"
+      }
+    },
+    "53": {
+      "id": 53,
+      "title": "最大子数组和",
+      "slug": "maximum-subarray",
+      "difficulty": "中等",
+      "topic": "动态规划",
+      "summary": "寻找具有最大和的非空连续子数组。",
+      "hints": [
+        "以 i 结尾时，是延续前段还是重新开始？",
+        "局部最优和全局最优分别是什么？"
+      ],
+      "example": {
+        "input": "nums = [-2,1,-3,4,-1,2,1,-5,4]",
+        "output": "6",
+        "explanation": "最大连续子数组 [4,-1,2,1] 的和为 6。"
+      }
+    },
+    "54": {
+      "id": 54,
+      "title": "螺旋矩阵",
+      "slug": "spiral-matrix",
+      "difficulty": "中等",
+      "topic": "边界模拟",
+      "summary": "顺时针、由外向内输出矩阵所有元素。",
+      "hints": [
+        "四条边界分别代表什么？",
+        "只剩一行或一列时怎样防止重复？"
+      ],
+      "example": {
+        "input": "matrix = [[1,2,3],[4,5,6],[7,8,9]]",
+        "output": "[1,2,3,6,9,8,7,4,5]",
+        "explanation": "从左上角开始，沿外圈顺时针走，再逐层向内。"
+      }
+    },
+    "55": {
+      "id": 55,
+      "title": "跳跃游戏",
+      "slug": "jump-game",
+      "difficulty": "中等",
+      "topic": "贪心",
+      "summary": "判断能否从第一个位置跳到最后一个位置。",
+      "hints": [
+        "维护目前最远可以到达的位置。",
+        "当前位置不可达时能继续吗？"
+      ],
+      "example": {
+        "input": "nums = [2,3,1,1,4]",
+        "output": "true",
+        "explanation": "可以从下标 0 跳到 1，再从下标 1 跳到末尾。"
+      }
+    },
+    "56": {
+      "id": 56,
+      "title": "合并区间",
+      "slug": "merge-intervals",
+      "difficulty": "中等",
+      "topic": "排序与贪心",
+      "summary": "合并所有有重叠的区间。",
+      "hints": [
+        "先按左端点排序会怎样？",
+        "重叠时该如何更新右边界？"
+      ],
+      "example": {
+        "input": "intervals = [[1,3],[2,6],[8,10],[15,18]]",
+        "output": "[[1,6],[8,10],[15,18]]",
+        "explanation": "[1,3] 与 [2,6] 发生重叠，被合并成 [1,6]。"
+      }
+    },
+    "57": {
+      "id": 57,
+      "title": "插入区间",
+      "slug": "insert-interval",
+      "difficulty": "中等",
+      "topic": "有序区间扫描",
+      "summary": "在已排序的不相交区间中插入并合并新区间。",
+      "hints": [
+        "区间可分为左侧、重叠、右侧三类吗？",
+        "合并重叠区间会怎样改变新边界？"
+      ],
+      "example": {
+        "input": "intervals = [[1,3],[6,9]], newInterval = [2,5]",
+        "output": "[[1,5],[6,9]]",
+        "explanation": "新区间与 [1,3] 重叠，合并为 [1,5]。"
+      }
+    },
+    "62": {
+      "id": 62,
+      "title": "不同路径",
+      "slug": "unique-paths",
+      "difficulty": "中等",
+      "topic": "二维动态规划",
+      "summary": "从网格左上走到右下，只能向右或向下，求路径数。",
+      "hints": [
+        "到当前位置的路径来自哪里？",
+        "第一行与第一列如何初始化？"
+      ],
+      "example": {
+        "input": "m = 3, n = 7",
+        "output": "28",
+        "explanation": "只能向右或向下，到右下角有 28 种不同路径。"
+      }
+    },
+    "64": {
+      "id": 64,
+      "title": "最小路径和",
+      "slug": "minimum-path-sum",
+      "difficulty": "中等",
+      "topic": "二维动态规划",
+      "summary": "从左上到右下只向右或下，求经过数字的最小和。",
+      "hints": [
+        "当前最小和依赖哪两个邻居？",
+        "边界只能从一个方向到达。"
+      ],
+      "example": {
+        "input": "grid = [[1,3,1],[1,5,1],[4,2,1]]",
+        "output": "7",
+        "explanation": "最小路径之和为 1+3+1+1+1 = 7。"
+      }
+    },
+    "66": {
+      "id": 66,
+      "title": "加一",
+      "slug": "plus-one",
+      "difficulty": "简单",
+      "topic": "数组模拟",
+      "summary": "将十进制数字数组整体加一。",
+      "hints": [
+        "从最低位开始处理什么？",
+        "全为 9 时怎么办？"
+      ],
+      "example": {
+        "input": "digits = [9,9]",
+        "output": "[1,0,0]",
+        "explanation": "99 加 1 后变为 100，进位会增加一位。"
+      }
+    },
+    "70": {
+      "id": 70,
+      "title": "爬楼梯",
+      "slug": "climbing-stairs",
+      "difficulty": "简单",
+      "topic": "动态规划",
+      "summary": "每次走一阶或两阶，求走到第 n 阶的方法数。",
+      "hints": [
+        "最后一步可能来自哪两阶？",
+        "只需保存前两个状态吗？"
+      ],
+      "example": {
+        "input": "n = 3",
+        "output": "3",
+        "explanation": "走 1+1+1、1+2、2+1，共三种走法。"
+      }
+    },
+    "72": {
+      "id": 72,
+      "title": "编辑距离",
+      "slug": "edit-distance",
+      "difficulty": "中等",
+      "topic": "二维动态规划",
+      "summary": "求字符串由插入、删除、替换转换的最少操作数。",
+      "hints": [
+        "定义 dp[i][j] 表示哪两个前缀？",
+        "最后一步可能属于三种操作哪一种？"
+      ],
+      "example": {
+        "input": "word1 = \"horse\", word2 = \"ros\"",
+        "output": "3",
+        "explanation": "通过删除、插入和替换将 horse 变为 ros，最少 3 步。"
+      }
+    },
+    "73": {
+      "id": 73,
+      "title": "矩阵置零",
+      "slug": "set-matrix-zeroes",
+      "difficulty": "中等",
+      "topic": "原地标记",
+      "summary": "含零元素所在的整行整列都置零。",
+      "hints": [
+        "立即清零会污染后续检查吗？",
+        "能借用首行首列存标记吗？"
+      ],
+      "example": {
+        "input": "matrix = [[1,1,1],[1,0,1],[1,1,1]]",
+        "output": "[[1,0,1],[0,0,0],[1,0,1]]",
+        "explanation": "原位置 (1,1) 为 0，因此整行整列都变为 0。"
+      }
+    },
+    "74": {
+      "id": 74,
+      "title": "搜索二维矩阵",
+      "slug": "search-a-2d-matrix",
+      "difficulty": "中等",
+      "topic": "二分查找",
+      "summary": "矩阵按行升序且下一行首元素大于上一行末元素，查找 target。",
+      "hints": [
+        "能将二维矩阵看成一维有序数组吗？",
+        "一维下标如何换算为行列？"
+      ],
+      "example": {
+        "input": "matrix = [[1,3,5],[7,9,11]], target = 9",
+        "output": "true",
+        "explanation": "按行展开后可视为一个整体升序数组。"
+      }
+    },
+    "75": {
+      "id": 75,
+      "title": "颜色分类",
+      "slug": "sort-colors",
+      "difficulty": "中等",
+      "topic": "三指针",
+      "summary": "原地将 0、1、2 三种颜色排序。",
+      "hints": [
+        "能否维护三个不同区域？",
+        "交换 2 到右边后是否应该立即前进？"
+      ],
+      "example": {
+        "input": "nums = [2,0,2,1,1,0]",
+        "output": "[0,0,1,1,2,2]",
+        "explanation": "原地按 0、1、2 的顺序分类。"
+      }
+    },
+    "78": {
+      "id": 78,
+      "title": "子集",
+      "slug": "subsets",
+      "difficulty": "中等",
+      "topic": "回溯",
+      "summary": "返回数组的全部子集。",
+      "hints": [
+        "每个元素可以选或不选。",
+        "递归时如何避免重复排列？"
+      ],
+      "example": {
+        "input": "nums = [1,2]",
+        "output": "[[],[1],[2],[1,2]]",
+        "explanation": "每个元素都可以选或不选，包含空集。"
+      }
+    },
+    "79": {
+      "id": 79,
+      "title": "单词搜索",
+      "slug": "word-search",
+      "difficulty": "中等",
+      "topic": "网格回溯",
+      "summary": "判断网格中是否存在沿相邻格组成的单词。",
+      "hints": [
+        "单个格子在一次路径中可复用吗？",
+        "失败时如何恢复访问状态？"
+      ],
+      "example": {
+        "input": "board = [[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]], word = \"ABCCED\"",
+        "output": "true",
+        "explanation": "字符能沿上下左右相邻格连续连接，单次路径不可重复使用格子。"
+      }
+    },
+    "88": {
+      "id": 88,
+      "title": "合并两个有序数组",
+      "slug": "merge-sorted-array",
+      "difficulty": "简单",
+      "topic": "逆向双指针",
+      "summary": "在 nums1 的末尾空位中原地合并两个有序数组。",
+      "hints": [
+        "从头合并会覆盖未读取元素吗？",
+        "从末尾比较两个数组更方便吗？"
+      ],
+      "example": {
+        "input": "nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3",
+        "output": "[1,2,2,3,5,6]",
+        "explanation": "将 nums2 合入 nums1 前 m 个有效元素，结果原地升序。"
+      }
+    },
+    "94": {
+      "id": 94,
+      "title": "二叉树的中序遍历",
+      "slug": "binary-tree-inorder-traversal",
+      "difficulty": "简单",
+      "topic": "树的 DFS",
+      "summary": "按左、根、右顺序访问二叉树。",
+      "hints": [
+        "递归函数访问顺序是什么？",
+        "迭代时需要什么栈？"
+      ],
+      "example": {
+        "input": "root = [1,null,2,3]",
+        "output": "[1,3,2]",
+        "explanation": "中序遍历遵循左子树、根节点、右子树。"
+      }
+    },
+    "98": {
+      "id": 98,
+      "title": "验证二叉搜索树",
+      "slug": "validate-binary-search-tree",
+      "difficulty": "中等",
+      "topic": "树的递归",
+      "summary": "判断二叉树是否满足严格 BST 有序性。",
+      "hints": [
+        "只比较父子节点够吗？",
+        "每个节点的合法数值上下界是什么？"
+      ],
+      "example": {
+        "input": "root = [2,1,3]",
+        "output": "true",
+        "explanation": "所有左子树节点均小于根，所有右子树节点均大于根。"
+      }
+    },
+    "101": {
+      "id": 101,
+      "title": "对称二叉树",
+      "slug": "symmetric-tree",
+      "difficulty": "简单",
+      "topic": "镜像递归",
+      "summary": "判断二叉树是否关于根节点轴对称。",
+      "hints": [
+        "应比较哪两棵子树？",
+        "外侧和内侧节点分别如何对应？"
+      ],
+      "example": {
+        "input": "root = [1,2,2,3,4,4,3]",
+        "output": "true",
+        "explanation": "左右子树围绕根节点互为镜像。"
+      }
+    },
+    "102": {
+      "id": 102,
+      "title": "二叉树的层序遍历",
+      "slug": "binary-tree-level-order-traversal",
+      "difficulty": "中等",
+      "topic": "队列 BFS",
+      "summary": "按层从上至下输出二叉树节点。",
+      "hints": [
+        "队列中的节点代表什么？",
+        "如何按当前队列长度分层？"
+      ],
+      "example": {
+        "input": "root = [3,9,20,null,null,15,7]",
+        "output": "[[3],[9,20],[15,7]]",
+        "explanation": "按树的深度分层输出节点值。"
+      }
+    },
+    "104": {
+      "id": 104,
+      "title": "二叉树的最大深度",
+      "slug": "maximum-depth-of-binary-tree",
+      "difficulty": "简单",
+      "topic": "树的递归",
+      "summary": "求根节点到最远叶子节点的节点数。",
+      "hints": [
+        "左右子树深度如何组合？",
+        "空节点的深度是多少？"
+      ],
+      "example": {
+        "input": "root = [3,9,20,null,null,15,7]",
+        "output": "3",
+        "explanation": "最长根到叶子路径包含 3 个节点。"
+      }
+    },
+    "105": {
+      "id": 105,
+      "title": "从前序与中序遍历序列构造二叉树",
+      "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+      "difficulty": "中等",
+      "topic": "分治与哈希",
+      "summary": "依据前序和中序遍历重建二叉树。",
+      "hints": [
+        "前序第一个节点是什么？",
+        "中序如何划分左右子树？"
+      ],
+      "example": {
+        "input": "preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]",
+        "output": "[3,9,20,null,null,15,7]",
+        "explanation": "前序确定根，中序划分左右子树。"
+      }
+    },
+    "108": {
+      "id": 108,
+      "title": "将有序数组转换为二叉搜索树",
+      "slug": "convert-sorted-array-to-binary-search-tree",
+      "difficulty": "简单",
+      "topic": "分治",
+      "summary": "将升序数组构造为高度平衡 BST。",
+      "hints": [
+        "选择哪个元素当根比较均衡？",
+        "左右区间如何递归构建？"
+      ],
+      "example": {
+        "input": "nums = [-10,-3,0,5,9]",
+        "output": "[0,-3,9,-10,null,5]",
+        "explanation": "一种合法的平衡搜索树，答案不唯一。"
+      }
+    },
+    "114": {
+      "id": 114,
+      "title": "二叉树展开为链表",
+      "slug": "flatten-binary-tree-to-linked-list",
+      "difficulty": "中等",
+      "topic": "树的原地操作",
+      "summary": "按先序顺序将二叉树展开为仅 right 指针的链。",
+      "hints": [
+        "先序顺序是什么？",
+        "左子树移到右边时，原右子树接到哪里？"
+      ],
+      "example": {
+        "input": "root = [1,2,5,3,4,null,6]",
+        "output": "[1,null,2,null,3,null,4,null,5,null,6]",
+        "explanation": "展开后每个节点只有右孩子，顺序与先序遍历一致。"
+      }
+    },
+    "118": {
+      "id": 118,
+      "title": "杨辉三角",
+      "slug": "pascals-triangle",
+      "difficulty": "简单",
+      "topic": "动态规划",
+      "summary": "生成杨辉三角的前 numRows 行。",
+      "hints": [
+        "每行边缘的值是多少？",
+        "内部值由上一行哪两项决定？"
+      ],
+      "example": {
+        "input": "numRows = 5",
+        "output": "[[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]",
+        "explanation": "每个内部元素等于上一行相邻两数之和。"
+      }
+    },
+    "121": {
+      "id": 121,
+      "title": "买卖股票的最佳时机",
+      "slug": "best-time-to-buy-and-sell-stock",
+      "difficulty": "简单",
+      "topic": "贪心",
+      "summary": "只能先买后卖一次，求最大利润。",
+      "hints": [
+        "固定卖出日，最佳买入价格是什么？",
+        "能否一次遍历维护历史最低价？"
+      ],
+      "example": {
+        "input": "prices = [7,1,5,3,6,4]",
+        "output": "5",
+        "explanation": "第 2 天以 1 买入、第 5 天以 6 卖出，利润为 5。"
+      }
+    },
+    "125": {
+      "id": 125,
+      "title": "验证回文串",
+      "slug": "valid-palindrome",
+      "difficulty": "简单",
+      "topic": "相向双指针",
+      "summary": "忽略标点和大小写，判断字符串是否回文。",
+      "hints": [
+        "从两端比较是否方便？",
+        "遇到非字母数字字符时怎么办？"
+      ],
+      "example": {
+        "input": "s = \"A man, a plan, a canal: Panama\"",
+        "output": "true",
+        "explanation": "忽略标点、空格与大小写后，正反读一致。"
+      }
+    },
+    "128": {
+      "id": 128,
+      "title": "最长连续序列",
+      "slug": "longest-consecutive-sequence",
+      "difficulty": "中等",
+      "topic": "哈希集合",
+      "summary": "在无序数组中寻找最长连续整数序列。",
+      "hints": [
+        "不用排序，如何快速判断相邻整数存在？",
+        "什么数字才有必要成为序列的起点？"
+      ],
+      "example": {
+        "input": "nums = [100,4,200,1,3,2]",
+        "output": "4",
+        "explanation": "最长连续整数序列为 1、2、3、4。"
+      }
+    },
+    "131": {
+      "id": 131,
+      "title": "分割回文串",
+      "slug": "palindrome-partitioning",
+      "difficulty": "中等",
+      "topic": "回溯",
+      "summary": "把字符串分割为每段均回文的所有方案。",
+      "hints": [
+        "从当前位置尝试所有可能切点。",
+        "切出的段不回文时可以怎样处理？"
+      ],
+      "example": {
+        "input": "s = \"aab\"",
+        "output": "[[\"a\",\"a\",\"b\"],[\"aa\",\"b\"]]",
+        "explanation": "每段子串都必须是回文串。"
+      }
+    },
+    "136": {
+      "id": 136,
+      "title": "只出现一次的数字",
+      "slug": "single-number",
+      "difficulty": "简单",
+      "topic": "位运算",
+      "summary": "其他数字恰好出现两次，找唯一出现一次的数字。",
+      "hints": [
+        "异或相同数字会发生什么？",
+        "异或是否满足交换律？"
+      ],
+      "example": {
+        "input": "nums = [4,1,2,1,2]",
+        "output": "4",
+        "explanation": "只有 4 出现一次，其余数字各出现两次。"
+      }
+    },
+    "138": {
+      "id": 138,
+      "title": "随机链表的复制",
+      "slug": "copy-list-with-random-pointer",
+      "difficulty": "中等",
+      "topic": "链表哈希映射",
+      "summary": "深拷贝同时含 next、random 指针的链表。",
+      "hints": [
+        "如何让旧节点映射到新节点？",
+        "两次遍历分别构建和连接是否可行？"
+      ],
+      "example": {
+        "input": "head = [[7,null],[13,0],[11,4],[10,2],[1,0]]",
+        "output": "[[7,null],[13,0],[11,4],[10,2],[1,0]]",
+        "explanation": "每对 [值,random目标下标]；输出内容相同，但全部节点必须是新对象。"
+      }
+    },
+    "139": {
+      "id": 139,
+      "title": "单词拆分",
+      "slug": "word-break",
+      "difficulty": "中等",
+      "topic": "动态规划",
+      "summary": "判断字符串能否由词典单词拼接而成。",
+      "hints": [
+        "dp[i] 能否表示前 i 个字符可被拆分？",
+        "枚举最后一段是否在词典中。"
+      ],
+      "example": {
+        "input": "s = \"leetcode\", wordDict = [\"leet\",\"code\"]",
+        "output": "true",
+        "explanation": "可以分割为 leet 与 code 两个词。"
+      }
+    },
+    "141": {
+      "id": 141,
+      "title": "环形链表",
+      "slug": "linked-list-cycle",
+      "difficulty": "简单",
+      "topic": "快慢指针",
+      "summary": "判断单链表是否存在环。",
+      "hints": [
+        "若有环，速度不同的两个指针会怎样？",
+        "快指针下一步是否可能为空？"
+      ],
+      "example": {
+        "input": "head = [3,2,0,-4], pos = 1",
+        "output": "true",
+        "explanation": "尾节点的 next 指向下标为 1 的节点，因此存在环。"
+      }
+    },
+    "142": {
+      "id": 142,
+      "title": "环形链表 II",
+      "slug": "linked-list-cycle-ii",
+      "difficulty": "中等",
+      "topic": "快慢指针",
+      "summary": "如果链表有环，返回入环的第一个节点。",
+      "hints": [
+        "相遇点和环入口之间有距离关系吗？",
+        "相遇后从头出发的慢速指针会在哪里相遇？"
+      ],
+      "example": {
+        "input": "head = [3,2,0,-4], pos = 1",
+        "output": "返回下标 1 的节点（值为 2）",
+        "explanation": "要求返回环入口节点的引用；pos 仅用于描述测试输入。"
+      }
+    },
+    "146": {
+      "id": 146,
+      "title": "LRU 缓存",
+      "slug": "lru-cache",
+      "difficulty": "中等",
+      "topic": "哈希表与双向链表",
+      "summary": "实现固定容量、近期最少使用淘汰的缓存。",
+      "hints": [
+        "何种结构支持 O(1) 查找？",
+        "何种结构支持 O(1) 移动和删除？"
+      ],
+      "example": {
+        "input": "operations = [\"LRUCache\",\"put\",\"put\",\"get\",\"put\",\"get\"], args = [[2],[1,1],[2,2],[1],[3,3],[2]]",
+        "output": "[null,null,null,1,null,-1]",
+        "explanation": "容量为 2，插入 3 时淘汰最近最少使用的键 2。"
+      }
+    },
+    "148": {
+      "id": 148,
+      "title": "排序链表",
+      "slug": "sort-list",
+      "difficulty": "中等",
+      "topic": "归并排序",
+      "summary": "将单链表按升序排序。",
+      "hints": [
+        "链表适合哪种分治排序？",
+        "如何用快慢指针断开左右两半？"
+      ],
+      "example": {
+        "input": "head = [4,2,1,3]",
+        "output": "[1,2,3,4]",
+        "explanation": "对链表节点按值进行升序排列。"
+      }
+    },
+    "152": {
+      "id": 152,
+      "title": "乘积最大子数组",
+      "slug": "maximum-product-subarray",
+      "difficulty": "中等",
+      "topic": "动态规划",
+      "summary": "寻找乘积最大的连续非空子数组。",
+      "hints": [
+        "负数会不会让最大和最小交换？",
+        "是否应同时维护最大积和最小积？"
+      ],
+      "example": {
+        "input": "nums = [2,3,-2,4]",
+        "output": "6",
+        "explanation": "最大乘积连续子数组为 [2,3]。"
+      }
+    },
+    "153": {
+      "id": 153,
+      "title": "寻找旋转排序数组中的最小值",
+      "slug": "find-minimum-in-rotated-sorted-array",
+      "difficulty": "中等",
+      "topic": "二分查找",
+      "summary": "找旋转升序数组的最小值。",
+      "hints": [
+        "中点与右端点的比较能说明什么？",
+        "边界如何收缩到最小元素？"
+      ],
+      "example": {
+        "input": "nums = [3,4,5,1,2]",
+        "output": "1",
+        "explanation": "旋转后的最小元素为 1。"
+      }
+    },
+    "155": {
+      "id": 155,
+      "title": "最小栈",
+      "slug": "min-stack",
+      "difficulty": "中等",
+      "topic": "栈设计",
+      "summary": "实现普通栈并在 O(1) 时间获取最小元素。",
+      "hints": [
+        "能否同步维护每一步的最小值？",
+        "弹栈时最小值如何恢复？"
+      ],
+      "example": {
+        "input": "operations = [\"MinStack\",\"push\",\"push\",\"push\",\"getMin\",\"pop\",\"top\",\"getMin\"], args = [[],[-2],[0],[-3],[],[],[],[]]",
+        "output": "[null,null,null,null,-3,null,0,-2]",
+        "explanation": "弹出 -3 后，最小值重新变为 -2。"
+      }
+    },
+    "160": {
+      "id": 160,
+      "title": "相交链表",
+      "slug": "intersection-of-two-linked-lists",
+      "difficulty": "简单",
+      "topic": "链表双指针",
+      "summary": "返回两个链表共享的第一个节点，不相交则为空。",
+      "hints": [
+        "节点值相等是否代表节点相同？",
+        "两指针分别走 A+B 与 B+A 会如何？"
+      ],
+      "example": {
+        "input": "listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3",
+        "output": "相交节点值为 8",
+        "explanation": "两个链表从值为 8 的同一个节点开始共享后续节点；仅值相同不算相交。"
+      }
+    },
+    "169": {
+      "id": 169,
+      "title": "多数元素",
+      "slug": "majority-element",
+      "difficulty": "简单",
+      "topic": "摩尔投票",
+      "summary": "寻找出现次数超过一半的元素。",
+      "hints": [
+        "不同元素能成对抵消吗？",
+        "候选值计数归零时如何处理？"
+      ],
+      "example": {
+        "input": "nums = [2,2,1,1,1,2,2]",
+        "output": "2",
+        "explanation": "2 出现了 4 次，超过数组长度的一半。"
+      }
+    },
+    "189": {
+      "id": 189,
+      "title": "轮转数组",
+      "slug": "rotate-array",
+      "difficulty": "中等",
+      "topic": "数组翻转",
+      "summary": "原地将数组向右轮转 k 位。",
+      "hints": [
+        "先对 k 取模有何意义？",
+        "整体翻转与局部翻转可以完成轮转吗？"
+      ],
+      "example": {
+        "input": "nums = [1,2,3,4,5,6,7], k = 3",
+        "output": "[5,6,7,1,2,3,4]",
+        "explanation": "所有元素向右移动 3 个位置，多出的部分循环到开头。"
+      }
+    },
+    "198": {
+      "id": 198,
+      "title": "打家劫舍",
+      "slug": "house-robber",
+      "difficulty": "中等",
+      "topic": "动态规划",
+      "summary": "不偷相邻房屋，求最大收益。",
+      "hints": [
+        "当前房子选或不选各对应什么状态？",
+        "转移只依赖哪两个历史位置？"
+      ],
+      "example": {
+        "input": "nums = [2,7,9,3,1]",
+        "output": "12",
+        "explanation": "选金额 2、9、1，隔一家取一家，总收益 12。"
+      }
+    },
+    "199": {
+      "id": 199,
+      "title": "二叉树的右视图",
+      "slug": "binary-tree-right-side-view",
+      "difficulty": "中等",
+      "topic": "树的 BFS",
+      "summary": "从右侧看二叉树，每层保留一个节点。",
+      "hints": [
+        "每层最后一个节点是哪一个？",
+        "DFS 先访问右侧行不行？"
+      ],
+      "example": {
+        "input": "root = [1,2,3,null,5,null,4]",
+        "output": "[1,3,4]",
+        "explanation": "每一层从右侧看到的节点分别是 1、3、4。"
+      }
+    },
+    "200": {
+      "id": 200,
+      "title": "岛屿数量",
+      "slug": "number-of-islands",
+      "difficulty": "中等",
+      "topic": "图的 DFS/BFS",
+      "summary": "统计网格中由相邻陆地连成的岛屿数。",
+      "hints": [
+        "怎样标记已访问的陆地？",
+        "每发现新陆地如何遍历整块岛屿？"
+      ],
+      "example": {
+        "input": "grid = [[\"1\",\"1\",\"0\"],[\"1\",\"0\",\"0\"],[\"0\",\"0\",\"1\"]]",
+        "output": "2",
+        "explanation": "上面连通的三个 1 算一座岛，右下角的 1 算另一座。"
+      }
+    },
+    "206": {
+      "id": 206,
+      "title": "反转链表",
+      "slug": "reverse-linked-list",
+      "difficulty": "简单",
+      "topic": "三指针迭代",
+      "summary": "原地反转单链表方向。",
+      "hints": [
+        "改变 next 前必须保存什么？",
+        "prev、cur、next 各自起什么作用？"
+      ],
+      "example": {
+        "input": "head = [1,2,3,4,5]",
+        "output": "[5,4,3,2,1]",
+        "explanation": "改变节点 next 指针后，原尾节点成为新头节点。"
+      }
+    },
+    "207": {
+      "id": 207,
+      "title": "课程表",
+      "slug": "course-schedule",
+      "difficulty": "中等",
+      "topic": "拓扑排序",
+      "summary": "判断课程先修关系是否能全部完成。",
+      "hints": [
+        "依赖关系如何建成有向图？",
+        "入度为零的课程如何逐步出队？"
+      ],
+      "example": {
+        "input": "numCourses = 2, prerequisites = [[1,0]]",
+        "output": "true",
+        "explanation": "先学课程 0，再学课程 1，即可完成全部课程。"
+      }
+    },
+    "208": {
+      "id": 208,
+      "title": "实现 Trie（前缀树）",
+      "slug": "implement-trie-prefix-tree",
+      "difficulty": "中等",
+      "topic": "Trie",
+      "summary": "支持插入、完整单词搜索和前缀检查。",
+      "hints": [
+        "公共前缀能否共用节点？",
+        "如何区分路径存在和完整单词结束？"
+      ],
+      "example": {
+        "input": "operations = [\"Trie\",\"insert\",\"search\",\"search\",\"startsWith\"], args = [[],[\"apple\"],[\"apple\"],[\"app\"],[\"app\"]]",
+        "output": "[null,null,true,false,true]",
+        "explanation": "插入 apple 后可找到完整单词 apple，但 app 只是前缀。"
+      }
+    },
+    "209": {
+      "id": 209,
+      "title": "长度最小的子数组",
+      "slug": "minimum-size-subarray-sum",
+      "difficulty": "中等",
+      "topic": "可变滑动窗口",
+      "summary": "在正整数数组中找和至少为 target 的最短连续子数组。",
+      "hints": [
+        "右端扩展时窗口和如何变化？",
+        "和达标后，能否不断收缩左侧？"
+      ],
+      "example": {
+        "input": "target = 7, nums = [2,3,1,2,4,3]",
+        "output": "2",
+        "explanation": "子数组 [4,3] 的和达到 7，长度最短为 2。"
+      }
+    },
+    "215": {
+      "id": 215,
+      "title": "数组中的第 K 个最大元素",
+      "slug": "kth-largest-element-in-an-array",
+      "difficulty": "中等",
+      "topic": "堆/快速选择",
+      "summary": "寻找无序数组中的第 k 大元素。",
+      "hints": [
+        "容量为 k 的最小堆能做什么？",
+        "快速选择只需递归哪一侧？"
+      ],
+      "example": {
+        "input": "nums = [3,2,1,5,6,4], k = 2",
+        "output": "5",
+        "explanation": "降序第 2 大的元素为 5。"
+      }
+    },
+    "217": {
+      "id": 217,
+      "title": "存在重复元素",
+      "slug": "contains-duplicate",
+      "difficulty": "简单",
+      "topic": "哈希集合",
+      "summary": "判断数组中是否有重复数字。",
+      "hints": [
+        "集合插入前先检查什么？",
+        "能否一边遍历一边终止？"
+      ],
+      "example": {
+        "input": "nums = [1,2,3,1]",
+        "output": "true",
+        "explanation": "元素 1 出现了两次。"
+      }
+    },
+    "226": {
+      "id": 226,
+      "title": "翻转二叉树",
+      "slug": "invert-binary-tree",
+      "difficulty": "简单",
+      "topic": "树的递归",
+      "summary": "交换每个节点的左右子树。",
+      "hints": [
+        "在每个节点上应做什么操作？",
+        "递归的终止条件是什么？"
+      ],
+      "example": {
+        "input": "root = [4,2,7,1,3,6,9]",
+        "output": "[4,7,2,9,6,3,1]",
+        "explanation": "递归交换每个节点的左、右子节点。"
+      }
+    },
+    "230": {
+      "id": 230,
+      "title": "二叉搜索树中第 K 小的元素",
+      "slug": "kth-smallest-element-in-a-bst",
+      "difficulty": "中等",
+      "topic": "中序遍历",
+      "summary": "查找 BST 的第 k 小元素。",
+      "hints": [
+        "BST 中序遍历得到什么顺序？",
+        "计数到第 k 个能提前结束吗？"
+      ],
+      "example": {
+        "input": "root = [3,1,4,null,2], k = 1",
+        "output": "1",
+        "explanation": "BST 中序遍历的第 1 个节点值为 1。"
+      }
+    },
+    "234": {
+      "id": 234,
+      "title": "回文链表",
+      "slug": "palindrome-linked-list",
+      "difficulty": "简单",
+      "topic": "快慢指针",
+      "summary": "判断链表值是否正反相同。",
+      "hints": [
+        "如何 O(n) 时间找到中点？",
+        "反转后半部分后能否逐节点比较？"
+      ],
+      "example": {
+        "input": "head = [1,2,2,1]",
+        "output": "true",
+        "explanation": "从头到尾和从尾到头的节点值一致。"
+      }
+    },
+    "236": {
+      "id": 236,
+      "title": "二叉树的最近公共祖先",
+      "slug": "lowest-common-ancestor-of-a-binary-tree",
+      "difficulty": "中等",
+      "topic": "树的递归",
+      "summary": "寻找两个节点的最近公共祖先。",
+      "hints": [
+        "两节点分布在不同子树时返回什么？",
+        "遇到目标节点时怎样处理？"
+      ],
+      "example": {
+        "input": "root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1",
+        "output": "3",
+        "explanation": "两个节点分别位于根节点 3 的左右子树。"
+      }
+    },
+    "238": {
+      "id": 238,
+      "title": "除自身以外数组的乘积",
+      "slug": "product-of-array-except-self",
+      "difficulty": "中等",
+      "topic": "前后缀积",
+      "summary": "不使用除法，计算每个位置以外所有元素乘积。",
+      "hints": [
+        "将结果拆成左侧积和右侧积。",
+        "能否利用输出数组保存前缀积？"
+      ],
+      "example": {
+        "input": "nums = [1,2,3,4]",
+        "output": "[24,12,8,6]",
+        "explanation": "每个位置乘除自身外的其他所有元素，不允许使用除法。"
+      }
+    },
+    "240": {
+      "id": 240,
+      "title": "搜索二维矩阵 II",
+      "slug": "search-a-2d-matrix-ii",
+      "difficulty": "中等",
+      "topic": "有序矩阵搜索",
+      "summary": "在行列均有序的矩阵中判断目标值是否存在。",
+      "hints": [
+        "从右上角看，两个方向怎样变化？",
+        "比较大小后能排除一行或一列吗？"
+      ],
+      "example": {
+        "input": "matrix = [[1,4,7,11],[2,5,8,12],[3,6,9,16],[10,13,14,17]], target = 5",
+        "output": "true",
+        "explanation": "第 2 行第 2 列包含 5；行与列分别单调递增。"
+      }
+    },
+    "242": {
+      "id": 242,
+      "title": "有效的字母异位词",
+      "slug": "valid-anagram",
+      "difficulty": "简单",
+      "topic": "字符计数",
+      "summary": "判断两个字符串的字母及其出现次数是否完全相同。",
+      "hints": [
+        "长度不同能直接判断吗？",
+        "若只包含小写字母，可以用多长的计数数组？"
+      ],
+      "example": {
+        "input": "s = \"anagram\", t = \"nagaram\"",
+        "output": "true",
+        "explanation": "两串中每个字母出现的次数相同。"
+      }
+    },
+    "279": {
+      "id": 279,
+      "title": "完全平方数",
+      "slug": "perfect-squares",
+      "difficulty": "中等",
+      "topic": "动态规划",
+      "summary": "求组成 n 的完全平方数的最少个数。",
+      "hints": [
+        "最后一个平方数可以选择哪些？",
+        "如何从更小的余数转移？"
+      ],
+      "example": {
+        "input": "n = 12",
+        "output": "3",
+        "explanation": "12 = 4 + 4 + 4，只需 3 个完全平方数。"
+      }
+    },
+    "283": {
+      "id": 283,
+      "title": "移动零",
+      "slug": "move-zeroes",
+      "difficulty": "简单",
+      "topic": "快慢指针",
+      "summary": "原地把所有零移动到末尾，保持非零元素顺序。",
+      "hints": [
+        "快指针负责找什么？",
+        "慢指针应记录下一个非零元素的位置吗？"
+      ],
+      "example": {
+        "input": "nums = [0,1,0,3,12]",
+        "output": "[1,3,12,0,0]",
+        "explanation": "所有零移动到最后，非零元素的相对顺序保持不变。"
+      }
+    },
+    "287": {
+      "id": 287,
+      "title": "寻找重复数",
+      "slug": "find-the-duplicate-number",
+      "difficulty": "中等",
+      "topic": "快慢指针",
+      "summary": "长度 n+1、取值 1..n 的数组中找重复数，不能修改数组。",
+      "hints": [
+        "下标到数值可看作什么链式映射？",
+        "重复值为什么会产生环？"
+      ],
+      "example": {
+        "input": "nums = [1,3,4,2,2]",
+        "output": "2",
+        "explanation": "所有值介于 1 到 n，只有 2 重复。"
+      }
+    },
+    "300": {
+      "id": 300,
+      "title": "最长递增子序列",
+      "slug": "longest-increasing-subsequence",
+      "difficulty": "中等",
+      "topic": "动态规划/二分",
+      "summary": "求严格递增子序列的最大长度。",
+      "hints": [
+        "以每个位置结尾的最优长度如何转移？",
+        "是否能用二分维护候选结尾？"
+      ],
+      "example": {
+        "input": "nums = [10,9,2,5,3,7,101,18]",
+        "output": "4",
+        "explanation": "一种最长严格递增子序列为 [2,3,7,101]。"
+      }
+    },
+    "322": {
+      "id": 322,
+      "title": "零钱兑换",
+      "slug": "coin-change",
+      "difficulty": "中等",
+      "topic": "完全背包",
+      "summary": "给定币值求凑成金额所需最少硬币数。",
+      "hints": [
+        "每种硬币可以无限使用。",
+        "不可达状态应该如何表示？"
+      ],
+      "example": {
+        "input": "coins = [1,2,5], amount = 11",
+        "output": "3",
+        "explanation": "11 = 5 + 5 + 1，最少 3 枚。"
+      }
+    },
+    "347": {
+      "id": 347,
+      "title": "前 K 个高频元素",
+      "slug": "top-k-frequent-elements",
+      "difficulty": "中等",
+      "topic": "哈希表与堆",
+      "summary": "返回出现次数最高的 k 个元素。",
+      "hints": [
+        "先用什么统计频次？",
+        "如何维护最高的 k 个元素？"
+      ],
+      "example": {
+        "input": "nums = [1,1,1,2,2,3], k = 2",
+        "output": "[1,2]",
+        "explanation": "出现次数最多的两个数是 1 和 2，顺序不限。"
+      }
+    },
+    "394": {
+      "id": 394,
+      "title": "字符串解码",
+      "slug": "decode-string",
+      "difficulty": "中等",
+      "topic": "栈",
+      "summary": "解码重复次数与方括号嵌套的字符串。",
+      "hints": [
+        "遇到左括号时需要保存哪些状态？",
+        "遇到右括号时如何拼接上一层？"
+      ],
+      "example": {
+        "input": "s = \"3[a2[c]]\"",
+        "output": "\"accaccacc\"",
+        "explanation": "先求内层 2[c] 为 cc，再得到 acc，最后重复三次。"
+      }
+    },
+    "416": {
+      "id": 416,
+      "title": "分割等和子集",
+      "slug": "partition-equal-subset-sum",
+      "difficulty": "中等",
+      "topic": "0-1 背包",
+      "summary": "判断数组能否分为和相等的两部分。",
+      "hints": [
+        "总和为奇数时可以直接排除吗？",
+        "能否转为选出和为总和一半的子集？"
+      ],
+      "example": {
+        "input": "nums = [1,5,11,5]",
+        "output": "true",
+        "explanation": "可分为 [1,5,5] 和 [11]，两组和均为 11。"
+      }
+    },
+    "437": {
+      "id": 437,
+      "title": "路径总和 III",
+      "slug": "path-sum-iii",
+      "difficulty": "中等",
+      "topic": "树的前缀和",
+      "summary": "统计二叉树中向下路径和等于目标值的条数。",
+      "hints": [
+        "根到当前节点的路径和怎么表示？",
+        "路径结束离开节点时为什么要撤销统计？"
+      ],
+      "example": {
+        "input": "root = [10,5,-3,3,2,null,11,3,-2,null,1], targetSum = 8",
+        "output": "3",
+        "explanation": "存在 3 条向下连续路径，其节点值之和为 8。"
+      }
+    },
+    "438": {
+      "id": 438,
+      "title": "找到字符串中所有字母异位词",
+      "slug": "find-all-anagrams-in-a-string",
+      "difficulty": "中等",
+      "topic": "定长滑动窗口",
+      "summary": "找出字符串里所有与目标串字母频次相同的子串起点。",
+      "hints": [
+        "匹配子串长度应是多少？",
+        "窗口移动时只需更新哪两个字符？"
+      ],
+      "example": {
+        "input": "s = \"cbaebabacd\", p = \"abc\"",
+        "output": "[0,6]",
+        "explanation": "从下标 0 与 6 开始的长度为 3 的子串是异位词。"
+      }
+    },
+    "543": {
+      "id": 543,
+      "title": "二叉树的直径",
+      "slug": "diameter-of-binary-tree",
+      "difficulty": "简单",
+      "topic": "树的 DFS",
+      "summary": "求任意两节点间最长路径的边数。",
+      "hints": [
+        "经过某节点的最长路径如何计算？",
+        "递归能否顺便返回子树高度？"
+      ],
+      "example": {
+        "input": "root = [1,2,3,4,5]",
+        "output": "3",
+        "explanation": "最长路径如 4→2→1→3，包含 3 条边。"
+      }
+    },
+    "560": {
+      "id": 560,
+      "title": "和为 K 的子数组",
+      "slug": "subarray-sum-equals-k",
+      "difficulty": "中等",
+      "topic": "前缀和与哈希表",
+      "summary": "统计和恰为 k 的连续非空子数组数量。",
+      "hints": [
+        "如何用两个前缀和表达区间和？",
+        "当前前缀和需要匹配此前哪个值？"
+      ],
+      "example": {
+        "input": "nums = [1,1,1], k = 2",
+        "output": "2",
+        "explanation": "符合条件的连续子数组是前两个 1 和后两个 1。"
+      }
+    },
+    "739": {
+      "id": 739,
+      "title": "每日温度",
+      "slug": "daily-temperatures",
+      "difficulty": "中等",
+      "topic": "单调栈",
+      "summary": "对每天求之后第几天温度更高。",
+      "hints": [
+        "栈内可保存什么下标？",
+        "当前温度能结算此前哪些天？"
+      ],
+      "example": {
+        "input": "temperatures = [73,74,75,71,69,72,76,73]",
+        "output": "[1,1,4,2,1,1,0,0]",
+        "explanation": "每个位置的值是等待更高温度出现的天数。"
+      }
+    },
+    "763": {
+      "id": 763,
+      "title": "划分字母区间",
+      "slug": "partition-labels",
+      "difficulty": "中等",
+      "topic": "贪心",
+      "summary": "将字符串尽量划分多个片段，每个字母最多出现在一个片段。",
+      "hints": [
+        "每个字母最后出现的位置在哪？",
+        "遍历到当前片段最远位置时能切分吗？"
+      ],
+      "example": {
+        "input": "s = \"ababcbacadefegdehijhklij\"",
+        "output": "[9,7,8]",
+        "explanation": "每个字母只出现在一个分段中。"
+      }
+    },
+    "994": {
+      "id": 994,
+      "title": "腐烂的橘子",
+      "slug": "rotting-oranges",
+      "difficulty": "中等",
+      "topic": "多源 BFS",
+      "summary": "求所有新鲜橘子腐烂所需的最少分钟数。",
+      "hints": [
+        "多个腐烂橘子能同时进入队列吗？",
+        "每一层 BFS 是否对应一分钟？"
+      ],
+      "example": {
+        "input": "grid = [[2,1,1],[1,1,0],[0,1,1]]",
+        "output": "4",
+        "explanation": "腐烂从 2 出发逐分钟向上下左右传播，4 分钟后全部腐烂。"
+      }
+    },
+    "1143": {
+      "id": 1143,
+      "title": "最长公共子序列",
+      "slug": "longest-common-subsequence",
+      "difficulty": "中等",
+      "topic": "二维动态规划",
+      "summary": "求两个字符串最长公共子序列长度。",
+      "hints": [
+        "最后字符相同与不同时如何转移？",
+        "子序列是否必须连续？"
+      ],
+      "example": {
+        "input": "text1 = \"abcde\", text2 = \"ace\"",
+        "output": "3",
+        "explanation": "最长公共子序列为 ace，不要求字符连续。"
+      }
     }
   }
 };window.__SOLUTIONS__={
@@ -1795,7 +2296,22 @@
     titleRow.append(titleBlock,h('a',{className:'official',href:`https://leetcode.cn/problems/${p.slug}/`,target:'_blank',rel:'noopener noreferrer',text:'打开 LeetCode ↗'}));
     body.append(titleRow);
     if (state.mode === 'question') {
-      body.append(h('p',{className:'summary',text:p.summary}),h('h4',{text:'💡 渐进提示（点击展开）'}));
+      body.append(h('p',{className:'summary',text:p.summary}));
+      if (p.example) {
+        const example=h('section',{className:'example-card'});
+        example.append(h('div',{className:'example-label',text:'输入 / 输出示例'}));
+        example.append(h('div',{className:'example-row'},[
+          h('span',{className:'example-key',text:'输入'}),
+          h('pre',{className:'example-value',text:p.example.input})
+        ]));
+        example.append(h('div',{className:'example-row'},[
+          h('span',{className:'example-key',text:'输出'}),
+          h('pre',{className:'example-value',text:p.example.output})
+        ]));
+        if(p.example.explanation) example.append(h('p',{className:'example-note',text:'解释：'+p.example.explanation}));
+        body.append(example);
+      }
+      body.append(h('h4',{text:'💡 渐进提示（点击展开）'}));
       const hints=h('div',{className:'hint-list'});
       p.hints.forEach((hint,i)=>{
         const box=h('div',{className:'hint'});
